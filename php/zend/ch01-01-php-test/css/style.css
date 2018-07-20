@@ -1,0 +1,23 @@
+.print_r {
+	display: block;
+	background-color: #f6e8f0;
+}
+
+.list-quiz form{
+	padding: 20px;
+	border-radius: 10px;
+	border: 2px solid #abc3ae;
+	margin-bottom: 20px;
+}
+
+.list-quiz .page-header {
+	border-bottom: 0px;
+	text-align: center;
+	color: #db3179;
+}
+
+.list-quiz p {
+	font-style: 20px;
+	font-weight: bold;
+}
+

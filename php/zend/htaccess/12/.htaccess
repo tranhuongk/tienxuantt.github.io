@@ -1,0 +1,11 @@
+# http://www.htaccesstools.com/hotlink-protection/
+# http://perishablepress.com/stupid-htaccess-tricks/
+
+
+Options +FollowSymLinks
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+

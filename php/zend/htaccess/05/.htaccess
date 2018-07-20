@@ -1,0 +1,11 @@
+# Không cho truy cập vào image
+
+# <Files "image.jpg">
+# deny from all
+# </Files>
+
+# Không cho truy cập vào *.jpg
+
+<Files "*.jpg">
+deny from all
+</Files>
