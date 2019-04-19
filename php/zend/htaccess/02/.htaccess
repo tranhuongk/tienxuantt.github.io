@@ -1,5 +1,0 @@
-# Lỗi 404 xuất hiện bởi một trang không tồn tại hoặc hạn chế quyền truy cập
-# Lỗi 401 thường do đăng nhập sai khi truy cập vào một nội dung có yêu cầu đăng nhập
-
-ErrorDocument 404 /htaccess/02/error/404.html
-ErrorDocument 401 /htaccess/02/error/401.html

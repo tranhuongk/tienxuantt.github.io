@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible">
+    <title>Bản đồ chất lượng điện Hà Nội</title>
+    <link rel="stylesheet" href="Common/common.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <style>
+        #mapid {
+            height: 97vh;
+        }
+
+        .info {
+            padding: 6px 8px;
+            font: 14px/16px Arial, Helvetica, sans-serif;
+            background: white;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        .info h4 {
+            margin: 0 0 5px;
+            color: #777;
+        }
+
+        .my-popup {
+            pointer-events: none;
+        }
+
+        .legend {
+            text-align: left;
+            line-height: 18px;
+            color: #555;
+        }
+
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+        <div class="list-map">
+                <h4>Tùy chọn</h4>
+                <ul>
+                  <a style="font-weight:bold;color:red;" href="../index.html"><li>Bản đồ chất lượng điện</li></a>
+                  <a href="../Nhom2/map.html"><li>Bản đồ chất lượng nước</li></a>
+                  <a href="../Nhom3/index.html"><li>Quản lý nước thải</li></a>
+                  <a href="../Nhom4/map.html"><li>Quản lý rác thải</li></a>
+                  <a href="../Nhom5/index.html"><li>Trạm cứu hỏa</li></a>
+                  <a href="../Nhom6/index.html"><li>Đồn cảnh sát</li></a>
+                  <a href="../Nhom7/index.html"><li>Bệnh viện</li></a>
+                  <a href="../Nhom8/index.html"><li>Công viên</li></a>
+                  <a href="../Nhom9/index.html"><li>Trường mẫu giáo</li></a>
+                  <a href="../Nhom10/index.html"><li>Trường tiểu học</li></a>
+                  <a href="../Nhom11/index.html"><li>Trường THCS</li></a>
+                  <a href="../Nhom12/index.html"><li>Trường THPT và Đại học</li></a>
+                  <a href="../Nhom13/index.html"><li>Trạm xe bus</li></a>
+                  <a href="../Nhom14/index.html"><li>Quán karaoke</li></a>
+                  <a href="../Nhom15/index.html"><li>Rạp chiếu phim</li></a>
+                  <a href="../Nhom16/index.html"><li>Quán cà phê</li></a>
+                
+                  
+                </ul>
+              </div>
+    <div id="mapid">
+
+    </div>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
+    <script src="district.geojson.js"></script>
+    <script>
+        var base = 78374.13333;
+
+        var mymap = L.map('mapid').setView([21.0366420, 105.7802457], 9.5);
+
+        L.tileLayer(" https://map.itrithuc.vn/tiles/{z}/{x}/{y}.png", {
+            attribution: '&copy; <a href="https://map.itrithuc.vn/">VNMap</a> - Bản đồ số Việt Nam',
+            maxZoom: 18
+        }).addTo(mymap);
+
+        var geojson;
+
+        function getColor(d) {
+            return d > 0.8 ? '#800026' :
+                d > 0.7 ? '#BD0026' :
+                    d > 0.6 ? '#E31A1C' :
+                        d > 0.5 ? '#FC4E2A' :
+                            d > 0.4 ? '#FD8D3C' :
+                                d > 0.3 ? '#FEB24C' :
+                                    d > 0.2 ? '#FED976' :
+                                        '#FFEDA0';
+        }
+
+        function style(feature) {
+            return {
+                fillColor: getColor(quality(feature)),
+                weight: 2,
+                opacity: 1,
+                color: '#969696',
+                dashArray: '3',
+                fillOpacity: 0.7
+            };
+        }
+
+        function quality(feature) {
+            //return ((10000 - feature.properties.hours) / 10000 * 0.3 + feature.properties.density / 10 * 0.1 + feature.properties.load * 0.2 + feature.properties.gov * 0.4)
+            let num = ((1 - feature.properties.hours / base * 10) * 0.3 + feature.properties.density / 10 * 0.1 + feature.properties.load * 0.2 + feature.properties.gov * 0.4);
+            return num.toFixed(3);
+        }
+
+        function highlightFeature(e) {
+            let layer = e.target;
+
+            layer.setStyle({
+                weight: 5,
+                color: '#666',
+                dashArray: '',
+                fillOpacity: 0.6
+            });
+
+            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                layer.bringToFront();
+            }
+
+            layer.openPopup();
+        }
+
+        function resetHighlight(e) {
+            geojson.resetStyle(e.target);
+            e.target.closePopup();
+        }
+
+        function zoomToFeature(e) {
+            mymap.fitBounds(e.target.getBounds());
+        }
+
+        function onEachFeature(feature, layer) {
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: zoomToFeature
+            });
+            layer.bindPopup(`<strong>${feature.properties.TYPE_2} ${feature.properties.NAME_2}</strong></br>Tổng thời gian mất điện: ${feature.properties.hours.toFixed(3)}h</br>
+                    Mật độ dân số: ${feature.properties.density.toFixed(3) * 1000} (người/km2)</br>
+                    Chất lượng tải điện: ${feature.properties.load}</br>
+                    Tỉ lệ cơ quan chính phủ: ${feature.properties.gov}</br>
+                    Chất lượng điện: ${quality(feature)}`, {
+                closeButton: false,
+                className: 'my-popup'
+            });
+        }
+
+        geojson = L.geoJson(geodata, {
+            style: style,
+            onEachFeature: onEachFeature
+        }).addTo(mymap);
+
+        var legend = L.control({ position: 'bottomleft' });
+        legend.onAdd = function (mymap) {
+
+            var div = L.DomUtil.create('div', 'legend info'),
+                grades = [0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
+                labels = [];
+            div.innerHTML += 'Chất lượng</br>';
+            for (var i = 0; i < grades.length; i++) {
+                div.innerHTML +=
+                    '<i style="background:' + getColor(grades[i] + 0.01) + '"></i> ' +
+                    grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+            }
+            return div;
+        };
+        legend.addTo(mymap);
+
+    </script>
+</body>
+
+</html>

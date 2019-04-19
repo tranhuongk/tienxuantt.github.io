@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nhóm 7 - Health</title>
+    <link rel="icon" href="hospital.png">
+    <link rel="stylesheet" href="../Common/common.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+            crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <script src="data.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #mapid {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 450px;
+            right: 0;
+            content: '';
+            z-index: 1;
+        }
+
+        #left-control {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 450px;
+            content: '';
+            z-index: 1;
+        }
+
+        .intro {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100vw;
+            height: 100vh;
+            content: '';
+            z-index: 2;
+        }
+
+        .nearest {
+            cursor: pointer;
+            color: #0078A8;
+        }
+
+            .nearest:hover {
+                color: rgb(255, 0, 0);
+            }
+
+        img[src="clinic.png"] {
+            display: none;
+        }
+
+        img[src="drugstore.png"] {
+            display: none;
+        }
+
+        img[src="hospital.png"] {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        th, td {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        button {
+            margin: 10px 5px;
+            padding: 3px;
+        }
+
+        .leaflet-routing-geocoders {
+            display: none;
+        }
+
+        .leaflet-routing-container.leaflet-bar.leaflet-control {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="list-map">
+        <h4>Tùy chọn</h4>
+        <ul>
+            <a href="../index.html"><li>Bản đồ mất điện</li></a>
+            <a href="../Nhom2/map.html"><li>Bản đồ chất lượng nước</li></a>
+            <a href="../Nhom3/index.html"><li>Quản lý nước thải</li></a>
+            <a href="../Nhom4/map.html"><li>Quản lý rác thải</li></a>
+            <a href="../Nhom5/index.html"><li>Trạm cứu hỏa</li></a>
+            <a href="../Nhom6/index.html"><li>Đồn cảnh sát</li></a>
+            <a style="font-weight:bold;color:red;" href="../Nhom7/index.html"><li>Bệnh viện</li></a>
+            <a href="../Nhom8/index.html"><li>Công viên</li></a>
+            <a href="../Nhom9/index.html"><li>Trường mẫu giáo</li></a>
+            <a href="../Nhom10/index.html"><li>Trường tiểu học</li></a>
+            <a href="../Nhom11/index.html"><li>Trường THCS</li></a>
+            <a href="../Nhom12/index.html"><li>Trường THPT và Đại học</li></a>
+            <a href="../Nhom13/index.html"><li>Trạm xe bus</li></a>
+            <a href="../Nhom14/index.html"><li>Quán karaoke</li></a>
+            <a href="../Nhom15/index.html"><li>Rạp chiếu phim</li></a>
+            <a href="../Nhom16/index.html"><li>Quán cà phê</li></a>
+
+
+        </ul>
+    </div>
+
+    <div id="left-control">
+        <center>
+            <h2>Bản đồ Cơ sở Y tế TP Hà Nội</h2>
+            <button id="hospital-show">Hiển thị bệnh viện</button>
+            <button id="clinic-show">Hiển thị phòng khám</button>
+            <button id="drugstore-show">Hiển thị hiệu thuốc</button>
+        </center>
+        <table id="statistical">
+            <tr>
+                <th>STT</th>
+                <th>Quận/Huyện</th>
+                <th>Bệnh viện</th>
+                <th>Phòng khám</th>
+                <th>Hiệu thuốc</th>
+            </tr>
+        </table>
+    </div>
+    <div id="mapid"></div>
+
+</body>
+<script>
+
+    var mymap = L.map('mapid').setView([21.0248769, 105.8074996], 14.5);
+    L.tileLayer(" https://vmap.vn/tiles/{z}/{x}/{y}.png", {
+        attribution: 'Mapdata&copy;<a href="https://vmap.vn/">VMap</a> - Bản đồ số Việt Nam',
+        maxZoom: 18
+    }).addTo(mymap);
+
+    var hospital_route = L.Routing.control({
+        waypoints: []
+    });
+    var clinic_route = L.Routing.control({
+        waypoints: []
+    });
+    var drugstore_route = L.Routing.control({
+        waypoints: []
+    });
+
+    var i;
+
+    var popup = L.popup();
+
+    function getDistance(origin, destination) {
+        // return distance in meters
+        var lon1 = toRadian(origin[1]),
+            lat1 = toRadian(origin[0]),
+            lon2 = toRadian(destination[1]),
+            lat2 = toRadian(destination[0]);
+
+        var deltaLat = lat2 - lat1;
+        var deltaLon = lon2 - lon1;
+
+        var a = Math.pow(Math.sin(deltaLat / 2), 2) + Math.cos(lat1) * Math.cos(lat2) * Math.pow(Math.sin(deltaLon / 2), 2);
+        var c = 2 * Math.asin(Math.sqrt(a));
+        var EARTH_RADIUS = 6371;
+        return c * EARTH_RADIUS * 1000;
+    }
+    function toRadian(degree) {
+        return degree * Math.PI / 180;
+    }
+
+    function onMapClick(e) {
+        hospital_route.setWaypoints([null]);
+        clinic_route.setWaypoints([null]);
+        drugstore_route.setWaypoints([null]);
+        $(".leaflet-routing-container").css("display", "none");
+        var hos_count = 0;
+        var cli_count = 0;
+        var drg_count = 0;
+        var hos_min = getDistance([Number(hospitals[0].Lat), Number(hospitals[0].Lng)], [e.latlng.lat, e.latlng.lng]);
+        var cli_min = getDistance([Number(clinics[0].Lat), Number(clinics[0].Lng)], [e.latlng.lat, e.latlng.lng]);
+        var drg_min = getDistance([Number(drugstores[0].Lat), Number(drugstores[0].Lng)], [e.latlng.lat, e.latlng.lng]);
+
+        for (i = 0; i < hospitals.length; i++) {
+            result = getDistance([Number(hospitals[i].Lat), Number(hospitals[i].Lng)], [e.latlng.lat, e.latlng.lng]);
+            if (hos_min >= result) {
+                hos_min = result;
+                hos_count = i;
+            }
+        }
+        for (i = 0; i < clinics.length; i++) {
+            result = getDistance([Number(clinics[i].Lat), Number(clinics[i].Lng)], [e.latlng.lat, e.latlng.lng]);
+            if (cli_min >= result) {
+                cli_min = result;
+                cli_count = i;
+            }
+        }
+        for (i = 0; i < drugstores.length; i++) {
+            result = getDistance([Number(drugstores[i].Lat), Number(drugstores[i].Lng)], [e.latlng.lat, e.latlng.lng]);
+            if (drg_min >= result) {
+                drg_min = result;
+                drg_count = i;
+            }
+        }
+
+        popup
+            .setLatLng(e.latlng)
+            .setContent("Bạn đang ở tọa độ: " + e.latlng.toString().substring(6) + '<br>'
+                + '<div id="hospital-nearest" class="nearest">Bệnh viện gần nhất: ' + hospitals[hos_count].Name + '</div>'
+                + '<div id="clinic-nearest" class="nearest">Phòng khám gần nhất: ' + clinics[cli_count].Name + '</div>'
+                + '<div id="drugstore-nearest" class="nearest">Nhà thuốc gần nhất: ' + drugstores[drg_count].Name + '</div>'
+            ).openOn(mymap);
+
+        $("#hospital-nearest").click(function () {
+            clinic_route.setWaypoints([null]);
+            drugstore_route.setWaypoints([null]);
+            $(".leaflet-routing-container").css("display", "none");
+            hospital_route.setWaypoints([
+                L.latLng(e.latlng),
+                L.latLng(hospitals[hos_count].Lat, hospitals[hos_count].Lng)
+            ]).addTo(mymap);
+        });
+        $("#clinic-nearest").click(function () {
+            hospital_route.setWaypoints([null]);
+            drugstore_route.setWaypoints([null]);
+            $(".leaflet-routing-container").css("display", "none");
+            clinic_route.setWaypoints([
+                L.latLng(e.latlng),
+                L.latLng(clinics[cli_count].Lat, clinics[cli_count].Lng)
+            ]).addTo(mymap);
+        });
+        $("#drugstore-nearest").click(function () {
+            hospital_route.setWaypoints([null]);
+            clinic_route.setWaypoints([null]);
+            $(".leaflet-routing-container").css("display", "none");
+            drugstore_route.setWaypoints([
+                L.latLng(e.latlng),
+                L.latLng(drugstores[drg_count].Lat, drugstores[drg_count].Lng)
+            ]).addTo(mymap);
+        });
+
+
+    }
+    mymap.on('click', onMapClick);
+
+
+    var popup = L.popup()
+        .setLatLng([21.0248769, 105.8074996])
+        .setContent("National Children's Hospital<br>18/879 Đường La Thành, Láng Thượng, Đống Đa, Hà Nội, Vietnam<br> 21.0248769 , 105.8074996")
+        .openOn(mymap);
+
+    var customIcon = L.Icon.extend({
+        options: {
+            iconSize: [32, 32],
+        }
+    });
+
+    hospital = new customIcon({ iconUrl: 'hospital.png' });
+    clinic = new customIcon({ iconUrl: 'clinic.png' });
+    drugstore = new customIcon({ iconUrl: 'drugstore.png' });
+
+    for (i = 0; i < hospitals.length; i++) {
+        var sth = hospitals[i].Name + "<br>" + hospitals[i].Address + "<br>" + hospitals[i].Lat + ',' + hospitals[i].Lng;
+        var marker = L.marker([hospitals[i].Lat, hospitals[i].Lng], { icon: hospital }).bindPopup(sth).addTo(mymap);
+    }
+    for (i = 0; i < clinics.length; i++) {
+        if (clinics[i].Category == 2) {
+            var sth = clinics[i].Name + "<br>" + clinics[i].Address + "<br>" + clinics[i].Lat + ',' + clinics[i].Lng;
+            var marker = L.marker([clinics[i].Lat, clinics[i].Lng], { icon: clinic }).bindPopup(sth).addTo(mymap);
+        }
+    }
+    for (i = 0; i < drugstores.length; i++) {
+        if (drugstores[i].Category == 3) {
+            var sth = drugstores[i].Name + "<br>" + drugstores[i].Address + "<br>" + drugstores[i].Lat + ',' + drugstores[i].Lng;
+            var marker = L.marker([drugstores[i].Lat, drugstores[i].Lng], { icon: drugstore }).bindPopup(sth).addTo(mymap);
+        }
+    }
+
+    var x = true;
+    $("#hospital-show").click(function () {
+        if (x) {
+            console.log(x);
+            x = false;
+            console.log(x);
+            $('img[src="hospital.png"]').show(100);
+            $("#hospital-show").html("Ẩn bệnh viện");
+        } else {
+            console.log(x);
+            x = true;
+            console.log(x);
+            $('img[src="hospital.png"]').hide(100);
+            $("#hospital-show").html("Hiển thị bệnh viện");
+        }
+    });
+    var y = true;
+    $("#clinic-show").click(function () {
+        if (y) {
+            console.log(y);
+            y = false;
+            console.log(y);
+            $('img[src="clinic.png"]').show(100);
+            $("#clinic-show").html("Ẩn phòng khám");
+        } else {
+            console.log(y);
+            y = true;
+            console.log(y);
+            $('img[src="clinic.png"]').hide(100);
+            $("#clinic-show").html("Hiển thị phòng khám");
+        }
+    });
+    var z = true;
+    $("#drugstore-show").click(function () {
+        if (z) {
+            console.log(z);
+            z = false;
+            console.log(z);
+            $('img[src="drugstore.png"]').show(100);
+            $("#drugstore-show").html("Ẩn hiệu thuốc");
+        } else {
+            console.log(z);
+            z = true;
+            console.log(z);
+            $('img[src="drugstore.png"]').hide(100);
+            $("#drugstore-show").html("Hiển thị hiệu thuốc");
+        }
+    });
+
+    for (i = 0; i < statistical.length; i++) {
+        $('table').append('<tr>'
+            + '<td>' + (i + 1) + '</td>'
+            + '<td>' + statistical[i].District + '</td>'
+            + '<td>' + statistical[i].Hospital + '</td>'
+            + '<td>' + statistical[i].Clinic + '</td>'
+            + '<td>' + statistical[i].Drugstore + '</td>'
+            + '</tr>');
+    }
+
+
+    $(window).on('load', function (event) {
+        $('.intro').delay(1000);
+        $('.intro').slideUp(1000);
+    });
+
+    
+</script>
+<script src="../Common/quality.js"></script>
+<script src="../district.geojson.js"></script>
+
+</html>

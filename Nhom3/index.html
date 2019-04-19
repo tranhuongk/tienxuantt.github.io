@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../Common/common.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+    crossorigin=""></script>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+    #mapid {
+    height: 100vh;
+    width: 88%;
+}
+    .legend {
+        line-height: 18px;
+        color: #555;
+    }
+    .legend i {
+        width: 18px;
+        height: 18px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.7;
+    }
+    .my-popup {
+        pointer-events: none;
+    }
+    .menu {
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    right: 6px;
+}
+  </style>
+  <script src="./sewage.js"></script>
+  <script src="./district.geojson.js"></script>
+</head>
+<body>
+    <div class="list-map">
+        <h4>Tùy chọn</h4>
+        <ul>
+          <a href="../index.html"><li>Bản đồ mất điện</li></a>
+          <a href="../Nhom2/map.html"><li>Bản đồ chất lượng nước</li></a>
+          <a style="font-weight:bold;color:red;" href="../Nhom3/index.html"><li>Quản lý nước thải</li></a>
+          <a href="../Nhom4/map.html"><li>Quản lý rác thải</li></a>
+          <a href="../Nhom5/index.html"><li>Trạm cứu hỏa</li></a>
+          <a href="../Nhom6/index.html"><li>Đồn cảnh sát</li></a>
+          <a href="../Nhom7/index.html"><li>Bệnh viện</li></a>
+          <a href="../Nhom8/index.html"><li>Công viên</li></a>
+          <a href="../Nhom9/index.html"><li>Trường mẫu giáo</li></a>
+          <a href="../Nhom10/index.html"><li>Trường tiểu học</li></a>
+          <a href="../Nhom11/index.html"><li>Trường THCS</li></a>
+          <a href="../Nhom12/index.html"><li>Trường THPT và Đại học</li></a>
+          <a href="../Nhom13/index.html"><li>Trạm xe bus</li></a>
+          <a href="../Nhom14/index.html"><li>Quán karaoke</li></a>
+          <a href="../Nhom15/index.html"><li>Rạp chiếu phim</li></a>
+          <a href="../Nhom16/index.html"><li>Quán cà phê</li></a>
+        
+          
+        </ul>
+      </div>
+    <div id="mapid"></div>
+    <div class="menu">
+      <select onchange="onChangeViewMode(event)">
+        <option value="xi_nghiep">Xí nghiệp thoát nước</option>
+        <option value="ngap_lut">Các điểm ngập lụt</option>
+      </select>
+      <div>
+        <input type="checkbox" id="luong_mua" onclick="showRain(event)">
+        <label for="luong_mua">Hiển thị lượng mưa</label>
+      </div>
+    </div>
+    <script>
+      const map = L.map('mapid').setView([21.0382375, 105.7805189], 13);
+      L.tileLayer(" https://map.itrithuc.vn/tiles/{z}/{x}/{y}.png", {
+        attribution: '&copy; <a href="https://map.itrithuc.vn/">VNMap</a> - Bản đồ số Việt Nam',
+        maxZoom: 18
+      }).addTo(map);
+
+      const geodata = originGeodata.features.map(el => {
+        const rainData = {...luong_mua.find(item => {
+          return el.properties.NAME_2.toLowerCase().includes(item.country.toLowerCase());
+        })}
+        return {
+          ...el,
+          rainData
+        }
+      })
+
+      let markersLayer;
+      let layer;
+
+      const addXiNghiepMarker = () => {
+        const markers = [];
+        xi_nghiep.forEach(({lat, long, name, address, country}) => {
+          const marker = L.marker([lat, long]);
+          markers.push(marker);
+          const popup = marker.bindPopup(`<b>${name}</b><br>Địa chỉ: ${address}`);
+          marker.on('click', () => {
+            const data = JSON.parse(JSON.stringify(geodata));
+            data.features = geodata.features
+            .filter((el) => {
+              return country.toLowerCase().includes(el.properties.NAME_2.toLowerCase())
+            })
+            layer = L.geoJson(data).addTo(map);
+          });
+          popup.on('popupclose', () => {
+            layer.remove();
+          })
+        })
+
+        markersLayer = L.layerGroup(markers).addTo(map);
+      }
+
+      addXiNghiepMarker();
+
+      const addNgapLutMarker = () => {
+        let layer;
+        const markers = [];
+        ngap_lut.forEach(({ lat, long, address }) => {
+          const marker = L.marker([lat, long]);
+          markers.push(marker);
+          const popup = marker.bindPopup(`${address}`);
+        })
+
+        markersLayer = L.layerGroup(markers).addTo(map);
+      }
+
+      const showRain = (event) => {
+        if (!event.target.checked) {
+          layer.remove();
+          return;
+        }
+
+        function getColor(d) {
+          return d > 50 ? '#800026' :
+            d > 40 ? '#BD0026' :
+              d > 30 ? '#E31A1C' :
+                d > 20 ? '#FC4E2A' :
+                  d > 10 ? '#FD8D3C' : '#FEB24C';
+        }
+
+        function style(feature) {
+          return {
+            fillColor: getColor(feature.properties.density),
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3',
+            fillOpacity: 0.7
+          };
+        }
+
+        function highlightFeature(e) {
+          var layer = e.target;
+
+          layer.setStyle({
+            weight: 5,
+            color: '#666',
+            dashArray: '',
+            fillOpacity: 0.7
+          });
+
+          if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+            layer.bringToFront();
+          }
+        }
+
+        function resetHighlight(e) {
+          layer.resetStyle(e.target);
+        }
+
+        function zoomToFeature(e) {
+          map.fitBounds(e.target.getBounds());
+        }
+
+        function onEachFeature(feature, layer) {
+          layer.on({
+            mouseover: highlightFeature,
+            mouseout: resetHighlight,
+            click: zoomToFeature
+          });
+          const {country, address, rain, time} = feature.rainData;
+          layer.bindPopup(`<strong>${country}</strong><br/>Trạm đo: ${address}<br/>Lượng mưa: ${rain} mm<br/>Thời gian đo: ${time} ngày 1/4/2018`, {
+            closeButton: false,
+            className: 'my-popup'
+          });
+        }
+
+        var legend = L.control({ position: 'bottomright' });
+
+        legend.onAdd = function (map) {
+
+          var div = L.DomUtil.create('div', 'info legend'),
+            grades = [0, 10, 20, 30, 40, 50],
+            labels = [];
+
+          // loop through our density intervals and generate a label with a colored square for each interval
+          for (var i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+              '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+              grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+          }
+
+          return div;
+        };
+
+        legend.addTo(map);
+
+        layer = L.geoJson(geodata, {
+          style: style,
+          onEachFeature: onEachFeature
+        }).addTo(map);
+      }
+
+      const onChangeViewMode = (event) => {
+        if (markersLayer) {
+          markersLayer.remove();
+        }
+        switch (event.target.value) {
+          case 'xi_nghiep':
+            addXiNghiepMarker();
+            break;
+          case 'ngap_lut':
+            addNgapLutMarker();
+            break;
+        }
+      }
+    </script>
+</body>
+</html>
