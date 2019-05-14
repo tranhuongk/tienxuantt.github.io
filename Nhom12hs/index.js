@@ -23,11 +23,11 @@ $(document).ready(function () {
         y1 = e.latlng.lng;
 
         ShowQuantity(y1, x1);
+        
+		for (var i = 0; i < hsarray1.length; i += 2) {
 	
-		for (var i = 0; i < array1.length; i += 2) {
-	
-			x2 = array1[i + 1];
-			y2 = array1[i];
+			x2 = hsarray1[i + 1];
+			y2 = hsarray1[i];
 			length = Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
 			if (length < lengthMin) {
 				lengthMin = length;
@@ -89,10 +89,10 @@ function setProperties() {
 	a.innerText = numInRange;
 
 	var b = document.getElementById("Nearest");
-	b.innerText = array2[nearest_i / 2];
+	b.innerText = hsarray2[nearest_i / 2];
 
 	var b2 = document.getElementById("Address");
-	b2.innerText = array3[nearest_i / 2];
+	b2.innerText = hsarray3[nearest_i / 2];
 
 	var c = document.getElementById("DistanceToNearest");
 	c.innerText = parseFloat(sumDistance).toFixed(2) + " Km";

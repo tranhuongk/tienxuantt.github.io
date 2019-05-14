@@ -173,7 +173,7 @@ function ShowQuantity(x, y) {
     infor = "Chất lượng điện đạt: " + diem1 + "/10 điểm </br>";
     infor2 = "Chất lượng nước đạt: " + diem2 + "/10 điểm </br>";
     infor3 = "Hệ thống xử lý nước thải đạt: " + diem3 + "/10 điểm </br>";
-    infor4 = "Hệ thống xử lý rác thải đạt đạt: " + diem4 + "/10 điểm";
+    infor4 = "Hệ thống xử lý rác thải đạt: " + diem4 + "/10 điểm </br>";
     sum = infor + infor2 + infor3 + infor4;
     popup2
         .setLatLng([y, x])

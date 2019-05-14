@@ -68,7 +68,7 @@
   </head>
 
   <body>
-      <div class="list-map">
+      <div class="list-map" style="height:100%">
           <h4>Tùy chọn</h4>
           <ul>
             <a href="../index.html"><li>Bản đồ mất điện</li></a>
@@ -78,11 +78,14 @@
             <a href="../Nhom5/index.html"><li>Trạm cứu hỏa</li></a>
             <a href="../Nhom6/index.html"><li>Đồn cảnh sát</li></a>
             <a href="../Nhom7/index.html"><li>Bệnh viện</li></a>
-            <a href="../Nhom8/index.html"><li>Công viên</li></a>
+            <a  href="../Nhom8smarket/index.html"><li>Siêu thị</li></a>
+            <a  href="../Nhom8park/index.html"><li>Công viên</li></a>
+            <a  href="../Nhom8market/index.html"><li>Chợ</li></a>
             <a href="../Nhom9/index.html"><li>Trường mẫu giáo</li></a>
             <a href="../Nhom10/index.html"><li>Trường tiểu học</li></a>
             <a href="../Nhom11/index.html"><li>Trường THCS</li></a>
-            <a href="../Nhom12/index.html"><li>Trường THPT và Đại học</li></a>
+            <a href="../Nhom12hs/index.html"><li>Trường THPT</li></a>
+            <a href="../Nhom12uni/index.html"><li>Đại học</li></a>
             <a href="../Nhom13/index.html"><li>Trạm xe bus</li></a>
             <a href="../Nhom14/index.html"><li>Quán karaoke</li></a>
             <a href="../Nhom15/index.html"><li>Rạp chiếu phim</li></a>
@@ -111,7 +114,7 @@
           >
             <div
               class="rectangle"
-              style="background-color: rgba(6, 161, 14, 0.7); margin-right: 20px"
+              style="background-color: rgb(189,0,38, 0.8); margin-right: 20px"
             ></div>
             <span style="">Cao</span>
           </div>
@@ -120,7 +123,7 @@
           >
             <div
               class="rectangle"
-              style="background-color: rgba(94, 243, 101, 0.664); margin-right: 20px"
+              style="background-color: rgba(253,141,60,0.8); margin-right: 20px"
             ></div>
             <span style="">Trung bình</span>
           </div>
@@ -129,18 +132,9 @@
           >
             <div
               class="rectangle"
-              style="background-color: rgba(233, 169, 214, 0.7); margin-right: 20px"
+              style="background-color: rgba(254,217,118, 0.8); margin-right: 20px"
             ></div>
             <span style="">Thấp</span>
-          </div>
-          <div
-            style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px"
-          >
-            <div
-              class="rectangle"
-              style="background-color: #969696; margin-right: 20px"
-            ></div>
-            <span style="">Vùng chưa khảo sát</span>
           </div>
         </div>
         <div style="margin-top: 30px">
@@ -182,15 +176,15 @@
 
       function getColor(level) {
         if (level == "high") {
-          return "rgba(94, 243, 101, 0.664)";
+          return "rgba(189,0,38, 0.8)";
         }
 
         if (level == "medium") {
-          return "rgba(94, 243, 101, 0.664)";
+          return "rgba(253,141,60, 0.8)";
         }
 
         if (level == "low") {
-          return "rgba(233, 169, 214, 0.7)";
+          return "rgba(254,217,118, 0.8)";
         }
       }
 

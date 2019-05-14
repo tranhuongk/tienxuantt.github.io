@@ -53,7 +53,7 @@
 </head>
 
 <body>
-    <div class="list-map">
+    <div class="list-map" style="height:100%">
         <h4>Tùy chọn</h4>
         <ul>
             <a href="../index.html">
@@ -77,9 +77,9 @@
             <a href="../Nhom7/index.html">
                 <li>Bệnh viện</li>
             </a>
-            <a href="../Nhom8/index.html">
-                <li>Công viên</li>
-            </a>
+            <a  href="../Nhom8smarket/index.html"><li>Siêu thị</li></a>
+            <a  href="../Nhom8park/index.html"><li>Công viên</li></a>
+            <a  href="../Nhom8market/index.html"><li>Chợ</li></a>
             <a href="../Nhom9/index.html">
                 <li>Trường mẫu giáo</li>
             </a>
@@ -89,9 +89,8 @@
             <a href="../Nhom11/index.html">
                 <li>Trường THCS</li>
             </a>
-            <a href="../Nhom12/index.html">
-                <li>Trường THPT và Đại học</li>
-            </a>
+            <a href="../Nhom12hs/index.html"><li>Trường THPT</li></a>
+            <a href="../Nhom12uni/index.html"><li>Đại học</li></a>
             <a href="../Nhom13/index.html">
                 <li>Trạm xe bus</li>
             </a>
@@ -105,6 +104,11 @@
                 <li>Quán cà phê</li>
             </a>
         </ul>
+    </div>
+
+    <div style="width: 300px; float: left; padding: 20px;">
+        <h2>Bản đồ rác thải Hà Nội</h2>
+        <input onclick="togglePoints(this)" type="checkbox">Hiển thị vị trí các khu xử lý rác</input>
     </div>
 
     <div id="mapid"></div>
@@ -187,8 +191,8 @@
         geojson = L.geoJson(geodata, {
             style: style,
             onEachFeature: onEachFeature
-        });
-        // .addTo(mymap);
+        })
+        .addTo(mymap);
 
         var pointsjson = L.geoJson(points, {
             onEachFeature: (feature, layer) => {
@@ -202,14 +206,16 @@
                 })
             },
             pointToLayer: (feature, latlng) => {
-                return L.circle(latlng, {
-                    radius: feature.properties.radius,
-                    fillColor: 'red',
-                    color: '#000',
-                    weight: 1,
-                    opacity: 1,
-                    fillOpacity: 0.8
-                });
+//                 return L.circle(latlng, {
+//                     radius: feature.properties.radius,
+//                     fillColor: 'red',
+//                     color: '#000',
+//                     weight: 1,
+//                     opacity: 1,
+//                     fillOpacity: 0.8
+//                 });
+
+                return L.marker(latlng);
             }
         });
         // .addTo(mymap);
@@ -219,7 +225,7 @@
             "Points": pointsjson
         };
 
-        L.control.layers({}, overlayMaps).addTo(mymap);
+        var control = L.control.layers({}, overlayMaps).addTo(mymap);
 
         var legend = L.control({ position: 'bottomleft' });
 
@@ -239,7 +245,15 @@
             return div;
         };
 
-        legend.addTo(mymap)
+        legend.addTo(mymap);
+
+        function togglePoints(checkbox) {
+            if (checkbox.checked) {
+                pointsjson.addTo(mymap);
+            } else {
+                mymap.removeLayer(pointsjson);
+            }
+        }
     </script>
 </body>
 

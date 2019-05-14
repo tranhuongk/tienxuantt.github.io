@@ -8,8 +8,8 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-  integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-  crossorigin="" />
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
   <link rel="stylesheet" href="../Common/dist/leaflet-routing-machine.css" />
   <link rel="stylesheet" href="./main/index.css" />
   <style>
@@ -31,17 +31,17 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 Số trường trong bán kính 10KM: <span id="InRange"
-                                                     class="badge badge-success"></span>
+                                                          class="badge badge-success"></span>
             </li>
             <li class="list-group-item">Trường gần nhất: <span id="Nearest" class="badge badge-success"></span></li>
             <li class="list-group-item"> Địa chỉ: <span id="Address" class="badge badge-success"></span></li>
             <li class="list-group-item">
                 Đường đến trường gần nhất: <span id="DistanceToNearest"
-                                                 class="badge badge-success"></span>
+                                                      class="badge badge-success"></span>
             </li>
         </ul>
     </div>
-    <div class="list-map">
+    <div class="list-map" style="height:100%">
         <h4>Tùy chọn</h4>
         <ul>
             <a href="../index.html"><li>Bản đồ mất điện</li></a>
@@ -51,11 +51,14 @@
             <a href="../Nhom5/index.html"><li>Trạm cứu hỏa</li></a>
             <a href="../Nhom6/index.html"><li>Đồn cảnh sát</li></a>
             <a href="../Nhom7/index.html"><li>Bệnh viện</li></a>
-            <a href="../Nhom8/index.html"><li>Công viên</li></a>
+            <a  href="../Nhom8smarket/index.html"><li>Siêu thị</li></a>
+            <a  href="../Nhom8park/index.html"><li>Công viên</li></a>
+            <a  href="../Nhom8market/index.html"><li>Chợ</li></a>
             <a href="../Nhom9/index.html"><li>Trường mẫu giáo</li></a>
             <a href="../Nhom10/index.html"><li>Trường tiểu học</li></a>
             <a href="../Nhom11/index.html"><li>Trường THCS</li></a>
-            <a style="font-weight:bold;color:red;" href="../Nhom12/index.html"><li>Trường THPT và Đại học</li></a>
+            <a href="../Nhom12hs/index.html"><li>Trường THPT</li></a>
+            <a style="font-weight:bold;color:red;" href="../Nhom12uni/index.html"><li>Đại học</li></a>
             <a href="../Nhom13/index.html"><li>Trạm xe bus</li></a>
             <a href="../Nhom14/index.html"><li>Quán karaoke</li></a>
             <a href="../Nhom15/index.html"><li>Rạp chiếu phim</li></a>
@@ -72,9 +75,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./main/data.js"></script>
     <script src="./main/config.js"></script>
-    <script src="../district.geojson.js"></script>
     <script src="../Common/quality.js"></script>
-
+    <script src="../district.geojson.js"></script>
     <script src="./index.js"></script>
 
 </body>

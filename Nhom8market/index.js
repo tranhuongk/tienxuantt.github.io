@@ -20,9 +20,7 @@ $(document).ready(function () {
 		start++;
 		lengthMin = 100000;
 		x1 = e.latlng.lat;
-        y1 = e.latlng.lng;
-
-        ShowQuantity(y1, x1);
+		y1 = e.latlng.lng;
 	
 		for (var i = 0; i < array1.length; i += 2) {
 	
@@ -116,4 +114,33 @@ function getDistance(lat1, lon1, lat2, lon2) {
 
 function deg2rad(deg) {
 	return deg * (Math.PI / 180)
+}
+
+function calculatePoint(lat,lng){
+	//hàm này phân loại 1 tọa độ theo hạng từ 1 -> n, hạng càng thấp thì càng chất lượng
+	x1 = lat;
+	y1 = lng;
+	let range=[0.1,0.2,0.5,1];// mảng khoảng cách để tính điểm,đơn vị : km. => explain: dưới 0.2km -> hạng 1; dưới 0.5 km -> hạng 2, ....
+	let numInRange=[0,0,0,0];// mảng trên có bao nhiêu phần tử thì mảng này có bấy nhiêu số 0 :).
+
+	for (var i = 0; i < array1.length; i += 2) {
+
+		x2 = array1[i + 1];
+		y2 = array1[i];
+		length = Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
+		if (length < lengthMin) {
+			lengthMin = length;
+			xmin = x2;
+			ymin = y2;
+			nearest_i = i;
+		}
+		var distance = getDistance(x1, y1, x2, y2);
+		for(var j=0; j<range.length;j++){
+			if (distance <= range[j]) numInRange[j]+=1;
+		}
+	}
+	for(var i=0 ; i< range.length; i++){
+		if(numInRange[i]>0) return i+1;
+	}
+	return range.length;
 }
