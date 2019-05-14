@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>My map</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+  <link rel="stylesheet" href="../Common/dist/leaflet-routing-machine.css" />
+  <link rel="stylesheet" href="./main/index.css" />
+  <link rel="stylesheet" href="./main/showranking.css">
+  <style>
+  .leaflet-routing-geocoders {
+    display: none;
+}
+.leaflet-routing-container.leaflet-bar.leaflet-control{
+    display: none;
+}
+a{
+  font-size: 13px;
+}
+  </style>
+</head>
+
+<body>
+    <div id="map" class="map"></div>
+    <div class="show-ranking" >
+      <table>
+        <tr>
+            <td></td>
+            <td class="point">Chấm điểm</td>
+            <td class="header">0 -> 500m</td>
+            <td class="header">500m -> 1km</td>
+            <td class="header">1km -> 2km</td>
+            <td class="header">2km -> 3km</td>
+            <td class="header">3km trở lên</td>
+        </tr>
+        <tr>
+            <td class="green">Đồn cảnh sát</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="green">Trạm cứu hóa</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="green">Bệnh viện</td>
+            <td class="healthRanking1"></td>
+            <td class="healthRanking2"></td>
+            <td class="healthRanking3"></td>
+            <td class="healthRanking4"></td>
+            <td class="healthRanking5"></td>
+            <td class="healthRanking6"></td>
+        </tr>
+        <tr>
+            <td class="green">Cấp 3, đại học</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="green">Công viên</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="point">Chấm điểm</td>
+            <td class="header">0 -> 200m</td>
+            <td class="header">200m -> 500m</td>
+            <td class="header">500m -> 1km</td>
+            <td class="header">1km -> 2km</td>
+            <td class="header">2km trở lên</td>
+        </tr>
+        <tr>
+            <td class="green">Siêu thị</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="green">Mẫu giáo</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="green">Tiểu học</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="green">Trung học</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="green">Trạm bus</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="green">Rạp chiếu phim</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="green">Karaoke</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="green">Cà phê</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    
+    </div>
+    <div class="list-map" style="height:100%">
+        <h4>Tùy chọn</h4>
+        <ul>
+            <a href="../index.html"><li>Bản đồ chất lượng điện</li></a>
+            <a href="../Nhom2/map.html"><li>Bản đồ chất lượng nước</li></a>
+            <a href="../Nhom3/index.html"><li>Quản lý nước thải</li></a>
+            <a href="../Nhom4/map.html"><li>Quản lý rác thải</li></a>
+            <a href="../Nhom5/index.html"><li>Trạm cứu hỏa</li></a>
+            <a href="../Nhom6/index.html"><li>Đồn cảnh sát</li></a>
+            <a href="../Nhom7/index.html"><li>Bệnh viện</li></a>
+            <a  href="../Nhom8smarket/index.html"><li>Siêu thị</li></a>
+            <a  href="../Nhom8park/index.html"><li>Công viên</li></a>
+            <a  href="../Nhom8market/index.html"><li>Chợ</li></a>
+            <a href="../Nhom9/index.html"><li>Trường mẫu giáo</li></a>
+            <a href="../Nhom10/index.html"><li>Trường tiểu học</li></a>
+            <a href="../Nhom11/index.html"><li>Trường THCS</li></a>
+            <a href="../Nhom12hs/index.html"><li>Trường THPT</li></a>
+            <a href="../Nhom12uni/index.html"><li>Đại học</li></a>
+            <a href="../Nhom13/index.html"><li>Trạm xe bus</li></a>
+            <a href="../Nhom14/index.html"><li>Quán karaoke</li></a>
+            <a href="../Nhom15/index.html"><li>Rạp chiếu phim</li></a>
+            <a href="../Nhom16/index.html"><li>Quán cà phê</li></a>
+            <a style="font-weight:bold;color:red;" href="../Nhom17/index.html"><li>Map Ranking</li></a>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+            crossorigin=""></script>
+    <script src="../Common/dist/leaflet-routing-machine.js"></script>
+    <script src="../Common/Control.Geocoder.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./main/config.js"></script>
+    <script src="../Common/quality.js"></script>
+    <script src="../district.geojson.js"></script>
+    <script src="./main/healthData.js"></script>
+    <script src="./main/hsdata.js"></script>
+    <script src="./main/unidata.js"></script>
+    <script src="./main/nhom12.js"></script>
+    <script src="./main/healthRanking.js"></script>
+    <script src="./main/datanhom16.js"></script>
+    <script src="./main/getRank16.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
