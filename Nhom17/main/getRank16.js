@@ -16,15 +16,15 @@ function deg2rad(deg) {
 	return deg * (Math.PI / 180)
 }
 
-function getRank(lat, lng) {
+function getRank16(lat, lng) {
 	var range = 1;
 	var distanceRange = [range/5, range/2, range, 2*range, 3*range];
 	var count = [0,0,0,0,0];
-	var total = array1.length;
+	var total = array16.length;
 	var point = 0;
-	for (var i = 0; i < array1.length; i += 2) {
-		x = array1[i + 1];
-		y = array1[i];
+	for (var i = 0; i < array16.length; i += 2) {
+		x = array16[i + 1];
+		y = array16[i];
 		var distance = getDistance(lat, lng, x, y);
 		if (distance <= distanceRange[0]) count[0]++;
 		if (distance > distanceRange[0] && distance <= distanceRange[1]) count[1]++;
@@ -65,4 +65,14 @@ function getRank(lat, lng) {
 	}
 
 	return [point, count[0], count[1], count[2], count[3], count[4]];
+}
+
+function nhom16Ranking(lat, lng){
+    var nhom16Rankingt = getRank16(lat,lng);
+		$(".coffe1").text(nhom16Rankingt[0] + "/10");
+		$(".coffe2").text(nhom16Rankingt[1]);
+		$(".coffe3").text(nhom16Rankingt[2]);
+		$(".coffe4").text(nhom16Rankingt[3]);
+		$(".coffe5").text(nhom16Rankingt[4]);
+		$(".coffe6").text(nhom16Rankingt[5]);
 }
