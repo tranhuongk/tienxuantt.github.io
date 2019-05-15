@@ -14,6 +14,7 @@ $(document).ready(function () {
 		nhom9Function(lat, lng);
 		nhom10Ranking(lat, lng);
 		nhom11Ranking(lat, lng);
+		nhom14Ranking(lat, lng);
 		nhom16Ranking(lat, lng);
 		displayCinemaScoring(lat, lng);
 	});
