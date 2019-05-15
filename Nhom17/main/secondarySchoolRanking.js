@@ -25,9 +25,9 @@ function secondarySchool(lat, lon){
 	var scoreInRange=[10,8,6,5,4];
 	var numInRange=[0,0,0,0,0];
 	
-	for(var i=0; i< array1.length; i+=2 ){
-		var lat2 = array1[i];
-		var lon2 = array1[i+1];
+	for(var i=0; i< secodarySchoolArray.length; i+=2 ){
+		var lat2 = secodarySchoolArray[i];
+		var lon2 = secodarySchoolArray[i+1];
 		var distance =  getDistance(lat1,lon1,lat2,lon2);
 		for(var j=0; j< range.length; j++){
 			if(distance <= range[j]){
@@ -36,12 +36,12 @@ function secondarySchool(lat, lon){
 			}
 		}
 	}
-	console.log(numInRange);
+
 	var total=0;
 	for(var i=0; i< range.length; i++){
 		total= total+ numInRange[i];
 	}
-	var lastIndex= secondarySchoolArray.length-total;
+	var lastIndex= secodarySchoolArray.length-total;
 	var score= 0;
 	for(var i=0; i< range.length;i++){
 		score= score+ scoreInRange[i]*numInRange[i];
@@ -51,7 +51,7 @@ function secondarySchool(lat, lon){
 }
 
 function nhom11Ranking(lat, lng){
-    var secondarySchoolRankingt = secondarySchoolRanking(lat,lng);
+    var secondarySchoolRankingt = secondarySchool(lat,lng);
 		$(".secondarySchoolRanking1").text(secondarySchoolRankingt[0] + "/10");
 		$(".secondarySchoolRanking2").text(secondarySchoolRankingt[1]);
 		$(".secondarySchoolRanking3").text(secondarySchoolRankingt[2]);
