@@ -2,7 +2,7 @@
  * Cần import healthData.js
  */
 
-function getDistance(origin, destination) {
+function getDis(origin, destination) {
     // return distance in kilometers
     var lon1 = toRadian(origin[1]),
         lat1 = toRadian(origin[0]),
@@ -37,7 +37,7 @@ function healthRanking(lat_o,lng_o){
     for (var i = 0; i < hospitals.length; i++) {
 		    lat_d = Number(hospitals[i].Lat);
 		    lng_d = Number(hospitals[i].Lng);
-		    var distance = getDistance([lat_o,lng_o], [lat_d,lng_d]);
+		    var distance = getDis([lat_o,lng_o], [lat_d,lng_d]);
 		    for(var j=0; j<range.length;j++){
             if (distance <= range[j])
                 hospitalInRange[j]+=1;
@@ -46,7 +46,7 @@ function healthRanking(lat_o,lng_o){
     for (var i = 0; i < clinics.length; i++) {
 		    lat_d = Number(clinics[i].Lat);
 		    lng_d = Number(clinics[i].Lng);
-		    var distance = getDistance([lat_o,lng_o], [lat_d,lng_d]);
+		    var distance = getDis([lat_o,lng_o], [lat_d,lng_d]);
 		    for(var j=0; j<range.length;j++){
             if (distance <= range[j])
                 clinicInRange[j]+=1;
@@ -55,7 +55,7 @@ function healthRanking(lat_o,lng_o){
     for (var i = 0; i < medicalCenters.length; i++) {
 		    lat_d = Number(medicalCenters[i].Lat);
 		    lng_d = Number(medicalCenters[i].Lng);
-		    var distance = getDistance([lat_o,lng_o], [lat_d,lng_d]);
+		    var distance = getDis([lat_o,lng_o], [lat_d,lng_d]);
 		    for(var j=0; j<range.length;j++){
             if (distance <= range[j])
                 medicalInRange[j]+=1;
@@ -64,7 +64,7 @@ function healthRanking(lat_o,lng_o){
     for (var i = 0; i < drugstores.length; i++) {
 		    lat_d = Number(drugstores[i].Lat);
 		    lng_d = Number(drugstores[i].Lng);
-		    var distance = getDistance([lat_o,lng_o], [lat_d,lng_d]);
+		    var distance = getDis([lat_o,lng_o], [lat_d,lng_d]);
 		    for(var j=0; j<range.length;j++){
             if (distance <= range[j])
                 drugstoreInRange[j]+=1;
