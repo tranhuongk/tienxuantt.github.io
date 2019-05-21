@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible">
+    <title>Bản đồ chất lượng điện Hà Nội</title>
+    <link rel="stylesheet" href="../Common/common.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <style>
+        body{
+            display: flex;
+        }
+
+        #mapid {
+            height: 97vh;
+        }
+
+        .info {
+            padding: 6px 8px;
+            font: 14px/16px Arial, Helvetica, sans-serif;
+            background: white;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        .info h4 {
+            margin: 0 0 5px;
+            color: #777;
+        }
+
+        .my-popup {
+            pointer-events: none;
+        }
+
+        .legend {
+            text-align: left;
+            line-height: 18px;
+            color: #555;
+        }
+
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .rectangle {
+            width: 50px;
+            height: 20px;
+        }
+
+        .controller h1 {
+            font-size: 24px;
+        }
+        a{
+    font-size: 13px !important;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="controller">
+        <h1>Bản đồ chất lượng điện Hà Nội</h1>
+        <div class="desc">
+            <h3>Chất lượng điện:</h3>
+            <div style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px; opacity: 0.7">
+                <div class="rectangle"
+                     style="background-color: #00FF00; margin-right: 20px"></div>
+                <span style="">8-10</span>
+            </div>
+            <div style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px; opacity: 0.7">
+                <div class="rectangle"
+                     style="background-color: #7CFC00; margin-right: 20px"></div>
+                <span style="">7-8</span>
+            </div>
+            <div style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px; opacity: 0.7">
+                <div class="rectangle"
+                     style="background-color: #7FFF00; margin-right: 20px"></div>
+                <span style="">6-7</span>
+            </div>
+            <div style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px; opacity: 0.7">
+                <div class="rectangle"
+                     style="background-color: #ADFF2F; margin-right: 20px"></div>
+                <span style="">5-6</span>
+            </div>
+            <div style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px; opacity: 0.7">
+                <div class="rectangle"
+                     style="background-color: #FFFF00; margin-right: 20px"></div>
+                <span style="">4-5</span>
+            </div>
+            <div style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px; opacity: 0.7">
+                <div class="rectangle"
+                     style="background-color: #FF8C00; margin-right: 20px"></div>
+                <span style="">3-4</span>
+            </div>
+            <div style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px; opacity: 0.7">
+                <div class="rectangle"
+                     style="background-color: #FF4500; margin-right: 20px"></div>
+                <span style="">2-3</span>
+            </div>
+            <div style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px; opacity: 0.7">
+                <div class="rectangle"
+                     style="background-color: #8B0000; margin-right: 20px"></div>
+                <span style="">0-2</span>
+            </div>
+        </div>
+        <h3>Chú thích:</h3>
+        <h4>- Bản đồ chia theo các quận, huyện, thị xã trong Hà Nội</h4>
+        <h4>- Chất lượng điện có thang điểm 10</h4>
+    </div>
+    <div class="map">
+        <div id="mapid"></div>
+    </div>
+    <div class="list-map">
+        <h4>Tùy chọn</h4>
+        <ul>
+            <a style="font-weight:bold;color:red;" href="../chatluongdien/chatluongdien.html"><li>Bản đồ chất lượng điện</li></a>
+            <a href="../chatluongnuoc/chatluongnuoc.html"><li>Bản đồ chất lượng nước</li></a>
+            <a href="../quanlynuocthai/quanlynuocthai.html"><li>Quản lý nước thải</li></a>
+            <a href="../quanlyracthai/quanlyracthai.html"><li>Quản lý rác thải</li></a>
+            <a href="../tramcuuhoa/tramcuuhoa.html"><li>Trạm cứu hỏa</li></a>
+            <a href="../doncanhsat/doncanhsat.html"><li>Đồn cảnh sát</li></a>
+            <a href="../benhvien/benhvien.html"><li>Bệnh viện</li></a>
+            <a href="../sieuthi/sieuthi.html"><li>Siêu thị</li></a>
+            <a href="../congvien/congvien.html"><li>Công viên</li></a>
+            <a href="../cho/cho.html"><li>Chợ</li></a>
+            <a href="../truongmaugiao/truongmaugiao.html"><li>Trường mẫu giáo</li></a>
+            <a href="../truongtieuhoc/truongtieuhoc.html"><li>Trường tiểu học</li></a>
+            <a href="../truongthcs/truongthcs.html"><li>Trường THCS</li></a>
+            <a href="../truongthpt/truongthpt.html"><li>Trường THPT</li></a>
+            <a href="../daihoc/daihoc.html"><li>Đại học</li></a>
+            <a href="../trambus/trambus.html"><li>Trạm xe bus</li></a>
+            <a href="../quankaraoke/quankaraoke.html"><li>Quán karaoke</li></a>
+            <a href="../rapcheuphim/rapcheuphim.html"><li>Rạp chiếu phim</li></a>
+            <a href="../quancaphe/quancaphe.html"><li>Quán cà phê</li></a>
+        </ul>
+    </div>
+    <div class="icon-globle" style="    position: fixed;
+    right: 16%;
+    height: 50px;
+    top: 23px;
+    z-index: 99999;
+    width: 50px;
+    cursor: pointer;">
+        <a href="../index.html"><img src="../Common/image/icon3.png" alt="" style="width:50px;height:50px"></a> 
+     </div>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+            crossorigin=""></script>
+    <script src="district.geojson.js"></script>
+    <script>
+        var base = 78374.13333;
+
+        var mymap = L.map('mapid').setView([21.0366420, 105.7802457], 9.5);
+
+        L.tileLayer(" https://map.itrithuc.vn/tiles/{z}/{x}/{y}.png", {
+            attribution: '&copy; <a href="https://map.itrithuc.vn/">VNMap</a> - Bản đồ số Việt Nam',
+            maxZoom: 18
+        }).addTo(mymap);
+
+        var geojson;
+
+        function getColor(d) {
+            return d > 0.8 ? '#00FF00' :
+                d > 0.7 ? '	#7CFC00' :
+                    d > 0.6 ? '#7FFF00' :
+                        d > 0.5 ? '#ADFF2F' :
+                            d > 0.4 ? '#FFFF00' :
+                                d > 0.3 ? '#FF8C00' :
+                                    d > 0.2 ? '#FF4500' :
+                                        '#8B0000';
+        }
+
+
+        function style(feature) {
+            return {
+                fillColor: getColor(quality(feature)),
+                weight: 2,
+                opacity: 1,
+                color: '#969696',
+                dashArray: '3',
+                fillOpacity: 0.7
+            };
+        }
+
+        function quality(feature) {
+            //return ((10000 - feature.properties.hours) / 10000 * 0.3 + feature.properties.density / 10 * 0.1 + feature.properties.load * 0.2 + feature.properties.gov * 0.4)
+            let num = ((1 - feature.properties.hours / base * 10) * 0.3 + feature.properties.density / 10 * 0.1 + feature.properties.load * 0.2 + feature.properties.gov * 0.4);
+            return num.toFixed(3);
+        }
+
+        function highlightFeature(e) {
+            let layer = e.target;
+
+            layer.setStyle({
+                weight: 5,
+                color: '#666',
+                dashArray: '',
+                fillOpacity: 0.6
+            });
+
+            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                layer.bringToFront();
+            }
+
+            layer.openPopup();
+        }
+
+        function resetHighlight(e) {
+            geojson.resetStyle(e.target);
+            e.target.closePopup();
+        }
+
+        function zoomToFeature(e) {
+            mymap.fitBounds(e.target.getBounds());
+        }
+
+        function onEachFeature(feature, layer) {
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: zoomToFeature
+            });
+            layer.bindPopup(`<strong>${feature.properties.TYPE_2} ${feature.properties.NAME_2}</strong></br>Tổng thời gian mất điện: ${feature.properties.hours.toFixed(3)}h</br>
+                                        Mật độ dân số: ${feature.properties.density.toFixed(3) * 1000} (người/km2)</br>
+                                        Chất lượng tải điện: ${feature.properties.load}</br>
+                                        Tỉ lệ cơ quan chính phủ: ${feature.properties.gov}</br>
+                                        Chất lượng điện: ${(quality(feature) * 10).toFixed(2)}`, {
+                    closeButton: false,
+                    className: 'my-popup'
+                });
+        }
+
+        geojson = L.geoJson(geodata, {
+            style: style,
+            onEachFeature: onEachFeature
+        }).addTo(mymap);
+                /*
+                var legend = L.control({ position: 'bottomleft' });
+                legend.onAdd = function (mymap) {
+
+                    var div = L.DomUtil.create('div', 'legend info'),
+                        grades = [0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
+                        labels = [];
+                    div.innerHTML += 'Chất lượng</br>';
+                    for (var i = 0; i < grades.length; i++) {
+                        div.innerHTML +=
+                            '<i style="background:' + getColor(grades[i] + 0.01) + '"></i> ' +
+                            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+                    }
+                    return div;
+                };
+                legend.addTo(mymap);
+                */
+
+    </script>
+</body>
+
+</html>

@@ -1,13 +1,20 @@
-.list-map{
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 146px;
+.controller {
+    width: 25%;
+}
+
+.map {
+    width: 60%;
+}
+
+.list-map {
+    width: 15%;
     background: #ebef07;
     text-align: center;
     z-index: 9999;
     height: 100%;
 }
+
+
 .leaflet-routing-geocoders {
     display: none;
 }

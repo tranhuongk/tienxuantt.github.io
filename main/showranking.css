@@ -1,0 +1,45 @@
+.header{
+    background: yellow;
+}
+.green{
+    background: green;
+    color: white;
+    text-align: left;
+}
+table, td{
+    border: 1px solid #0ca7e4;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: center;
+    padding: 6.9px 5px;
+}
+
+tr.row-other {
+    background: #0a0c0c;
+    color: white;
+}
+.point{
+    background: red;
+}
+.show-ranking{
+    position:fixed;
+    left: 0;
+    top:  0;
+   
+    background:white;
+}
+a{
+    font-size: 13px !important;
+}
+.go-detail{
+    position: fixed;
+    right: 3px;
+    top: 48px;
+    opacity: 1.7;
+    height: 42px;
+    width: 44px;
+}
+.go-detail img{
+    height: 100%;
+    width: 100%;
+}

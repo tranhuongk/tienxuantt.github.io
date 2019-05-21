@@ -1,0 +1,500 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" />
+    <title>Map</title>
+    <link rel="stylesheet" href="../Common/common.css">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin=""
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+      #mapid {
+        height: 100vh;
+      }
+
+      .info {
+        padding: 6px 8px;
+        font: 14px/16px Arial, Helvetica, sans-serif;
+        background: white;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+
+      body {
+        display: flex;
+        margin: 0;
+      }
+
+      .info h4 {
+        margin: 0 0 5px;
+        color: #777;
+      }
+
+      .my-popup {
+        pointer-events: none;
+      }
+      .rectangle {
+        width: 50px;
+        height: 20px;
+      }
+        .controller h1 {
+        font-size: 24px;
+      }
+      .leaflet-routing-geocoders {
+    display: none;
+}
+.leaflet-routing-container.leaflet-bar.leaflet-control{
+    display: none;
+}
+a{
+    font-size: 13px !important;
+}
+    </style>
+  </head>
+  <body>
+      <div class="controller" style="padding: 10px">
+        <h1>Bản đồ chất lượng nước Hà Nội</h1>
+        <div class="select">
+          <h3>Thống kê trên bản đồ theo loại chất:</h3>
+          <select id="select-type" style="width: 200px">
+            <option value="total">Tổng hợp</option>
+            <option value="As">Asen</option>
+            <option value="Pb">Pb (Chì)</option>
+            <option value="Nh4">Nh4+ (Amoni)</option>
+            <option value="Mg">Mg (Magie)</option>
+          </select>
+        </div>
+        <div style="margin-top: 30px">
+          <button id="show-fac">Hiển thị các trạm/công ty cấp nước</button>
+        </div>
+        <div style="margin-top: 30px">
+          <button id="hide-fac">Ẩn các trạm cấp nước</button>
+        </div>
+        <div class="desc">
+          <h3>Chú thích:</h3>
+          <div
+            style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px"
+          >
+            <div
+              class="rectangle"
+              style="background-color: #00FF00; margin-right: 20px"
+            ></div>
+            <span style="">Cao (trên 7 điểm)</span>
+          </div>
+          <div
+            style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px"
+          >
+            <div
+              class="rectangle"
+              style="background-color: #ADFF2F; margin-right: 20px"
+            ></div>
+            <span style="">Trung bình (từ 5 đến 7 điểm)</span>
+          </div>
+          <div
+            style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px"
+          >
+            <div
+              class="rectangle"
+              style="background-color: #FD8D3C; margin-right: 20px"
+            ></div>
+            <span style="">Thấp (dưới 5 điểm)</span>
+          </div>
+        </div>
+        <div></div>
+      </div>
+      <div class="map">
+        <div id="mapid"></div>
+      </div>
+      <div class="list-map" style="height:100%">
+        <h4>Tùy chọn</h4>
+        <ul>
+          <a  href="../chatluongdien/chatluongdien.html"><li>Bản đồ chất lượng điện</li></a>
+            <a style="font-weight:bold;color:red;" href="../chatluongnuoc/chatluongnuoc.html"><li>Bản đồ chất lượng nước</li></a>
+            <a href="../quanlynuocthai/quanlynuocthai.html"><li>Quản lý nước thải</li></a>
+            <a href="../quanlyracthai/quanlyracthai.html"><li>Quản lý rác thải</li></a>
+            <a href="../tramcuuhoa/tramcuuhoa.html"><li>Trạm cứu hỏa</li></a>
+            <a href="../doncanhsat/doncanhsat.html"><li>Đồn cảnh sát</li></a>
+            <a href="../benhvien/benhvien.html"><li>Bệnh viện</li></a>
+            <a href="../sieuthi/sieuthi.html"><li>Siêu thị</li></a>
+            <a href="../congvien/congvien.html"><li>Công viên</li></a>
+            <a href="../cho/cho.html"><li>Chợ</li></a>
+            <a href="../truongmaugiao/truongmaugiao.html"><li>Trường mẫu giáo</li></a>
+            <a href="../truongtieuhoc/truongtieuhoc.html"><li>Trường tiểu học</li></a>
+            <a href="../truongthcs/truongthcs.html"><li>Trường THCS</li></a>
+            <a href="../truongthpt/truongthpt.html"><li>Trường THPT</li></a>
+            <a href="../daihoc/daihoc.html"><li>Đại học</li></a>
+            <a href="../trambus/trambus.html"><li>Trạm xe bus</li></a>
+            <a href="../quankaraoke/quankaraoke.html"><li>Quán karaoke</li></a>
+            <a href="../rapcheuphim/rapcheuphim.html"><li>Rạp chiếu phim</li></a>
+            <a href="../quancaphe/quancaphe.html"><li>Quán cà phê</li></a>
+        </ul>
+      </div>
+      <div class="icon-globle" style="    position: fixed;
+      right: 15%;
+      height: 50px;
+      top: 23px;
+      z-index: 99999;
+      width: 50px;
+      cursor: pointer;">
+          <a href="../index.html"><img src="../Common/image/icon3.png" alt="" style="width:50px;height:50px"></a> 
+       </div>
+    <script
+      src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+      crossorigin=""
+    ></script>
+    <script src="map.geojson.js"></script>
+    <script src="waterFactoryData.js"></script>
+    <script src="handler.js"></script>
+
+    <!-- <script src="waterFactory.js"></script> -->
+    <script>
+      var mymap = L.map("mapid").setView([21.036642, 105.7802457], 10);
+
+      L.tileLayer(" https://map.itrithuc.vn/tiles/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://map.itrithuc.vn/">VNMap</a> - Bản đồ số Việt Nam',
+        maxZoom: 18
+      }).addTo(mymap);
+
+      //
+
+      var geojson;
+
+      var nearest_maker = null;
+
+      function getColor(level) {
+        if (level == "high") {
+          return "#00FF00";
+        }
+
+        if (level == "medium") {
+          return "#ADFF2F";
+        }
+
+        if (level == "low") {
+          return "#FD8D3C";
+        }
+      }
+
+      function fillColorMg(feature) {
+        return {
+          fillColor: feature.properties.density.Mg
+            ? getColor(feature.properties.density.Mg.level)
+            : null,
+          weight: 2,
+          opacity: 1,
+          color: "#969696",
+          dashArray: "3",
+          fillOpacity: 0.7
+        };
+      }
+
+      function fillColorAs(feature) {
+        return {
+          fillColor: feature.properties.density.As
+            ? getColor(feature.properties.density.As.level)
+            : null,
+          weight: 2,
+          opacity: 1,
+          color: "#969696",
+          dashArray: "3",
+          fillOpacity: 0.7
+        };
+      }
+
+      function fillColorNh4(feature) {
+        return {
+          fillColor: feature.properties.density.Nh4
+            ? getColor(feature.properties.density.Nh4.level)
+            : null,
+          weight: 2,
+          opacity: 1,
+          color: "#969696",
+          dashArray: "3",
+          fillOpacity: 0.7
+        };
+      }
+
+      function fillColorPb(feature) {
+        return {
+          fillColor: feature.properties.density.Pb
+            ? getColor(feature.properties.density.Pb.level)
+            : null,
+          weight: 2,
+          opacity: 1,
+          color: "#969696",
+          dashArray: "3",
+          fillOpacity: 0.7
+        };
+      }
+
+      function fillColorTotal(feature) {
+        let level_average = calculate_average_level(feature);
+
+        return {
+          fillColor: getColor(level_average),
+          weight: 2,
+          opacity: 1,
+          color: "#969696",
+          dashArray: "3",
+          fillOpacity: 0.7
+        };
+      }
+
+      function calculate_average_level(feature) {
+        let pb = convert_level(feature.properties.density.Pb.level);
+        let asen = convert_level(feature.properties.density.As.level);
+        let nh4 = convert_level(feature.properties.density.Nh4.level);
+        let mg = convert_level(feature.properties.density.Mg.level);
+
+        let average = (pb + asen + nh4 + mg) / 4;
+        let level_average;
+
+        if (average >= 0 && average <= 0.6) level_average = "low";
+        if (average > 0.6 && average <= 1.3) level_average = "medium";
+        if (average > 1.3 && average <= 2) level_average = "high";
+
+        return level_average;
+      }
+
+      function convert_level(level) {
+        if (level == "high") return 2;
+        if (level == "medium") return 1;
+        if (level == "low") return 0;
+      }
+
+      function highlightFeature(e) {
+        let layer = e.target;
+
+        layer.setStyle({
+          weight: 5,
+          color: "#666",
+          dashArray: "",
+          fillOpacity: 0.6
+        });
+
+        if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+          layer.bringToFront();
+        }
+      }
+
+      function resetHighlight(e) {
+        geojson.resetStyle(e.target);
+        e.target.closePopup();
+      }
+
+      function zoomToFeature(e) {
+        mymap.fitBounds(e.target.getBounds());
+      }
+
+      function onEachFeature(feature, layer) {
+        layer.on({
+          mouseover: highlightFeature,
+          mouseout: resetHighlight
+        });
+
+        var type = $("#select-type").val();
+
+        layer.on("click", function(e) {
+          var nearest = findNearestWaterFactory(e.latlng.lat, e.latlng.lng);
+
+          var content = `
+                <strong>${feature.properties.TYPE_2} ${
+            feature.properties.NAME_2
+          }</strong>
+                <p>As: ${
+                  feature.properties.density.As
+                    ? feature.properties.density.As.detail +
+                      " (" +
+                      feature.properties.density.As.unit +
+                      ") " +
+                      feature.properties.density.As.level
+                    : "Chưa khảo sát"
+                }</p>
+                <p>Pb: ${
+                  feature.properties.density.Pb
+                    ? feature.properties.density.Pb.detail +
+                      " (" +
+                      feature.properties.density.Pb.unit +
+                      ") " +
+                      feature.properties.density.Pb.level
+                    : "Chưa khảo sát"
+                }</p>
+                <p>Nh4: ${
+                  feature.properties.density.Nh4
+                    ? feature.properties.density.Nh4.detail +
+                      " (" +
+                      feature.properties.density.Nh4.unit +
+                      ") " +
+                      feature.properties.density.Nh4.level
+                    : "Chưa khảo sát"
+                }</p>
+                <p>Mg: ${
+                  feature.properties.density.Mg
+                    ? feature.properties.density.Mg.detail +
+                      " (" +
+                      feature.properties.density.Mg.unit +
+                      ") " +
+                      feature.properties.density.Mg.level
+                    : "Chưa khảo sát"
+                }</p>
+            `;
+
+          let level_average = calculate_average_level(feature);
+          
+          content += `<p>Đánh giá chung: ${level_average}</p>`;
+
+          content += `<p>Nhà máy nước gần nhất : ${nearest.name} (${
+            nearest.address
+          })</p>`;
+
+          var myIcon = L.icon({
+            iconUrl: "red_maker.png",
+            iconSize: [40, 40],
+            iconAnchor: [20, 40],
+            popupAnchor: [0, -20]
+          });
+
+          if (nearest_maker) {
+            mymap.removeLayer(nearest_maker);
+            nearest_maker = L.marker(nearest.location.split(","), {
+              icon: myIcon
+            }).addTo(mymap);
+          } else {
+            nearest_maker = L.marker(nearest.location.split(","), {
+              icon: myIcon
+            })
+              .bindPopup(nearest.name)
+              .addTo(mymap);
+          }
+
+          var popup2 = L.popup();
+
+          popup2
+            .setLatLng([e.latlng.lat, e.latlng.lng])
+            .setContent(content)
+            .openOn(mymap);
+        });
+      }
+
+      geojson = L.geoJson(geodata, {
+        style: fillColorTotal,
+        onEachFeature: onEachFeature
+      });
+
+      var layerGroup = new L.LayerGroup();
+      layerGroup.addTo(mymap);
+      layerGroup.addLayer(geojson);
+
+      $("#select-type").change(function() {
+        var type = $("#select-type").val();
+        switch (type) {
+          case "Pb":
+            {
+              layerGroup.removeLayer(geojson);
+
+              geojson = L.geoJson(geodata, {
+                style: fillColorPb,
+                onEachFeature: onEachFeature
+              });
+
+              layerGroup.addLayer(geojson);
+            }
+            break;
+          case "Nh4":
+            {
+              layerGroup.removeLayer(geojson);
+
+              geojson = L.geoJson(geodata, {
+                style: fillColorNh4,
+                onEachFeature: onEachFeature
+              });
+
+              layerGroup.addLayer(geojson);
+            }
+            break;
+          case "As":
+            {
+              layerGroup.removeLayer(geojson);
+
+              geojson = L.geoJson(geodata, {
+                style: fillColorAs,
+                onEachFeature: onEachFeature
+              });
+
+              layerGroup.addLayer(geojson);
+            }
+            break;
+          case "Mg":
+            {
+              layerGroup.removeLayer(geojson);
+
+              geojson = L.geoJson(geodata, {
+                style: fillColorMg,
+                onEachFeature: onEachFeature
+              });
+
+              layerGroup.addLayer(geojson);
+            }
+            break;
+          case "total": {
+            layerGroup.removeLayer(geojson);
+
+            geojson = L.geoJson(geodata, {
+              style: fillColorTotal,
+              onEachFeature: onEachFeature
+            });
+
+            layerGroup.addLayer(geojson);
+          }
+        }
+      });
+
+      var map_markers = [];
+
+      function show_factories() {
+        for (var i = 0; i < factories.length; i++) {
+          name = factories[i].name;
+          marker_location = factories[i].location;
+
+          if (name && marker_location) {
+            latlng = marker_location.split(",");
+            var marker = L.marker(latlng)
+              .bindPopup(name)
+              .addTo(mymap);
+            map_markers.push(marker);
+          }
+        }
+      }
+
+      function hide_factories() {
+        if (map_markers.length > 0) {
+          for (var i = 0; i < map_markers.length; i++) {
+            mymap.removeLayer(map_markers[i]);
+          }
+        }
+
+        if (nearest_maker) {
+          mymap.removeLayer(nearest_maker);
+        }
+      }
+
+      $("#show-fac").on("click", function() {
+        show_factories();
+      });
+
+      $("#hide-fac").on("click", function() {
+        hide_factories();
+      });
+    </script>
+  </body>
+</html>

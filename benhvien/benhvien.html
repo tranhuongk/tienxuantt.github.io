@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nhóm 7 - Health</title>
+    <link rel="icon" href="hospital.png">
+    <link rel="stylesheet" href="../Common/common.css">
+    <link rel="stylesheet" href="healthStyle.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+            crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <script src="healthData.js"></script>
+    <script src="healthHandle.js"></script>
+</head>
+
+<body>
+    <div id="left-control" class="hide-show">
+        <center>
+            <h2 style="font-size: 24px;">Bản đồ Cơ sở Y tế TP Hà Nội</h2>
+            <button id="hospital-show">Ẩn bệnh viện</button>
+            <button id="clinic-show">Phòng khám</button>
+            <button id="drugstore-show">Hiệu thuốc</button>
+            <button id="medical-show">Trạm y tế</button>
+        </center>
+        <table id="statistical">
+            <tr>
+                <th>STT</th>
+                <th style="width:40%">Quận/Huyện</th>
+                <th>Bệnh viện</th>
+                <th>Phòng khám</th>
+                <th>Hiệu thuốc</th>
+                <th>Trạm y tế</th>
+            </tr>
+        </table>
+    </div>
+    <div id="mapid"></div>
+    <button id="left-hide"><i id="control-hide" class='fas fa-arrow-right' style="font-size: 16px;"></i></button>
+    <div class="list-map hide-show">
+        <h4>Tùy chọn</h4><br>
+        <ul>
+            <a  href="../chatluongdien/chatluongdien.html"><li>Bản đồ chất lượng điện</li></a>
+            <a  href="../chatluongnuoc/chatluongnuoc.html"><li>Bản đồ chất lượng nước</li></a>
+            <a href="../quanlynuocthai/quanlynuocthai.html"><li>Quản lý nước thải</li></a>
+            <a  href="../quanlyracthai/quanlyracthai.html"><li>Quản lý rác thải</li></a>
+            <a href="../tramcuuhoa/tramcuuhoa.html"><li>Trạm cứu hỏa</li></a>
+            <a  href="../doncanhsat/doncanhsat.html"><li>Đồn cảnh sát</li></a>
+            <a style="font-weight:bold;color:red;" href="../benhvien/benhvien.html"><li>Bệnh viện</li></a>
+            <a href="../sieuthi/sieuthi.html"><li>Siêu thị</li></a>
+            <a href="../congvien/congvien.html"><li>Công viên</li></a>
+            <a href="../cho/cho.html"><li>Chợ</li></a>
+            <a href="../truongmaugiao/truongmaugiao.html"><li>Trường mẫu giáo</li></a>
+            <a href="../truongtieuhoc/truongtieuhoc.html"><li>Trường tiểu học</li></a>
+            <a href="../truongthcs/truongthcs.html"><li>Trường THCS</li></a>
+            <a href="../truongthpt/truongthpt.html"><li>Trường THPT</li></a>
+            <a href="../daihoc/daihoc.html"><li>Đại học</li></a>
+            <a href="../trambus/trambus.html"><li>Trạm xe bus</li></a>
+            <a href="../quankaraoke/quankaraoke.html"><li>Quán karaoke</li></a>
+            <a href="../rapcheuphim/rapcheuphim.html"><li>Rạp chiếu phim</li></a>
+            <a href="../quancaphe/quancaphe.html"><li>Quán cà phê</li></a>
+        </ul>
+    </div>
+    <div class="icon-globle" style="    position: fixed;
+    right: 15%;
+    height: 50px;
+    top: 23px;
+    z-index: 99999;
+    width: 50px;
+    cursor: pointer;">
+        <a href="../index.html"><img src="../Common/image/icon3.png" alt="" style="width:50px;height:50px"></a> 
+     </div>
+</body>
+<script>
+    var mymap = L.map('mapid').setView([21.0248769, 105.8074996], 13.5);
+    L.tileLayer(" https://vmap.vn/tiles/{z}/{x}/{y}.png", {
+        attribution: 'Mapdata&copy;<a href="https://vmap.vn/">VMap</a> - Bản đồ số Việt Nam',
+        maxZoom: 18
+    }).addTo(mymap);
+</script>
+<script src="../Common/quality.js"></script>
+<script src="../Common/district.geojson.js"></script>
+
+</html>

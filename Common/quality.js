@@ -180,3 +180,15 @@ function ShowQuantity(x, y) {
         .setContent(sum)
         .openOn(map);
 }
+
+function ShowQuantityMap17(x,y){
+    diem1 = getResultMarker(x, y).toFixed(0);
+    diem2 = getResultMarker_Nhom_2(x, y);
+    diem3 = getResultMarker_Nhom_3(x, y);
+    diem4 = getResultMarker_Nhom_4(x, y);
+
+    $(".racthai").text(diem4 + "/10");
+    $(".nuoc").text(diem2 + "/10");
+    $(".nuocthai").text(diem3 + "/10");
+    $(".dien").text(diem1 + "/10");
+}
