@@ -9,7 +9,7 @@ var IconPage = L.Icon.extend({
         iconSize: [25, 25],	
     }
 });
-IconCurrent = new IconPage({ iconUrl: "../Nhom8smarket/images/images.png"});
+IconCurrent = new IconPage({ iconUrl: "../sieuthi/images/images.png"});
 
 for(var i = 0; i < supermarketarray1.length; i+=2){
     notifi = supermarketarray2[i/2] + "<br/> Địa chỉ: "+ supermarketarray3[i/2];

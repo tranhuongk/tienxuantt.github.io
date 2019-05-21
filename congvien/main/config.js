@@ -9,7 +9,7 @@ var IconPage = L.Icon.extend({
         iconSize: [25, 25],	
     }
 });
-IconCurrent = new IconPage({ iconUrl: "../Nhom8park/images/tree.png"});
+IconCurrent = new IconPage({ iconUrl: "../congvien/images/tree.png"});
 
 for(var i = 0; i < parkarray1.length; i+=2){
     notifi = parkarray2[i/2] + "<br/> Địa chỉ: "+ parkarray3[i/2];

@@ -9,7 +9,7 @@ var IconPage = L.Icon.extend({
         iconSize: [25, 25],	
     }
 });
-IconCurrent = new IconPage({ iconUrl: "../Nhom8market/images/market-icon.png"});
+IconCurrent = new IconPage({ iconUrl: "../cho/images/market-icon.png"});
 for(var i = 0; i < marketarray1.length; i+=2){
     notifi = marketarray2[i/2] + "<br/> Địa chỉ: "+ marketarray3[i/2];
     L.marker([marketarray1[i+1], marketarray1[i]], {icon: IconCurrent}).bindPopup(notifi).addTo(map);
