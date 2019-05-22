@@ -4,13 +4,32 @@ html {
 }
 
 .map {
-    position: fixed;
+    position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 0%;
+    right: 146px;
     bottom: 0;
+    z-index: 1;
+}
+#left-hide{
+            outline: none;
+            border-radius:50%;
+            position: absolute;
+            top: 80px;
+            left: 0%;
+            padding: 8px 10px;
+            margin-left: 10px;
+            z-index: 10;
+            color: red;
+            background-color: rgb(255, 221, 221);
 }
 
+#left-hide:hover{
+    background-color: rgb(255, 191, 191);
+}
+.hide-show{
+    display: none;
+}
 .results {
     background-color: white;
     opacity: 0.8;
@@ -21,9 +40,26 @@ html {
     height: 480px;
     overflow-y: scroll;
 }
+table {
+            width: 100%;
+            margin-top: 5px;
+        }
 
-.list-map{
+        th, td {
+            text-align: center;
+            font-size: 14px;
+        }
+.list-school{
     position: fixed;
+    left: 0;
+    top: 0;
+    width: 20%;
+    height: 100vh;
+    overflow-x: auto;
+    text-align: center;
+}
+.list-map{
+    position: absolute;
     right: 0;
     top: 0;
     width: 146px;
