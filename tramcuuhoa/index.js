@@ -6,16 +6,11 @@ var control;
 
 $(document).ready(function () {
 
-
-	
 	$(".card-header span").click(function () {
 		$(".card").hide();
 	});
-	
+
 	map.on('click', function (e) {
-
-		$(".leaflet-routing-container.leaflet-bar.leaflet-control").hide();
-
 		numInRange = 0;
 		
 		if (start > 0) {
@@ -26,8 +21,6 @@ $(document).ready(function () {
 		lengthMin = 100000;
 		x1 = e.latlng.lat;
         y1 = e.latlng.lng;
-
-        ShowQuantity(y1, x1);
 	
 		for (var i = 0; i < fsarray1.length; i += 2) {
 	
@@ -43,7 +36,7 @@ $(document).ready(function () {
 			var distance = getDistance(x1, y1, x2, y2);
 			
 			if (distance <= RANGE) numInRange++;
-			
+		
 		}
 		
 	
@@ -80,8 +73,13 @@ $(document).ready(function () {
 			var routes = e.routes;
 			var summary = routes[0].summary;
 			sumDistance = (summary.totalDistance / 1000.0).toString();
-			setProperties();
-			$(".card").show();
+			let ss = setProperties();
+			let pq= L.popup();
+			pq
+				.setLatLng([x1, y1])
+				.setContent(ss)
+				.openOn(map);
+
 		});
 	});
 	
@@ -90,19 +88,12 @@ $(document).ready(function () {
 
 
 function setProperties() {
-	var a = document.getElementById("InRange");
-	a.innerText = numInRange;
 
-	var b = document.getElementById("Nearest");
-	b.innerText = array2[nearest_i / 2];
-
-	var b2 = document.getElementById("Address");
-	b2.innerText = array3[nearest_i / 2];
-
-	var c = document.getElementById("DistanceToNearest");
-	c.innerText = parseFloat(sumDistance).toFixed(2) + " Km";
-
-	
+	let a = numInRange;
+	let b = fsarray2[nearest_i / 2];
+	let b2 = fsarray3[nearest_i / 2];
+	let c = parseFloat(sumDistance).toFixed(2) + " Km";
+	return `Số trạm cứu hỏa trong 10km: <b>${a}</b> <br>Trạm cứu hỏa gần nhất: <b>${b}</b><br>Địa chỉ: <b>${b2}</b><br>Khoảng cách: <b>${c}</b>`
 }
 
 
@@ -122,3 +113,56 @@ function getDistance(lat1, lon1, lat2, lon2) {
 function deg2rad(deg) {
 	return deg * (Math.PI / 180)
 }
+
+$(document).ready(function() {
+	var show = false;
+	for (let i=0;i<count.length;i++){
+		$('table').append('<tr>'
+			+ '<td>' + (i + 1) + '</td>'
+			+ '<td style="text-align:left;font-weight:500;padding-left:5px">' + dist[i] + '</td>'
+			+ '<td>' + count[i] + '</td>'
+			+ '</tr>');
+	}
+
+	$("#left-hide").on('click',function(){
+		$(".hide-show").animate(
+			{width: "toggle"},300
+		);
+		if(show){
+			show = false;
+			$("#left-hide").animate(
+				{"left": "-=25%"}, 300, function(){
+					$("#control-hide").animate(
+						{ deg: 0 },
+						{duration: 400,
+							step: function(now) {
+								$(this).css({ transform: 'rotate(' + now + 'deg)' });
+							}
+						});
+				}
+			)
+			$("#map").animate(
+				{width: "100%"},300
+			);
+
+		}
+		else{
+			show = true;
+			$("#left-hide").animate(
+				{"left": "+=25%"}, 300, function(){
+					$("#control-hide").animate(
+						{ deg: -180 },
+						{duration: 400,
+							step: function(now) {
+								$(this).css({ transform: 'rotate(' + now + 'deg)' });
+							}
+						});
+				}
+			)
+			$("#map").animate(
+				{width: "70%"},300
+			);
+
+		}
+	});
+})

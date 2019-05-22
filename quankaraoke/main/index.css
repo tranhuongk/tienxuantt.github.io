@@ -24,8 +24,8 @@ body{
     border-right: #d5d5d5 solid thin;
     z-index: 1;
 }#left-control h4{
-    margin: 50px 30px 50px 30px;
      color: #0078A8;
+     padding-left:10px; 
  }
 .list-map{
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;

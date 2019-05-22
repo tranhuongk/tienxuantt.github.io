@@ -3,23 +3,99 @@ html {
     font-size: 11pt;
 }
 
-.map {
-    position: fixed;
-    top: 0;
+* {
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+}
+#map {
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+}
+#left-control {
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    width: 25%;
+    height: 100vh;
+    overflow-x: auto;
+    border-right: #d5d5d5 solid thin;
+    z-index: 1;
+}#left-control h4{
+    margin: 50px 30px 50px 30px;
+     color: #0078A8;
+ }
+.list-map{
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    width: 15%;
+    background: #ebef07;
+    height: 100vh;
+    overflow-x: auto;
+    z-index: 1;
+    float: right;
+}
+.hide-show{
+    display: none;
+}
+button {
+    border-radius: 100px;
+    background-color: #e0e0e0;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    padding: 6px 8px;
+    margin: 3px 2px;
+    cursor: pointer;
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12);
+}
+button:hover{
+    background-color: #d5d5d5;
+}
+#left-hide{
+    position: absolute;
+    top: 80px;
     left: 0;
-    right: 0;
-    bottom: 0;
+    padding: 8px 10px;
+    margin-left: 10px;
+    z-index: 10;
+    color: red;
+    background-color: rgb(255, 221, 221);
+}
+#left-hide:hover{
+    background-color: rgb(255, 191, 191);
 }
 
-.results {
-    background-color: white;
-    opacity: 0.8;
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 320px;
-    height: 480px;
-    overflow-y: scroll;
+.nearest {
+    cursor: pointer;
+    color: #0078A8;
+}
+
+.nearest:hover {
+    color: rgb(255, 0, 0);
+}
+
+
+table {
+    width: 100%;
+    margin-top: 5px;
+}
+
+th, td {
+    text-align: center;
+    font-size: 14px;
+}
+
+.leaflet-routing-geocoders {
+    display: none;
+}
+
+.leaflet-routing-container.leaflet-bar.leaflet-control {
+    display: none;
+}
+a{
+    font-size: 13px !important;
 }
 
 .list-map{
@@ -40,7 +116,7 @@ html {
 
 .list-map li {
     text-align: left;
-    margin-left: 5px;
+    margin-left: 0px;
 }
 
 .list-map li {
@@ -52,40 +128,8 @@ html {
     color: red;
 }
 .list-map ul{
- list-style: none;
- padding-left: 3px;
- color: blue;
- cursor: pointer;
-}
-.badge-success {
-    color: #fff;
-    background-color: #28a745;
-    padding: 7px;
-}
-.list-group-flush .list-group-item {
-    border-right: 0;
-    border-left: 0;
-    border-radius: 0;
-    font-style: italic;
-}
-
-.card {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    overflow-x: auto;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-}
-.card-header span {
-    float: right;
-    color: red;
-    font-weight: bold;
+    list-style: none;
+    padding-left: 3px;
+    color: blue;
     cursor: pointer;
 }
