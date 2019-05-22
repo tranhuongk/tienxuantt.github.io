@@ -2,76 +2,43 @@
 <html>
 
 <head>
-  <meta charset="utf-8" />
-  <title>My map</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    <meta charset="utf-8" />
+    <title>My map</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
         integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
         crossorigin="" />
-  <link rel="stylesheet" href="../Common/dist/leaflet-routing-machine.css" />
-  <link rel="stylesheet" href="./main/index.css" />
-  <style>
-    html,
-    body {
-        height: 100%;
-    }
+    <link rel="stylesheet" href="../Common/dist/leaflet-routing-machine.css" />
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
+        integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <link rel="stylesheet" href="./main/index.css" />
+    <style>
+        .leaflet-routing-geocoders {
+            display: none;
+        }
 
-    body {
-        display: grid;
-        grid-template-columns: 25% 60% 15%;
-    }
+        .leaflet-routing-container.leaflet-bar.leaflet-control {
+            display: none;
+        }
 
-    .statistic-panel, .map-panel, .navigation-panel {
-        position: relative;
-    }
-
-    .statistic-panel {
-        overflow-y: auto;
-    }
-
-    .leaflet-routing-geocoders {
-        display: none;
-    }
-
-    .leaflet-routing-container.leaflet-bar.leaflet-control {
-        display: none;
-    }
-
-    a {
-        font-size: 13px !important;
-    }
-
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-
-    tr:nth-child(even) {
-        background-color: #eeeeee;
-    }
-</style>
+        a {
+            font-size: 13px !important;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="statistic-panel">
-        <table>
-            <thead class="statistic-table-head">
+    <div id="left-control" class="list-school" class="hide-show">
+        <h2 style="font-size: 24px;">Trường THPT TP Hà Nội</h2>
+        <div>
+            <table id="statistical" style="margin-right: auto; margin-left:auto">
                 <tr>
                     <th>STT</th>
-                    <th>Quận/Huyện</th>
-                    <th>Số trường THPT</th>
+                    <th style="width:40%">Quận/Huyện</th>
+                    <th>Số lượng</th>
                 </tr>
-            </thead>
-            <tbody class="statistic-table-body">
                 <tr>
                     <td>1</td>
                     <td>Bắc Từ Liêm</td> 
@@ -222,15 +189,10 @@
                     <td>Sơn Tây</td> 
                     <td>3</td>
                 </tr>
-                <tr>
-                    <td colspan="2">Tổng cộng: </td>
-                    <td>69</td>
-                </tr>
-            </tbody>
-        </table>
+            </table>
+        </div>
     </div>
-    <div class="map-panel">
-        <div id="map" class="map"></div>
+    <div id="map" class="map">
         <div class="card" style="width: 18rem;display: none;">
             <div class="card-header">
                 Các thông số <span>X</span>
@@ -239,59 +201,63 @@
                 <li class="list-group-item">
                     Số trường THPT trong bán kính 10KM: <span id="InRange" class="badge badge-success"></span>
                 </li>
-                <li class="list-group-item">Trường THPT gần nhất: <span id="Nearest" class="badge badge-success"></span></li>
+                <li class="list-group-item">Trường THPT gần nhất: <span id="Nearest" class="badge badge-success"></span>
+                </li>
                 <li class="list-group-item"> Địa chỉ: <span id="Address" class="badge badge-success"></span></li>
                 <li class="list-group-item">
                     Đường đến trường THPT gần nhất: <span id="DistanceToNearest" class="badge badge-success"></span>
                 </li>
             </ul>
         </div>
+
     </div>
-    <div class="navigation-panel">
-        <div class="list-map">
-            <h4>Tùy chọn</h4>
-            <ul>
-                <a  href="../chatluongdien/chatluongdien.html"><li>Bản đồ chất lượng điện</li></a>
-                <a  href="../chatluongnuoc/chatluongnuoc.html"><li>Bản đồ chất lượng nước</li></a>
-                <a href="../quanlynuocthai/quanlynuocthai.html"><li>Quản lý nước thải</li></a>
-                <a  href="../quanlyracthai/quanlyracthai.html"><li>Quản lý rác thải</li></a>
-                <a href="../tramcuuhoa/tramcuuhoa.html"><li>Trạm cứu hỏa</li></a>
-                <a  href="../doncanhsat/doncanhsat.html"><li>Đồn cảnh sát</li></a>
-                <a  href="../benhvien/benhvien.html"><li>Bệnh viện</li></a>
-                <a  href="../sieuthi/sieuthi.html"><li>Siêu thị</li></a>
-                <a  href="../congvien/congvien.html"><li>Công viên</li></a>
-                <a  href="../cho/cho.html"><li>Chợ</li></a>
-                <a  href="../truongmaugiao/truongmaugiao.html"><li>Trường mẫu giáo</li></a>
-                <a  href="../truongtieuhoc/truongtieuhoc.html"><li>Trường tiểu học</li></a>
-                <a href="../truongthcs/truongthcs.html"><li>Trường THCS</li></a>
-                <a  style="font-weight:bold;color:red;"  href="../truongthpt/truongthpt.html"><li>Trường THPT</li></a>
-                <a href="../daihoc/daihoc.html"><li>Đại học</li></a>
-                <a href="../trambus/trambus.html"><li>Trạm xe bus</li></a>
-                <a href="../quankaraoke/quankaraoke.html"><li>Quán karaoke</li></a>
-                <a href="../rapcheuphim/rapcheuphim.html"><li>Rạp chiếu phim</li></a>
-                <a href="../quancaphe/quancaphe.html"><li>Quán cà phê</li></a>
-            </ul>
-        </div>
-    </div>
+
+    <button id="left-hide"><i id="control-hide" class='fas fa-arrow-right' style="font-size: 16px;"></i></button>
+
     <div class="icon-globle" style="    position: fixed;
-    right: 15%;
-    height: 50px;
-    top: 23px;
-    z-index: 99999;
-    width: 50px;
-    cursor: pointer;">
-        <a href="../index.html"><img src="../Common/image/icon3.png" alt="" style="width:50px;height:50px"></a> 
-     </div>
+   right: 15%;
+   height: 50px;
+   top: 23px;
+   z-index: 99999;
+   width: 50px;
+   cursor: pointer;">
+       <a href="../index.html"><img src="../Common/image/icon3.png" alt="" style="width:50px;height:50px"></a> 
+    </div>
+    <div class="list-map" style="height:100%">
+        <h4>Tùy chọn</h4>
+        <ul>
+            <a  href="../chatluongdien/chatluongdien.html"><li>Bản đồ chất lượng điện</li></a>
+            <a  href="../chatluongnuoc/chatluongnuoc.html"><li>Bản đồ chất lượng nước</li></a>
+            <a  href="../quanlynuocthai/quanlynuocthai.html"><li>Quản lý nước thải</li></a>
+            <a  href="../quanlyracthai/quanlyracthai.html"><li>Quản lý rác thải</li></a>
+            <a  href="../tramcuuhoa/tramcuuhoa.html"><li>Trạm cứu hỏa</li></a>
+            <a  href="../doncanhsat/doncanhsat.html"><li>Đồn cảnh sát</li></a>
+            <a  href="../benhvien/benhvien.html"><li>Bệnh viện</li></a>
+            <a  href="../sieuthi/sieuthi.html"><li>Siêu thị</li></a>
+            <a  href="../congvien/congvien.html"><li>Công viên</li></a>
+            <a  href="../cho/cho.html"><li>Chợ</li></a>
+            <a  href="../truongmaugiao/truongmaugiao.html"><li>Trường mẫu giáo</li></a>
+            <a  href="../truongtieuhoc/truongtieuhoc.html"><li>Trường tiểu học</li></a>
+            <a  href="../truongthcs/truongthcs.html"><li>Trường THCS</li></a>
+            <a  style="font-weight:bold;color:red;" href="../truongthpt/truongthpt.html"><li>Trường THPT</li></a>
+            <a  href="../daihoc/daihoc.html"><li>Đại học</li></a>
+            <a  href="../trambus/trambus.html"><li>Trạm xe bus</li></a>
+            <a  href="../quankaraoke/quankaraoke.html"><li>Quán karaoke</li></a>
+            <a  href="../rapcheuphim/rapcheuphim.html"><li>Rạp chiếu phim</li></a>
+            <a  href="../quancaphe/quancaphe.html"><li>Quán cà phê</li></a>
+        </ul>
+    </div>
+
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-            crossorigin=""></script>
+        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
     <script src="../Common/dist/leaflet-routing-machine.js"></script>
     <script src="../Common/Control.Geocoder.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./main/data.js"></script>
     <script src="./main/config.js"></script>
-    <script src="../Common/quality.js"></script>
     <script src="../Common/district.geojson.js"></script>
+    <script src="../Common/quality.js"></script>
     <script src="./index.js"></script>
 
 </body>

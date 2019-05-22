@@ -3,14 +3,38 @@ html {
     font-size: 11pt;
 }
 
+.card {
+    /* margin-left: 20%; */
+    z-index: 99;
+}
+
 .map {
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 0%;
+    right: 146px;
     bottom: 0;
+    z-index: 1;
+}
+#left-hide{
+            outline: none;
+            border-radius:50%;
+            position: absolute;
+            top: 80px;
+            left: 0%;
+            padding: 8px 10px;
+            margin-left: 10px;
+            z-index: 10;
+            color: red;
+            background-color: rgb(255, 221, 221);
 }
 
+#left-hide:hover{
+    background-color: rgb(255, 191, 191);
+}
+.hide-show{
+    display: none;
+}
 .results {
     background-color: white;
     opacity: 0.8;
@@ -21,15 +45,46 @@ html {
     height: 480px;
     overflow-y: scroll;
 }
+table {
+            width: 100%;
+            margin-top: 5px;
+        }
 
+        th, td {
+            text-align: center;
+            font-size: 14px;
+        }
+.list-school{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 20%;
+    height: 100vh;
+    overflow-x: auto;
+    text-align: center;
+    font-size: 12px;
+}
+
+tr {
+    border:  1px solid gray;
+}
+
+h2 {
+    color:  blue;
+    font-size: 20px !important;
+}
+
+div#left-control td {
+    font-size: 13px !important;
+    text-align:  left;
+    padding-left: 26px;
+}
 .list-map{
     position: absolute;
-    top: 0;
     right: 0;
-    bottom: 0;
-    left: 0;
-    /* width: 100%;
-    height: 100%; */
+    top: 0;
+    width: 168px;
+    z-index: 99;
     background: #ebef07;
     text-align: center;
 }
@@ -70,22 +125,25 @@ html {
     border-left: 0;
     border-radius: 0;
     font-style: italic;
+    overflow-x:  hidden;
 }
 
 .card {
-    position: relative;
+    position: absolute;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    overflow-x: auto;
+    overflow-x: hidden;
+    z-index: 9999999;
+    left:  0;
+    bottom: 0;
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
-    z-index: 999;
 }
 .card-header span {
     float: right;
