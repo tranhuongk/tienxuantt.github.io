@@ -163,7 +163,7 @@ function deg2rad(deg) {
 	return deg * (Math.PI / 180)
 }
 
-function calculatePoint(lat,lng){
+function parkPoint(lat,lng){
 	//hàm này phân loại 1 tọa độ theo hạng từ 1 -> n, hạng càng thấp thì càng chất lượng
 	x1 = lat;
 	y1 = lng;
