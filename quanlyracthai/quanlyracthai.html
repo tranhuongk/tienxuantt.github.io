@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible">
     <title>Map</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
+        integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link rel="stylesheet" href="../Common/common.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
         integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -16,7 +20,7 @@
         }
 
         #mapid {
-            height: 97vh;
+            height: 100vh;
         }
 
         .info {
@@ -50,15 +54,17 @@
             opacity: 0.7;
         }
 
-                .row {
-      display: flex;
-      margin-bottom: 15px;
-    }
-    .rect {
-      width: 50px;
-      height: 20px;
-      margin-right: 20px;
-    }
+        .row {
+            margin-left: 10px;
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .rect {
+          width: 50px;
+          height: 20px;
+          margin-right: 20px;
+        }
 
         a{
     font-size: 13px !important;
@@ -68,10 +74,14 @@
 
 <body>
 
-    <div class="controller">
-        <h2>Bản đồ rác thải Hà Nội</h2>
-        <input onclick="togglePoints(this)" type="checkbox">Hiển thị vị trí các khu xử lý rác</input>
-        <h2>Đánh giá</h2>
+    <div class="controller" id="info4" style="padding: 10px">
+        <h3>Bản đồ rác thải Hà Nội</h3>
+        <input onclick="togglePoints(this)" type="checkbox"> Hiển thị vị trí các khu xử lý rác</input>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h5>Đánh giá</h5>
 
         <div class="row">
             <div class="rect" style="background-color: #00FF00"></div>8-10
@@ -116,11 +126,15 @@
 
     </div>
 
-    <div class="map">
-        <div id="mapid"></div>
+    <div class="map" id="map4">
+        <div id="mapid">
+            <button onclick="toggleFrames(this)" class="btn btn-info btn-sm" style="z-index: 999; position: relative; top: 80px; left: 12px;">
+                <i id="arrow" class="fas fa-arrow-left"></i>
+            </button>
+        </div>
     </div>
 
-    <div class="list-map" style="height:100vh">
+    <div class="list-map" id="list-map4" style="height:100vh">
         <h4>Tùy chọn</h4>
         <ul>
             <a  href="../chatluongdien/chatluongdien.html"><li>Bản đồ chất lượng điện</li></a>
@@ -144,7 +158,7 @@
             <a href="../quancaphe/quancaphe.html"><li>Quán cà phê</li></a>
         </ul>
     </div>
-    <div class="icon-globle" style="    position: fixed;
+    <div class="icon-globle" id="globe" style="    position: fixed;
     right: 15%;
     height: 50px;
     top: 23px;
@@ -295,6 +309,33 @@
             } else {
                 mymap.removeLayer(pointsjson);
             }
+        }
+
+        var show = true;
+
+        function toggleFrames(button) {
+            let list = document.getElementById('list-map4');
+            let info = document.getElementById('info4');
+            let arrow = document.getElementById('arrow');
+            let map = document.getElementById('map4');
+            // let globe = document.getElementById('globe');
+
+            if(show) {
+                list.style.display = "none";
+                info.style.display = "none";
+                // globe.style.display = "none";
+                map.style.width = "100%";
+                arrow.className = "fas fa-arrow-right";
+            } else {
+                arrow.className = "fa fa-arrow-left";
+                map.style.width = "60%";
+                list.style.display = "unset";
+                info.style.display = "unset";
+                // globe.style.display = "unset";
+            }
+            setTimeout(function(){ mymap.invalidateSize()}, 100);
+
+            show = !show;
         }
     </script>
 </body>
