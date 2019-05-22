@@ -11,12 +11,29 @@ $(document).ready(function () {
 		$(".card").hide();
 	});
 
-    var show = false;  
+	$("#left-hide").animate(
+		{"left": "+=20%"}, 300, function(){
+			$("#control-hide").animate(
+				{ deg: -180 },
+				{duration: 400,
+				step: function(now) {
+					$(this).css({ transform: 'rotate(' + now + 'deg)' });
+				}
+			});
+		}
+	)
+	$("#map").animate(
+		{left:'20%', right:'146px'},300
+	);
+
+
+    var show = true;  
     $("#left-hide").on('click',function(){
         $(".hide-show").animate(
             {width: "toggle"},300
         );
         if(show){
+			$(".list-map").hide();
             show = false;
             $("#left-hide").animate(
                 {"left": "-=20%"}, 300, function(){
@@ -30,11 +47,12 @@ $(document).ready(function () {
                 }
             )
             $("#map").animate(
-                {left:'0px',right:'146px'},300
+                {left:'0px',right:'0px'},300
             );
             
         }
         else{
+			$(".list-map").show();
             show = true;
             $("#left-hide").animate(
                 {"left": "+=20%"}, 300, function(){

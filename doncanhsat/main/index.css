@@ -17,16 +17,16 @@ html {
     z-index: 1;
 }
 #left-hide{
-            outline: none;
-            border-radius:50%;
-            position: absolute;
-            top: 80px;
-            left: 0%;
-            padding: 8px 10px;
-            margin-left: 10px;
-            z-index: 10;
-            color: red;
-            background-color: rgb(255, 221, 221);
+    outline: none;
+    border-radius:50%;
+    position: absolute;
+    top: 80px;
+    left: 0%;
+    padding: 8px 10px;
+    margin-left: 10px;
+    z-index: 10;
+    color: red;
+    background-color: rgb(255, 221, 221);
 }
 
 #left-hide:hover{
