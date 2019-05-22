@@ -7,17 +7,13 @@
     <meta http-equiv="X-UA-Compatible">
     <title>Bản đồ chất lượng điện Hà Nội</title>
     <link rel="stylesheet" href="../Common/common.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-        crossorigin="" />
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin="" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-        body{
-            display: flex;
-        }
-
-        #mapid {
-            height: 97vh;
-        }
 
         .info {
             padding: 6px 8px;
@@ -29,8 +25,8 @@
         }
 
         .info h4 {
-            margin: 0 0 5px;
-            color: #777;
+                margin: 0 0 5px;
+                color: #777;
         }
 
         .my-popup {
@@ -43,13 +39,13 @@
             color: #555;
         }
 
-        .legend i {
-            width: 18px;
-            height: 18px;
-            float: left;
-            margin-right: 8px;
-            opacity: 0.7;
-        }
+            .legend i {
+                width: 18px;
+                height: 18px;
+                float: left;
+                margin-right: 8px;
+                opacity: 0.7;
+            }
 
         .container {
             display: flex;
@@ -64,9 +60,74 @@
         .controller h1 {
             font-size: 24px;
         }
-        a{
-    font-size: 13px !important;
-}
+
+        a {
+            font-size: 13px !important;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .controller {
+            width: 350px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+
+        .hide .controller {
+            width: 0;
+            padding: 0;
+        }
+
+        .hide #left-hide {
+            left: 0;
+            transform: none;
+        }
+
+        #mapid {
+            height: 100vh;
+            z-index: 1;
+            transition: all 0.3s;
+            flex: 1;
+        }
+
+        .hide #mapid {
+            width: 100vw;
+        }
+
+        .hide .list-map {
+            width: 0;
+            padding: 0;
+            margin: 0;
+        }
+
+        .list-map {
+            transition: all 0.3s;
+        }
+
+        #left-hide {
+            position: absolute;
+            top: 80px;
+            left: 350px;
+            padding: 8px 10px;
+            margin-left: 10px;
+            z-index: 10;
+            color: red;
+            background-color: rgb(255, 221, 221);
+            border-radius: 50%;
+            transition: all 0.3s;
+            transform: rotate(-180deg);
+            outline: none;
+        }
+
+        .left-hide:hover {
+            background-color: rgb(255, 191, 191);
+        }
 
     </style>
 </head>
@@ -121,9 +182,9 @@
         <h4>- Bản đồ chia theo các quận, huyện, thị xã trong Hà Nội</h4>
         <h4>- Chất lượng điện có thang điểm 10</h4>
     </div>
-    <div class="map">
-        <div id="mapid"></div>
-    </div>
+
+    <div id="mapid"></div>
+    <button id="left-hide" onclick="toggleShow()"><i id="control-hide" class='fas fa-arrow-right' style="font-size: 16px;"></i></button>
     <div class="list-map">
         <h4>Tùy chọn</h4>
         <ul>
@@ -155,16 +216,23 @@
     z-index: 99999;
     width: 50px;
     cursor: pointer;">
-        <a href="../index.html"><img src="../Common/image/icon3.png" alt="" style="width:50px;height:50px"></a> 
-     </div>
+        <a href="../index.html"><img src="../Common/image/icon3.png" alt="" style="width:50px;height:50px"></a>
+    </div>
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
             integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
             crossorigin=""></script>
     <script src="district.geojson.js"></script>
     <script>
+        
+
         var base = 78374.13333;
 
         var mymap = L.map('mapid').setView([21.0366420, 105.7802457], 9.5);
+
+        const toggleShow = () => {
+            document.body.classList.toggle("hide");
+            setTimeout(function () { mymap.invalidateSize() }, 300);
+        }
 
         L.tileLayer(" https://map.itrithuc.vn/tiles/{z}/{x}/{y}.png", {
             attribution: '&copy; <a href="https://map.itrithuc.vn/">VNMap</a> - Bản đồ số Việt Nam',
@@ -235,10 +303,10 @@
                 click: zoomToFeature
             });
             layer.bindPopup(`<strong>${feature.properties.TYPE_2} ${feature.properties.NAME_2}</strong></br>Tổng thời gian mất điện: ${feature.properties.hours.toFixed(3)}h</br>
-                                        Mật độ dân số: ${feature.properties.density.toFixed(3) * 1000} (người/km2)</br>
-                                        Chất lượng tải điện: ${feature.properties.load}</br>
-                                        Tỉ lệ cơ quan chính phủ: ${feature.properties.gov}</br>
-                                        Chất lượng điện: ${(quality(feature) * 10).toFixed(2)}`, {
+                                                                            Mật độ dân số: ${feature.properties.density.toFixed(3) * 1000} (người/km2)</br>
+                                                                            Chất lượng tải điện: ${feature.properties.load}</br>
+                                                                            Tỉ lệ cơ quan chính phủ: ${feature.properties.gov}</br>
+                                                                            Chất lượng điện: ${(quality(feature) * 10).toFixed(2)}`, {
                     closeButton: false,
                     className: 'my-popup'
                 });
@@ -248,24 +316,23 @@
             style: style,
             onEachFeature: onEachFeature
         }).addTo(mymap);
-                /*
-                var legend = L.control({ position: 'bottomleft' });
-                legend.onAdd = function (mymap) {
+                                    /*
+                                    var legend = L.control({ position: 'bottomleft' });
+                                    legend.onAdd = function (mymap) {
 
-                    var div = L.DomUtil.create('div', 'legend info'),
-                        grades = [0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
-                        labels = [];
-                    div.innerHTML += 'Chất lượng</br>';
-                    for (var i = 0; i < grades.length; i++) {
-                        div.innerHTML +=
-                            '<i style="background:' + getColor(grades[i] + 0.01) + '"></i> ' +
-                            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-                    }
-                    return div;
-                };
-                legend.addTo(mymap);
-                */
-
+                                        var div = L.DomUtil.create('div', 'legend info'),
+                                            grades = [0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
+                                            labels = [];
+                                        div.innerHTML += 'Chất lượng</br>';
+                                        for (var i = 0; i < grades.length; i++) {
+                                            div.innerHTML +=
+                                                '<i style="background:' + getColor(grades[i] + 0.01) + '"></i> ' +
+                                                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+                                        }
+                                        return div;
+                                    };
+                                    legend.addTo(mymap);
+                                    */
     </script>
 </body>
 
