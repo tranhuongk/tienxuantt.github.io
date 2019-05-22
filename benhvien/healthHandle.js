@@ -246,6 +246,24 @@ $(document).ready(function() {
     }
 
     var show = false;  
+    $(".hide-show").animate(
+        {width: "toggle"},300
+    );
+    show = true;
+    $("#left-hide").animate(
+        {"left": "+=25%"}, 300, function(){
+            $("#control-hide").animate(
+                { deg: -180 },
+                {duration: 400,
+                step: function(now) {
+                    $(this).css({ transform: 'rotate(' + now + 'deg)' });
+                }
+            });
+        }
+    )
+    $("#mapid").animate(
+        {width: "60%"},300
+    );
     $("#left-hide").on('click',function(){
         $(".hide-show").animate(
             {width: "toggle"},300
