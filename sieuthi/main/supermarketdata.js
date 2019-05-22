@@ -1,3 +1,222 @@
+var statistical = [
+    {
+      "STT": 1,
+      "District": "Q. Ba Đình",
+      "Market": 16,
+      "Supermarket": 8,
+      "Park": 7
+    },
+    {
+      "STT": 2,
+      "District": "Q. Hoàn Kiếm",
+      "Market": 7,
+      "Supermarket": 1,
+      "Park": 7
+    },
+    {
+      "STT": 3,
+      "District": "Q. Tây Hồ",
+      "Market": 8,
+      "Supermarket": 1,
+      "Park": 4
+    },
+    {
+      "STT": 4,
+      "District": "Q. Long Biên",
+      "Market": 25,
+      "Supermarket": 17,
+      "Park": 8
+    },
+    {
+      "STT": 5,
+      "District": "Q. Cầu Giấy",
+      "Market": 16,
+      "Supermarket": 10,
+      "Park": 3
+    },
+    {
+      "STT": 6,
+      "District": "Q. Đống Đa",
+      "Market": 22,
+      "Supermarket": 5,
+      "Park": 4
+    },
+    {
+      "STT": 7,
+      "District": "Q. Hai Bà Trưng",
+      "Market": 15,
+      "Supermarket": 8,
+      "Park": 4
+    },
+    {
+      "STT": 8,
+      "District": "Q. Hoàng Mai",
+      "Market": 22,
+      "Supermarket": 4,
+      "Park": 10
+    },
+    {
+      "STT": 9,
+      "District": "Q. Thanh Xuân",
+      "Market": 8,
+      "Supermarket": 5,
+      "Park": 1
+    },
+    {
+      "STT": 10,
+      "District": "H. Sóc Sơn",
+      "Market": 0,
+      "Supermarket": 0,
+      "Park": 2
+    },
+    {
+      "STT": 11,
+      "District": "H. Đông Anh",
+      "Market": 1,
+      "Supermarket": 3,
+      "Park": 4
+    },
+    {
+      "STT": 12,
+      "District": "H. Gia Lâm",
+      "Market": 1,
+      "Supermarket": 0,
+      "Park": 0
+    },
+    {
+      "STT": 13,
+      "District": "Q. Nam Từ Liêm",
+      "Market": 9,
+      "Supermarket": 16,
+      "Park": 3
+    },
+    {
+      "STT": 14,
+      "District": "H. Thanh Trì",
+      "Market": 9,
+      "Supermarket": 5,
+      "Park": 1
+    },
+    {
+      "STT": 15,
+      "District": "Q. Bắc Từ Liêm",
+      "Market": 15,
+      "Supermarket": 9,
+      "Park": 1
+    },
+    {
+      "STT": 16,
+      "District": "H. Mê Linh",
+      "Market": 0,
+      "Supermarket": 2,
+      "Park": 3
+    },
+    {
+      "STT": 17,
+      "District": "Q. Hà Đông",
+      "Market": 19,
+      "Supermarket": 12,
+      "Park": 8
+    },
+    {
+      "STT": 18,
+      "District": "Thị xã Sơn Tây",
+      "Market": 1,
+      "Supermarket": 2,
+      "Park": 1
+    },
+    {
+      "STT": 19,
+      "District": "H. Ba Vì",
+      "Market": 0,
+      "Supermarket": 0,
+      "Park": 0
+    },
+    {
+      "STT": 20,
+      "District": "H. Phúc Thọ",
+      "Market": 0,
+      "Supermarket": 0,
+      "Park": 0
+    },
+    {
+      "STT": 21,
+      "District": "H. Đan Phượng",
+      "Market": 0,
+      "Supermarket": 1,
+      "Park": 2
+    },
+    {
+      "STT": 22,
+      "District": "H. Hoài Đức",
+      "Market": 1,
+      "Supermarket": 0,
+      "Park": 1
+    },
+    {
+      "STT": 23,
+      "District": "H. Quốc Oai",
+      "Market": 0,
+      "Supermarket": 0,
+      "Park": 0
+    },
+    {
+      "STT": 24,
+      "District": "H. Thạch Thất",
+      "Market": 1,
+      "Supermarket": 0,
+      "Park": 1
+    },
+    {
+      "STT": 25,
+      "District": "H. Chương Mỹ",
+      "Market": 0,
+      "Supermarket": 0,
+      "Park": 1
+    },
+    {
+      "STT": 26,
+      "District": "H. Thanh Oai",
+      "Market": 1,
+      "Supermarket": 0,
+      "Park": 0
+    },
+    {
+      "STT": 27,
+      "District": "H. Thường Tín",
+      "Market": 1,
+      "Supermarket": 0,
+      "Park": 2
+    },
+    {
+      "STT": 28,
+      "District": "H. Phú Xuyên",
+      "Market": 0,
+      "Supermarket": 0,
+      "Park": 1
+    },
+    {
+      "STT": 29,
+      "District": "H. Ứng Hòa",
+      "Market": 1,
+      "Supermarket": 0,
+      "Park": 0
+    },
+    {
+      "STT": 30,
+      "District": "H. Mỹ Đức",
+      "Market": 0,
+      "Supermarket": 0,
+      "Park": 1
+    },
+    {
+      "STT": 31,
+      "District": "Tổng",
+      "Market": 199,
+      "Supermarket": 109,
+      "Park": 80
+    }
+   ];
 supermarketarray1 = [105.7939682, 21.0377903,
     105.8132706, 21.03182793,
     105.819603, 21.0353508,

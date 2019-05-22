@@ -28,7 +28,7 @@ a{
 
 <body>
     <div id="left-control" class="list-school" class="hide-show">
-        <h2 style="font-size: 24px;">Quán karaoke TP Hà Nội</h2>
+        <h2 style="font-size: 24px;">Số lượng công viên tại Hà Nội</h2>
         <div >
         <table id="statistical" style="margin-right: auto; margin-left:auto">
             <tr>
@@ -47,13 +47,13 @@ a{
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                Số quán karaoke trong bán kính 10KM: <span id="InRange"
+                Số công viên trong bán kính 10KM: <span id="InRange"
                                                               class="badge badge-success"></span>
             </li>
-            <li class="list-group-item">Quán karaoke gần nhất: <span id="Nearest" class="badge badge-success"></span></li>
+            <li class="list-group-item">công viên gần nhất: <span id="Nearest" class="badge badge-success"></span></li>
             <li class="list-group-item"> Địa chỉ: <span id="Address" class="badge badge-success"></span></li>
             <li class="list-group-item">
-                Đường đến quán karaoke gần nhất: <span id="DistanceToNearest"
+                Đường đến công viên gần nhất: <span id="DistanceToNearest"
                                                           class="badge badge-success"></span>
             </li>
         </ul>
@@ -63,45 +63,40 @@ a{
     <div class="list-map" style="height:100%">
         <h4>Tùy chọn</h4>
         <ul>
-            <a  href="../chatluongdien/chatluongdien.html"><li>Bản đồ chất lượng điện</li></a>
-        <a  href="../chatluongnuoc/chatluongnuoc.html"><li>Bản đồ chất lượng nước</li></a>
-        <a href="../quanlynuocthai/quanlynuocthai.html"><li>Quản lý nước thải</li></a>
-        <a  href="../quanlyracthai/quanlyracthai.html"><li>Quản lý rác thải</li></a>
-        <a href="../tramcuuhoa/tramcuuhoa.html"><li>Trạm cứu hỏa</li></a>
-        <a  href="../doncanhsat/doncanhsat.html"><li>Đồn cảnh sát</li></a>
-        <a  href="../benhvien/benhvien.html"><li>Bệnh viện</li></a>
-        <a  href="../sieuthi/sieuthi.html"><li>Siêu thị</li></a>
-        <a  href="../congvien/congvien.html"><li>Công viên</li></a>
-        <a  href="../cho/cho.html"><li>Chợ</li></a>
-        <a  href="../truongmaugiao/truongmaugiao.html"><li>Trường mẫu giáo</li></a>
-        <a style="font-weight:bold;color:red;" href="../truongtieuhoc/truongtieuhoc.html"><li>Trường tiểu học</li></a>
-        <a href="../truongthcs/truongthcs.html"><li>Trường THCS</li></a>
-        <a href="../truongthpt/truongthpt.html"><li>Trường THPT</li></a>
-        <a href="../daihoc/daihoc.html"><li>Đại học</li></a>
-        <a href="../trambus/trambus.html"><li>Trạm xe bus</li></a>
-        <a href="../quankaraoke/quankaraoke.html"><li>Quán karaoke</li></a>
-        <a href="../rapcheuphim/rapcheuphim.html"><li>Rạp chiếu phim</li></a>
-        <a href="../quancaphe/quancaphe.html"><li>Quán cà phê</li></a>
+            <a href="../index.html"><li>Bản đồ chất lượng điện</li></a>
+            <a href="../Nhom2/map.html"><li>Bản đồ chất lượng nước</li></a>
+            <a href="../Nhom3/index.html"><li>Quản lý nước thải</li></a>
+            <a href="../Nhom4/map.html"><li>Quản lý rác thải</li></a>
+            <a href="../Nhom5/index.html"><li>Trạm cứu hỏa</li></a>
+            <a href="../Nhom6/index.html"><li>Đồn cảnh sát</li></a>
+            <a href="../Nhom7/index.html"><li>Bệnh viện</li></a>
+            <a  href="../Nhom8smarket/index.html"><li>Siêu thị</li></a>
+            <a style="font-weight:bold;color:red;" href="../Nhom8park/index.html"><li>Công viên</li></a>
+            <a  href="../Nhom8market/index.html"><li>Chợ</li></a>
+            <a href="../Nhom9/index.html"><li>Trường mẫu giáo</li></a>
+            <a  href="../Nhom10/index.html"><li>công viên</li></a>
+            <a href="../Nhom11/index.html"><li>Trường THCS</li></a>
+            <a href="../Nhom12hs/index.html"><li>Trường THPT</li></a>
+            <a href="../Nhom12uni/index.html"><li>Đại học</li></a>
+            <a href="../Nhom13/index.html"><li>Trạm xe bus</li></a>
+            <a href="../Nhom14/index.html"><li>Quán karaoke</li></a>
+            <a href="../Nhom15/index.html"><li>Rạp chiếu phim</li></a>
+            <a href="../Nhom16/index.html"><li>Quán cà phê</li></a>
+            <a href="../Nhom17/index.html"><li>Map Ranking</li></a>
+
+
         </ul>
     </div>
-    <div class="icon-globle" style="    position: fixed;
-    right: 15%;
-    height: 50px;
-    top: 23px;
-    z-index: 99999;
-    width: 50px;
-    cursor: pointer;">
-        <a href="../Nhom17/index.html"><img src="../Common/image/icon3.png" alt="" style="width:50px;height:50px"></a> 
-     </div>
+
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
             integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
             crossorigin=""></script>
     <script src="../Common/dist/leaflet-routing-machine.js"></script>
     <script src="../Common/Control.Geocoder.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="./main/data.js"></script>
+    <script src="./main/parkdata.js"></script>
     <script src="./main/config.js"></script>
-    <script src="../Common/district.geojson.js"></script>
+    <script src="../district.geojson.js"></script>
     <script src="../Common/quality.js"></script>
     <script src="./index.js"></script>
 

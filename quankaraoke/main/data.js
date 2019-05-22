@@ -1,3 +1,166 @@
+var statistical = [
+  {
+      "STT": "1",
+      "District": "Quận Ba Đình",
+      "Karaoke": "62",
+  },
+  {
+      "STT": "2",
+      "District": "Quận Hoàn Kiếm",
+      "Karaoke": "56",   
+  },
+  {
+      "STT": "3",
+      "District": "Quận Hai Bà Trưng",
+      "Karaoke": "63",
+  },
+  {
+      "STT": "4",
+      "District": "Quận Đống Đa",
+      "Karaoke": "69",
+
+  },
+  {
+      "STT": "5",
+      "District": "Quận Tây Hồ",
+      "Karaoke": "76",
+
+  },
+  {
+      "STT": "6",
+      "District": "Quận Cầu Giấy",
+      "Karaoke": "62",
+
+  },
+  {
+      "STT": "7",
+      "District": "Quận Thanh Xuân",
+      "Karaoke": "45",
+
+  },
+  {
+      "STT": "8",
+      "District": "Quận Hoàng Mai",
+      "Karaoke": "53",
+
+  },
+  {
+      "STT": "9",
+      "District": "Quận Long Biên",
+      "Karaoke": "37",
+
+  },
+  {
+      "STT": "10",
+      "District": "Huyện Từ Liêm",
+      "Karaoke": "39",
+
+  },
+  {
+      "STT": "11",
+      "District": "Huyện Thanh Trì",
+      "Karaoke": "46",
+
+  },
+  {
+      "STT": "12",
+      "District": "Huyện Gia Lâm",
+      "Karaoke": "65",
+
+  },
+  {
+      "STT": "13",
+      "District": "Huyện Đông Anh",
+      "Karaoke": "50",
+  },
+  {
+      "STT": "14",
+      "District": "Huyện Sóc Sơn",
+      "Karaoke": "36",
+  },
+  {
+      "STT": "15",
+      "District": "Quận Hà Đông",
+      "Karaoke": "63",
+
+  },
+  {
+      "STT": "16",
+      "District": "Thị xã Sơn Tây",
+      "Karaoke": "1",
+
+  },
+  {
+      "STT": "17",
+      "District": "Huyện Ba Vì",
+      "Karaoke": "1",
+  },
+  {
+      "STT": "18",
+      "District": "Huyện Phúc Thọ",
+      "Karaoke": "6",
+  },
+  {
+      "STT": "19",
+      "District": "Huyện Thạch Thất",
+      "Karaoke": "13",
+  },
+  {
+      "STT": "20",
+      "District": "Huyện Quốc Oai",
+      "Karaoke": "4",
+  },
+  {
+      "STT": "21",
+      "District": "Huyện Chương Mỹ",
+      "Karaoke": "2",
+  },
+  {
+      "STT": "22",
+      "District": "Huyện Đan Phượng",
+      "Karaoke": "1",
+  },
+  {
+      "STT": "23",
+      "District": "Huyện Hoài Đức",
+      "Karaoke": "2",
+  },
+  {
+      "STT": "24",
+      "District": "Huyện Thanh Oai",
+      "Karaoke": "1",
+  },
+  {
+      "STT": "25",
+      "District": "Huyện Mỹ Đức",
+      "Karaoke": "3",
+  },
+  {
+      "STT": "26",
+      "District": "Huyện Ứng Hòa",
+      "Karaoke": "8",
+  },
+  {
+      "STT": "27",
+      "District": "Huyện Thường Tín",
+      "Karaoke": "4",
+  },
+  {
+      "STT": "28",
+      "District": "Huyện Phú Xuyên",
+      "Karaoke": "3",
+  },
+  {
+      "STT": "29",
+      "District": "Huyện Mê Linh",
+      "Karaoke": "5",
+  },
+  {
+      "STT": "SUM",
+      "District": "Tổng số",
+      "Karaoke": "840",
+  }
+]
 array1 = [
   105.834451, 21.028811,
   105.8229982, 21.0351795,
@@ -2155,4 +2318,66 @@ array3 = [
   '	14, Vũ Phạm Hàm, P. Trung Hòa, Q. Cầu Giấy , Tp. Hà Nội	',
   '	473, Hoàng Quốc Việt, P. Cổ Nhuế 1, Q. Bắc Từ Liêm , Tp. Hà Nội	',
   '	166, Hoàng Quốc Việt, P. Cổ Nhuế 1, Q. Bắc Từ Liêm , Tp. Hà Nội	'
+];
+let count = [
+76,
+101,
+81,
+170,
+77,
+40,
+0,
+4,
+0,
+50,
+67,
+124,
+74,
+94,
+4,
+85,
+4,
+2,
+0,
+0,
+2,
+4,
+8,
+2,
+0,
+2,
+2,
+17,
+0
+];
+let dist = [
+'Hoàn Kiếm',
+'Hai Bà Trưng',
+'Ba Đình',
+'Đống Đa',
+'Nam Từ Liêm',
+'Thanh Trì',
+'Gia Lâm',
+'Đông Anh',
+'Sóc Sơn',
+'Tây Hồ',
+'Thanh Xuân',
+'Cầu Giấy',
+'Hoàng Mai',
+'Long Biên',
+'Mê Linh',
+'Hà Đông',
+'Sơn Tây',
+'Chương Mỹ',
+'Thạch Thất',
+'Thường Tín',
+'Ba Vì',
+'Đan Phượng',
+'Hoài Đức',
+'Mỹ Đức',
+'Phú Xuyên',
+'Phúc Thọ',
+'Quốc Oai',
+'Thanh Oai',
+'Ứng Hòa'
 ];

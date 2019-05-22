@@ -10,6 +10,57 @@ $(document).ready(function () {
 		$(".card").hide();
 	});
 
+	var show = false;
+	for (let i=0;i<count.length;i++){
+		$('table').append('<tr>'
+			+ '<td>' + (i + 1) + '</td>'
+			+ '<td style="text-align:left;font-weight:500;padding-left:5px">' + dist[i] + '</td>'
+			+ '<td>' + count[i] + '</td>'
+			+ '</tr>');
+	}
+
+	$("#left-hide").on('click',function(){
+		$(".hide-show").animate(
+			{width: "toggle"},300
+		);
+		if(show){
+			show = false;
+			$("#left-hide").animate(
+				{"left": "-=25%"}, 300, function(){
+					$("#control-hide").animate(
+						{ deg: 0 },
+						{duration: 400,
+							step: function(now) {
+								$(this).css({ transform: 'rotate(' + now + 'deg)' });
+							}
+						});
+				}
+			)
+			$("#map").animate(
+				{width: "100%"},300
+			);
+
+		}
+		else{
+			show = true;
+			$("#left-hide").animate(
+				{"left": "+=25%"}, 300, function(){
+					$("#control-hide").animate(
+						{ deg: -180 },
+						{duration: 400,
+							step: function(now) {
+								$(this).css({ transform: 'rotate(' + now + 'deg)' });
+							}
+						});
+				}
+			)
+			$("#map").animate(
+				{width: "70%"},300
+			);
+
+		}
+	});
+
 	map.on('click', function (e) {
 		numInRange = 0;
 		

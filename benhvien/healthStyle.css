@@ -52,10 +52,13 @@
             padding: 8px 10px;
             margin-left: 10px;
             z-index: 10;
+        }
+        .left-hide{
+            
             color: red;
             background-color: rgb(255, 221, 221);
         }
-        #left-hide:hover{
+        .left-hide:hover{
             background-color: rgb(255, 191, 191);
         }
         

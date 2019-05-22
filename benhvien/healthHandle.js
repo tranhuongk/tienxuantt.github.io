@@ -180,13 +180,13 @@ $(document).ready(function() {
             x = false;
             console.log(x);
             $('img[src="hospital.png"]').show(100);
-            $("#hospital-show").html("Ẩn bệnh viện");
+            $("#hospital-show").addClass("left-hide");
         } else {
             console.log(x);
             x = true;
             console.log(x);
             $('img[src="hospital.png"]').hide(100);
-            $("#hospital-show").html("Bệnh viện");
+            $("#hospital-show").removeClass("left-hide");
         }
     });
     var y = true;
@@ -196,13 +196,13 @@ $(document).ready(function() {
             y = false;
             console.log(y);
             $('img[src="clinic.png"]').show(100);
-            $("#clinic-show").html("Ẩn phòng khám");
+            $("#clinic-show").addClass("left-hide");
         } else {
             console.log(y);
             y = true;
             console.log(y);
             $('img[src="clinic.png"]').hide(100);
-            $("#clinic-show").html("Phòng khám");
+            $("#clinic-show").removeClass("left-hide");
         }
     });
     var z = true;
@@ -212,13 +212,13 @@ $(document).ready(function() {
             z = false;
             console.log(z);
             $('img[src="drugstore.png"]').show(100);
-            $("#drugstore-show").html("Ẩn hiệu thuốc");
+            $("#drugstore-show").addClass("left-hide");
         } else {
             console.log(z);
             z = true;
             console.log(z);
             $('img[src="drugstore.png"]').hide(100);
-            $("#drugstore-show").html("Hiệu thuốc");
+            $("#drugstore-show").removeClass("left-hide");
         }
     });
     var t = true;
@@ -226,11 +226,11 @@ $(document).ready(function() {
         if (t) {
             t = false;
             $('img[src="medical.png"]').show(100);
-            $("#medical-show").html("Ẩn trạm y tế");
+            $("#medical-show").addClass("left-hide");
         } else {
             t = true;
             $('img[src="medical.png"]').hide(100);
-            $("#medical-show").html("Trạm y tế");
+            $("#medical-show").removeClass("left-hide");
         }
     });
 
