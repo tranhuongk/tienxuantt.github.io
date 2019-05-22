@@ -7,8 +7,51 @@ var control;
 $(document).ready(function () {
 
 	$(".card-header span").click(function () {
+		event.stopPropagation();
 		$(".card").hide();
 	});
+
+    var show = false;  
+    $("#left-hide").on('click',function(){
+        $(".hide-show").animate(
+            {width: "toggle"},300
+        );
+        if(show){
+            show = false;
+            $("#left-hide").animate(
+                {"left": "-=20%"}, 300, function(){
+                    $("#control-hide").animate(
+                        { deg: 0 },
+                        {duration: 400,
+                        step: function(now) {
+                            $(this).css({ transform: 'rotate(' + now + 'deg)' });
+                        }
+                    });
+                }
+            )
+            $("#map").animate(
+                {left:'0px',right:'146px'},300
+            );
+            
+        }
+        else{
+            show = true;
+            $("#left-hide").animate(
+                {"left": "+=20%"}, 300, function(){
+                    $("#control-hide").animate(
+                        { deg: -180 },
+                        {duration: 400,
+                        step: function(now) {
+                            $(this).css({ transform: 'rotate(' + now + 'deg)' });
+                        }
+                    });
+                }
+            )
+            $("#map").animate(
+                {left:'20%', right:'146px'},300
+            );
+        }
+    });
 
 	map.on('click', function (e) {
 		numInRange = 0;
@@ -24,10 +67,10 @@ $(document).ready(function () {
 
         ShowQuantity(y1, x1);
 	
-		for (var i = 0; i < policearray1.length; i += 2) {
+		for (var i = 0; i < array1.length; i += 2) {
 	
-			x2 = policearray1[i + 1];
-			y2 = policearray1[i];
+			x2 = array1[i + 1];
+			y2 = array1[i];
 			length = Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
 			if (length < lengthMin) {
 				lengthMin = length;
@@ -89,10 +132,10 @@ function setProperties() {
 	a.innerText = numInRange;
 
 	var b = document.getElementById("Nearest");
-	b.innerText = policearray2[nearest_i / 2];
+	b.innerText = array2[nearest_i / 2];
 
 	var b2 = document.getElementById("Address");
-	b2.innerText = policearray3[nearest_i / 2];
+	b2.innerText = array3[nearest_i / 2];
 
 	var c = document.getElementById("DistanceToNearest");
 	c.innerText = parseFloat(sumDistance).toFixed(2) + " Km";
