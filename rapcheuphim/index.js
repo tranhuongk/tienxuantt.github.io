@@ -7,8 +7,69 @@ var control;
 $(document).ready(function () {
 
 	$(".card-header span").click(function () {
+		event.stopPropagation();
 		$(".card").hide();
 	});
+
+	$("#left-hide").animate(
+		{"left": "+=20%"}, 300, function(){
+			$("#control-hide").animate(
+				{ deg: -180 },
+				{duration: 400,
+				step: function(now) {
+					$(this).css({ transform: 'rotate(' + now + 'deg)' });
+				}
+			});
+		}
+	)
+	$("#map").animate(
+		{left:'20%', right:'146px'},300
+	);
+
+
+    var show = true;  
+    $("#left-hide").on('click',function(){
+        $(".hide-show").animate(
+            {width: "toggle"},300
+        );
+        if(show){
+			$(".list-map").hide();
+            show = false;
+            $("#left-hide").animate(
+                {"left": "-=20%"}, 300, function(){
+                    $("#control-hide").animate(
+                        { deg: 0 },
+                        {duration: 400,
+                        step: function(now) {
+                            $(this).css({ transform: 'rotate(' + now + 'deg)' });
+                        }
+                    });
+                }
+            )
+            $("#map").animate(
+                {left:'0px',right:'0px'},300
+            );
+            
+        }
+        else{
+			$(".list-map").show();
+            show = true;
+            $("#left-hide").animate(
+                {"left": "+=20%"}, 300, function(){
+                    $("#control-hide").animate(
+                        { deg: -180 },
+                        {duration: 400,
+                        step: function(now) {
+                            $(this).css({ transform: 'rotate(' + now + 'deg)' });
+                        }
+                    });
+                }
+            )
+            $("#map").animate(
+                {left:'20%', right:'146px'},300
+            );
+        }
+    });
 
 	map.on('click', function (e) {
 		numInRange = 0;
@@ -78,10 +139,8 @@ $(document).ready(function () {
 			setProperties();
 			$(".card").show();
 		});
-
 	});
 	
-	renderCinemaStatistic(CINEMAS);
 
 });
 
@@ -118,27 +177,4 @@ function getDistance(lat1, lon1, lat2, lon2) {
 
 function deg2rad(deg) {
 	return deg * (Math.PI / 180)
-}
-
-function renderCinemaStatistic(cinemas) {
-	const cinemas_by_district = cinemas.reduce((current, next) => (
-		current[next.district] 
-			? {...current, [next.district]: current[next.district] + 1}
-			: {...current, [next.district]: 1}
-	), {});
-	DISTRICTS.forEach((district, i) => {
-		$('.statistic-table-body').append(`
-			<tr>
-				<td>${i + 1}</td>
-				<td>${district}</td>
-				<td>${cinemas_by_district[district] || 0}</td>
-			</tr>
-		`)
-	});
-	$('.statistic-table-body').append(`
-		<tr>
-			<td colspan="2">Tổng cộng:</td>
-			<td>${cinemas.length}</td>
-		</tr>
-	`);
 }
