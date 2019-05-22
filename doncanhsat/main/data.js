@@ -1,4 +1,4 @@
-policearray1 = [
+array1 = [
     105.7791845,21.0485112,
     105.8006492,21.0281773,
     105.7797816,21.0357432,
@@ -166,7 +166,7 @@ policearray1 = [
     105.8129724,20.9905356,
 ];
 
-policearray2 = [
+array2 = [
     "Cơ Quan Cảnh Sát Điều Tra (C03) Bộ Công An ",
     "Mobile Police Team Task ",
     "Traffic Police Team No. 6 ",
@@ -333,7 +333,7 @@ policearray2 = [
     "Đội Chữa cháy chuyên nghiệp quận Thanh Xuân",
     "Công An Phường Hạ Đình"
 ];
-policearray3 = [
+array3 = [
     "47 Phạm Văn Đồng, Mai Dịch, Cầu Giấy, Hà Nội, Vietnam",
     "1232 Đường Láng, Láng Thượng, Đống Đa, Hà Nội, Vietnam",
     "Phạm Hùng, Mai Dịch, Cầu Giấy, Hà Nội, Vietnam",
