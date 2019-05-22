@@ -12,7 +12,7 @@ var IconPage = L.Icon.extend({
         iconSize: [25, 25]
     }
 });
-IconCurrent = new IconPage({ iconUrl: "../Nhom14/images/karaoke.png"});
+IconCurrent = new IconPage({ iconUrl: "../quankaraoke/images/karaoke.png"});
 for(var i = 0; i < array1.length - 1; i+=2){
     notifi = array2[i/2] + "<br/> Địa chỉ: "+ array3[i/2];
     L.marker([array1[i+1], array1[i]], {icon: IconCurrent}).bindPopup(notifi).addTo(map);

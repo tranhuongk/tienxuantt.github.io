@@ -41,6 +41,7 @@ $(document).ready(function () {
 		{width: "toggle"},300
 	);
 	$("#left-hide").on('click',function(){
+		$(".list-map").toggle();
 		$(".hide-show").animate(
 			{width: "toggle"},300
 		);
