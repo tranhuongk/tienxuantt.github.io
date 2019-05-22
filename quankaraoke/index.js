@@ -11,6 +11,25 @@ $(document).ready(function () {
 	});
 
 	var show = false;
+
+
+	show = true;
+			$("#left-hide").animate(
+				{"left": "+=25%"}, 300, function(){
+					$("#control-hide").animate(
+						{ deg: -180 },
+						{duration: 400,
+							step: function(now) {
+								$(this).css({ transform: 'rotate(' + now + 'deg)' });
+							}
+						});
+				}
+			)
+			$("#map").animate(
+				{width: "70%"},300
+			);
+
+
 	for (let i=0;i<count.length;i++){
 		$('table').append('<tr>'
 			+ '<td>' + (i + 1) + '</td>'
@@ -18,7 +37,9 @@ $(document).ready(function () {
 			+ '<td>' + count[i] + '</td>'
 			+ '</tr>');
 	}
-
+	$(".hide-show").animate(
+		{width: "toggle"},300
+	);
 	$("#left-hide").on('click',function(){
 		$(".hide-show").animate(
 			{width: "toggle"},300
