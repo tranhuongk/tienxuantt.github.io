@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" />
     <title>Map</title>
-    <link rel="stylesheet" href="../Common/common.css">
+    <link rel="stylesheet" href="../Common/common.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
@@ -45,107 +51,183 @@
         width: 50px;
         height: 20px;
       }
-        .controller h1 {
+      .controller h1 {
         font-size: 24px;
       }
       .leaflet-routing-geocoders {
-    display: none;
-}
-.leaflet-routing-container.leaflet-bar.leaflet-control{
-    display: none;
-}
-a{
-    font-size: 13px !important;
-}
+        display: none;
+      }
+      .leaflet-routing-container.leaflet-bar.leaflet-control {
+        display: none;
+      }
+      a {
+        font-size: 13px !important;
+      }
+
+      .hide .controller {
+        display: none;
+      }
+
+      .hide #left-hide {
+        left: 0;
+        transform: none;
+      }
+
+      #mapid {
+        height: 100vh;
+        z-index: 1;
+        transition: all 0.3s;
+        flex: 1;
+      }
+
+      .hide #mapid {
+        width: 100vw;
+      }
+
+      .hide .list-map {
+        display: none;
+      }
+
+      .list-map {
+        transition: all 0.3s;
+      }
+
+      #left-hide {
+        position: absolute;
+        top: 80px;
+        left: 350px;
+        padding: 8px 10px;
+        margin-left: 10px;
+        z-index: 10;
+        color: red;
+        background-color: rgb(255, 221, 221);
+        border-radius: 50%;
+        transition: all 0.3s;
+        transform: rotate(-180deg);
+        outline: none;
+      }
+
+      .left-hide:hover {
+        background-color: rgb(255, 191, 191);
+      }
     </style>
   </head>
   <body>
-      <div class="controller" style="padding: 10px">
-        <h1>Bản đồ chất lượng nước Hà Nội</h1>
-        <div class="select">
-          <h3>Thống kê trên bản đồ theo loại chất:</h3>
-          <select id="select-type" style="width: 200px">
-            <option value="total">Tổng hợp</option>
-            <option value="As">Asen</option>
-            <option value="Pb">Pb (Chì)</option>
-            <option value="Nh4">Nh4+ (Amoni)</option>
-            <option value="Mg">Mg (Magie)</option>
-          </select>
-        </div>
-        <div style="margin-top: 30px">
-          <button id="show-fac">Hiển thị các trạm/công ty cấp nước</button>
-        </div>
-        <div style="margin-top: 30px">
-          <button id="hide-fac">Ẩn các trạm cấp nước</button>
-        </div>
-        <div class="desc">
-          <h3>Chú thích:</h3>
-          <div
-            style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px"
-          >
-            <div
-              class="rectangle"
-              style="background-color: #00FF00; margin-right: 20px"
-            ></div>
-            <span style="">Cao (trên 7 điểm)</span>
-          </div>
-          <div
-            style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px"
-          >
-            <div
-              class="rectangle"
-              style="background-color: #ADFF2F; margin-right: 20px"
-            ></div>
-            <span style="">Trung bình (từ 5 đến 7 điểm)</span>
-          </div>
-          <div
-            style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px"
-          >
-            <div
-              class="rectangle"
-              style="background-color: #FD8D3C; margin-right: 20px"
-            ></div>
-            <span style="">Thấp (dưới 5 điểm)</span>
-          </div>
-        </div>
-        <div></div>
+    <div class="controller" style="padding: 10px">
+      <h1>Bản đồ chất lượng nước Hà Nội</h1>
+      <div class="select">
+        <h3>Thống kê trên bản đồ theo loại chất:</h3>
+        <select id="select-type" style="width: 200px">
+          <option value="total">Tổng hợp</option>
+          <option value="As">Asen</option>
+          <option value="Pb">Pb (Chì)</option>
+          <option value="Nh4">Nh4+ (Amoni)</option>
+          <option value="Mg">Mg (Magie)</option>
+        </select>
       </div>
-      <div class="map">
-        <div id="mapid"></div>
+      <div style="margin-top: 30px">
+        <button id="show-fac">Hiển thị các trạm/công ty cấp nước</button>
       </div>
-      <div class="list-map" style="height:100vh">
-        <h4>Tùy chọn</h4>
-        <ul>
-          <a  href="../chatluongdien/chatluongdien.html"><li>Bản đồ chất lượng điện</li></a>
-            <a style="font-weight:bold;color:red;" href="../chatluongnuoc/chatluongnuoc.html"><li>Bản đồ chất lượng nước</li></a>
-            <a href="../quanlynuocthai/quanlynuocthai.html"><li>Quản lý nước thải</li></a>
-            <a href="../quanlyracthai/quanlyracthai.html"><li>Quản lý rác thải</li></a>
-            <a href="../tramcuuhoa/tramcuuhoa.html"><li>Trạm cứu hỏa</li></a>
-            <a href="../doncanhsat/doncanhsat.html"><li>Đồn cảnh sát</li></a>
-            <a href="../benhvien/benhvien.html"><li>Bệnh viện</li></a>
-            <a href="../sieuthi/sieuthi.html"><li>Siêu thị</li></a>
-            <a href="../congvien/congvien.html"><li>Công viên</li></a>
-            <a href="../cho/cho.html"><li>Chợ</li></a>
-            <a href="../truongmaugiao/truongmaugiao.html"><li>Trường mẫu giáo</li></a>
-            <a href="../truongtieuhoc/truongtieuhoc.html"><li>Trường tiểu học</li></a>
-            <a href="../truongthcs/truongthcs.html"><li>Trường THCS</li></a>
-            <a href="../truongthpt/truongthpt.html"><li>Trường THPT</li></a>
-            <a href="../daihoc/daihoc.html"><li>Đại học</li></a>
-            <a href="../trambus/trambus.html"><li>Trạm xe bus</li></a>
-            <a href="../quankaraoke/quankaraoke.html"><li>Quán karaoke</li></a>
-            <a href="../rapcheuphim/rapcheuphim.html"><li>Rạp chiếu phim</li></a>
-            <a href="../quancaphe/quancaphe.html"><li>Quán cà phê</li></a>
-        </ul>
+      <div style="margin-top: 30px">
+        <button id="hide-fac">Ẩn các trạm cấp nước</button>
       </div>
-      <div class="icon-globle" style="    position: fixed;
+      <div class="desc">
+        <h3>Chú thích:</h3>
+        <div
+          style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px"
+        >
+          <div
+            class="rectangle"
+            style="background-color: #00FF00; margin-right: 20px"
+          ></div>
+          <span style="">Cao (trên 7 điểm)</span>
+        </div>
+        <div
+          style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px"
+        >
+          <div
+            class="rectangle"
+            style="background-color: #ADFF2F; margin-right: 20px"
+          ></div>
+          <span style="">Trung bình (từ 5 đến 7 điểm)</span>
+        </div>
+        <div
+          style="display: flex; flex-direction: row; align-items: center; margin-bottom: 15px"
+        >
+          <div
+            class="rectangle"
+            style="background-color: #FD8D3C; margin-right: 20px"
+          ></div>
+          <span style="">Thấp (dưới 5 điểm)</span>
+        </div>
+      </div>
+      <div></div>
+    </div>
+    <div class="map">
+      <div id="mapid"></div>
+    </div>
+    <button id="left-hide" onclick="toggleShow()">
+      <i
+        id="control-hide"
+        class="fas fa-arrow-right"
+        style="font-size: 16px;"
+      ></i>
+    </button>
+    <div class="list-map" style="height:100vh">
+      <h4>Tùy chọn</h4>
+      <ul>
+        <a href="../chatluongdien/chatluongdien.html"
+          ><li>Bản đồ chất lượng điện</li></a
+        >
+        <a
+          style="font-weight:bold;color:red;"
+          href="../chatluongnuoc/chatluongnuoc.html"
+          ><li>Bản đồ chất lượng nước</li></a
+        >
+        <a href="../quanlynuocthai/quanlynuocthai.html"
+          ><li>Quản lý nước thải</li></a
+        >
+        <a href="../quanlyracthai/quanlyracthai.html"
+          ><li>Quản lý rác thải</li></a
+        >
+        <a href="../tramcuuhoa/tramcuuhoa.html"><li>Trạm cứu hỏa</li></a>
+        <a href="../doncanhsat/doncanhsat.html"><li>Đồn cảnh sát</li></a>
+        <a href="../benhvien/benhvien.html"><li>Bệnh viện</li></a>
+        <a href="../sieuthi/sieuthi.html"><li>Siêu thị</li></a>
+        <a href="../congvien/congvien.html"><li>Công viên</li></a>
+        <a href="../cho/cho.html"><li>Chợ</li></a>
+        <a href="../truongmaugiao/truongmaugiao.html"
+          ><li>Trường mẫu giáo</li></a
+        >
+        <a href="../truongtieuhoc/truongtieuhoc.html"
+          ><li>Trường tiểu học</li></a
+        >
+        <a href="../truongthcs/truongthcs.html"><li>Trường THCS</li></a>
+        <a href="../truongthpt/truongthpt.html"><li>Trường THPT</li></a>
+        <a href="../daihoc/daihoc.html"><li>Đại học</li></a>
+        <a href="../trambus/trambus.html"><li>Trạm xe bus</li></a>
+        <a href="../quankaraoke/quankaraoke.html"><li>Quán karaoke</li></a>
+        <a href="../rapcheuphim/rapcheuphim.html"><li>Rạp chiếu phim</li></a>
+        <a href="../quancaphe/quancaphe.html"><li>Quán cà phê</li></a>
+      </ul>
+    </div>
+    <div
+      class="icon-globle"
+      style="    position: fixed;
       right: 15%;
       height: 50px;
       top: 23px;
       z-index: 99999;
       width: 50px;
-      cursor: pointer;">
-          <a href="../index.html"><img src="../Common/image/icon3.png" alt="" style="width:50px;height:50px"></a> 
-       </div>
+      cursor: pointer;"
+    >
+      <a href="../index.html"
+        ><img
+          src="../Common/image/icon3.png"
+          alt=""
+          style="width:50px;height:50px"
+      /></a>
+    </div>
     <script
       src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
@@ -170,6 +252,13 @@ a{
       var geojson;
 
       var nearest_maker = null;
+
+      const toggleShow = () => {
+        document.body.classList.toggle("hide");
+        setTimeout(function() {
+          mymap.invalidateSize();
+        }, 300);
+      };
 
       function getColor(level) {
         if (level == "high") {
@@ -350,7 +439,7 @@ a{
             `;
 
           let level_average = calculate_average_level(feature);
-          
+
           content += `<p>Đánh giá chung: ${level_average}</p>`;
 
           content += `<p>Nhà máy nước gần nhất : ${nearest.name} (${

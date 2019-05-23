@@ -2,72 +2,323 @@
 <html>
 
 <head>
-  <meta charset="utf-8" />
-  <title>My map</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    <meta charset="utf-8" />
+    <title>My map</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
         integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
         crossorigin="" />
-  <link rel="stylesheet" href="../Common/dist/leaflet-routing-machine.css" />
-  <link rel="stylesheet" href="./main/index.css" />
-  <style>
-  .leaflet-routing-geocoders {
-    display: none;
-}
-.leaflet-routing-container.leaflet-bar.leaflet-control{
-    display: none;
-}
-a{
-    font-size: 13px !important;
-}
-  </style>
+    <link rel="stylesheet" href="../Common/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="./main/index.css" />
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .main-content {
+            height: 100%;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .statistic-panel, .map-panel, .navigation-panel {
+            position: relative;
+            transition-property: width;
+            transition-duration: .2s;
+            transition-timing-function: linear;
+        }
+
+        .statistic-panel {
+            width: 25%;
+            overflow-y: auto;
+        }
+
+        .map-panel {
+            width: 60%;
+        }
+
+        .navigation-panel {
+            width: 15%;
+        }
+
+        .show-map-only .statistic-panel, .show-map-only .navigation-panel {
+            width: 0%;
+        }
+
+        .show-map-only .map-panel {
+            width: 100%;
+        }
+
+        .leaflet-routing-geocoders {
+            display: none;
+        }
+
+        .leaflet-routing-container.leaflet-bar.leaflet-control {
+            display: none;
+        }
+
+        .show-map-control {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 34px;
+            height: 34px;
+            border: none;
+            border-radius: 50%;
+            padding: 0;
+            margin-left: 10px;
+            color: red;
+            background-color: rgb(255, 221 ,221); 
+            box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12);
+            z-index: 10;
+        }
+
+        .show-map-control:focus {
+            outline: none;
+        }
+
+        a {
+            font-size: 13px !important;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 0 5px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #eeeeee;
+        }
+
+        #map {
+            z-index: 0;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="map" class="map"></div>
-    <div class="card" style="width: 18rem;display: none;">
-        <div class="card-header">
-            Các thông số <span>X</span>
+    <div class="main-content show-map-only">
+        <div class="statistic-panel">
+                <h3 class="text-center">Trường THCS tại Hà nội</h2>
+                    <table>
+                        <thead class="statistic-table-head">
+                            <tr>
+                                <th>STT</th>
+                                <th>Quận/Huyện</th>
+                                <th>Số rạp chiếu phim</th>
+                            </tr>
+                       
+                <tr>
+                        <td>1</td>
+                        <td>Ba Đình</td> 
+                        <td>14</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Hoàn Kiếm</td> 
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Hai Bà Trưng</td> 
+                        <td>13</td>
+                    </tr> 
+                    <tr>
+                        <td>4</td>
+                        <td>Đống Đa</td> 
+                        <td>10</td>
+                    </tr>                                                               
+                    <tr>
+                        <td>5</td>
+                        <td>Tây Hồ</td> 
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Cầu Giấy</td> 
+                        <td>7</td>
+                    </tr>                
+                    <tr>
+                        <td>7</td>
+                        <td>Thanh Xuân</td> 
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Hoàng Mai</td> 
+                        <td>16</td>
+                    </tr> 
+                    <tr>
+                        <td>9</td>
+                        <td>Long Biên</td> 
+                        <td>16</td>
+                    </tr>                               
+                    <tr>
+                        <td>10</td>
+                        <td>Từ Liêm</td> 
+                        <td>8</td>
+                    </tr>           
+                    <tr>
+                        <td>11</td>
+                        <td>Thanh Trì</td> 
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Gia Lâm</td> 
+                        <td>17</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Đông Anh</td> 
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Sóc Sơn</td> 
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Hà Đông</td> 
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Sơn Tây</td> 
+                        <td>17</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Ba Vì</td> 
+                        <td>16</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Phúc Thọ</td> 
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Thạch Thất</td> 
+                        <td>16</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Quốc Oai</td> 
+                        <td>13</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>Chương Mỹ</td> 
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>Đan Phượng</td> 
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>Hoài Đức</td> 
+                        <td>19</td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>Thanh Oai</td> 
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>Mỹ Đức</td> 
+                        <td>13</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>Ứng Hòa</td> 
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        <td>Thường Tín</td> 
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td>Phú Xuyên</td> 
+                        <td>13</td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        <td>Mê Linh</td> 
+                        <td>11</td>
+                    </tr>
+                </thead>
+
+            </table>
         </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                Số trường cấp 2 Trong bán kính 10KM: <span id="InRange"
-                                                           class="badge badge-success"></span>
-            </li>
-            <li class="list-group-item">Trường cấp 2 gần nhất: <span id="Nearest" class="badge badge-success"></span></li>
-            <li class="list-group-item"> Địa chỉ: <span id="Address" class="badge badge-success"></span></li>
-            <li class="list-group-item">
-                Đường đến trường cấp 2 gần nhất: <span id="DistanceToNearest"
-                                                       class="badge badge-success"></span>
-            </li>
-        </ul>
-    </div>
-    <div class="list-map" style="height:100%">
-        <h4>Tùy chọn</h4>
-        <ul>
-            <a  href="../chatluongdien/chatluongdien.html"><li>Bản đồ chất lượng điện</li></a>
-            <a  href="../chatluongnuoc/chatluongnuoc.html"><li>Bản đồ chất lượng nước</li></a>
-            <a href="../quanlynuocthai/quanlynuocthai.html"><li>Quản lý nước thải</li></a>
-            <a  href="../quanlyracthai/quanlyracthai.html"><li>Quản lý rác thải</li></a>
-            <a href="../tramcuuhoa/tramcuuhoa.html"><li>Trạm cứu hỏa</li></a>
-            <a  href="../doncanhsat/doncanhsat.html"><li>Đồn cảnh sát</li></a>
-            <a  href="../benhvien/benhvien.html"><li>Bệnh viện</li></a>
-            <a  href="../sieuthi/sieuthi.html"><li>Siêu thị</li></a>
-            <a  href="../congvien/congvien.html"><li>Công viên</li></a>
-            <a  href="../cho/cho.html"><li>Chợ</li></a>
-            <a  href="../truongmaugiao/truongmaugiao.html"><li>Trường mẫu giáo</li></a>
-            <a  href="../truongtieuhoc/truongtieuhoc.html"><li>Trường tiểu học</li></a>
-            <a style="font-weight:bold;color:red;" href="../truongthcs/truongthcs.html"><li>Trường THCS</li></a>
-            <a href="../truongthpt/truongthpt.html"><li>Trường THPT</li></a>
-            <a href="../daihoc/daihoc.html"><li>Đại học</li></a>
-            <a href="../trambus/trambus.html"><li>Trạm xe bus</li></a>
-            <a href="../quankaraoke/quankaraoke.html"><li>Quán karaoke</li></a>
-            <a href="../rapcheuphim/rapcheuphim.html"><li>Rạp chiếu phim</li></a>
-            <a href="../quancaphe/quancaphe.html"><li>Quán cà phê</li></a>
-        </ul>
-    </div>
+        <div class="map-panel">
+            <div id="map" class="map"></div>
+            <button class="show-map-control">
+                <i id="control-hide" class='fa fa-arrow-left' style="font-size: 16px;"></i>
+            </button>
+            <div class="card" style="width: 18rem;display: none;">
+                <div class="card-header">
+                    Các thông số <span>X</span>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        Số trường THCS Trong bán kính 10KM: <span id="InRange" class="badge badge-success"></span>
+                    </li>
+                    <li class="list-group-item">Trường THCS gần nhất: <span id="Nearest" class="badge badge-success"></span></li>
+                    <li class="list-group-item"> Địa chỉ: <span id="Address" class="badge badge-success"></span></li>
+                    <li class="list-group-item">
+                        Đường đến trường THCS gần nhất: <span id="DistanceToNearest" class="badge badge-success"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="navigation-panel">
+                <div class="list-map">
+                    <h4>Tùy chọn</h4>
+                <ul>
+                    <a  href="../chatluongdien/chatluongdien.html"><li>Bản đồ chất lượng điện</li></a>
+                <a  href="../chatluongnuoc/chatluongnuoc.html"><li>Bản đồ chất lượng nước</li></a>
+                <a href="../quanlynuocthai/quanlynuocthai.html"><li>Quản lý nước thải</li></a>
+                <a  href="../quanlyracthai/quanlyracthai.html"><li>Quản lý rác thải</li></a>
+                <a href="../tramcuuhoa/tramcuuhoa.html"><li>Trạm cứu hỏa</li></a>
+                <a  href="../doncanhsat/doncanhsat.html"><li>Đồn cảnh sát</li></a>
+                <a  href="../benhvien/benhvien.html"><li>Bệnh viện</li></a>
+                <a  href="../sieuthi/sieuthi.html"><li>Siêu thị</li></a>
+                <a  href="../congvien/congvien.html"><li>Công viên</li></a>
+                <a  href="../cho/cho.html"><li>Chợ</li></a>
+                <a  href="../truongmaugiao/truongmaugiao.html"><li>Trường mẫu giáo</li></a>
+                <a  href="../truongtieuhoc/truongtieuhoc.html"><li>Trường tiểu học</li></a>
+                <a style="font-weight:bold;color:red;" href="../truongthcs/truongthcs.html"><li>Trường THCS</li></a>
+                <a href="../truongthpt/truongthpt.html"><li>Trường THPT</li></a>
+                <a href="../daihoc/daihoc.html"><li>Đại học</li></a>
+                <a href="../trambus/trambus.html"><li>Trạm xe bus</li></a>
+                <a href="../quankaraoke/quankaraoke.html"><li>Quán karaoke</li></a>
+                <a href="../rapcheuphim/rapcheuphim.html"><li>Rạp chiếu phim</li></a>
+                <a href="../quancaphe/quancaphe.html"><li>Quán cà phê</li></a>
+                </ul>
+            </div>
+        </div>    
+    </div>    
     <div class="icon-globle" style="    position: fixed;
     right: 15%;
     height: 50px;
@@ -76,18 +327,16 @@ a{
     width: 50px;
     cursor: pointer;">
         <a href="../index.html"><img src="../Common/image/icon3.png" alt="" style="width:50px;height:50px"></a> 
-     </div>
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-            crossorigin=""></script>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
     <script src="../Common/dist/leaflet-routing-machine.js"></script>
     <script src="../Common/Control.Geocoder.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./main/data.js"></script>
     <script src="./main/config.js"></script>
-    <script src="../Common/district.geojson.js"></script>
     <script src="../Common/quality.js"></script>
-
+    <script src="../Common/district.geojson.js"></script>
     <script src="./index.js"></script>
 
 </body>

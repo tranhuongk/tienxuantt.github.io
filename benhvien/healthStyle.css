@@ -10,26 +10,26 @@
             width: 100%;
             height: 100vh;
             z-index: 1;
+            transition: all 0.3s;
         }
         #left-control {
             font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-            width: 25%;
+            width: 0;
             height: 100vh;
             overflow-x: auto;
             border-right: #d5d5d5 solid thin;
             z-index: 1;
+            transition: all 0.3s;
         }
         .list-map{
             font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-            width: 15%;
+            width: 0;
             background: #ebef07;
             height: 100vh;
             overflow-x: auto;
             z-index: 1;
             float: right;
-        }
-        .hide-show{
-            display: none;
+            transition: all 0.3s;
         }
         button {
             border-radius: 100px;
@@ -54,7 +54,6 @@
             z-index: 10;
         }
         .left-hide{
-            
             color: red;
             background-color: rgb(255, 221, 221);
         }
@@ -62,6 +61,17 @@
             background-color: rgb(255, 191, 191);
         }
         
+        .hide #left-control {
+            width: 25%;
+        }
+
+        .hide .list-map {
+            width: 15%;
+        }
+        .hide #mapid {
+            width: 60%;
+        }
+
         .nearest {
             cursor: pointer;
             color: #0078A8;

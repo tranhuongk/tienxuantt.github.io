@@ -10,80 +10,93 @@ $(document).ready(function () {
 		$(".card").hide();
 	});
 
-	map.on('click', function (e) {
-		numInRange = 0;
-		
-		if (start > 0) {
-			control.spliceWaypoints(0, 2);
-		}
-	
-		start++;
-		lengthMin = 100000;
-		x1 = e.latlng.lat;
-        y1 = e.latlng.lng;
+	$('.main-content').removeClass('show-map-only');
 
-        ShowQuantity(y1, x1);
-	
-		for (var i = 0; i < array1.length; i += 2) {
-	
-			x2 = array1[i + 1];
-			y2 = array1[i];
-			length = Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
-			if (length < lengthMin) {
-				lengthMin = length;
-				xmin = x2;
-				ymin = y2;
-				nearest_i = i;
-			}
-			var distance = getDistance(x1, y1, x2, y2);
-			
-			if (distance <= RANGE) numInRange++;
-		
+	$('.show-map-control').on('click', () => {
+		if ($('.main-content').hasClass('show-map-only')) {
+			$('.main-content').removeClass('show-map-only');
+			$('.show-map-control i').removeClass('fa-arrow-right').addClass('fa-arrow-left');
+		} else {
+			$('.main-content').addClass('show-map-only');
+			$('.show-map-control i').removeClass('fa-arrow-left').addClass('fa-arrow-right');
 		}
-		
-	
-		control = L.Routing.control(L.extend(window.lrmConfig, {
-			waypoints: [
-				L.latLng(x1, y1),
-				L.latLng(xmin, ymin)
-			],
-			geocoder: L.Control.Geocoder.nominatim(),
-			routeWhileDragging: true,
-			reverseWaypoints: true,
-			showAlternatives: true,
-			altLineOptions: {
-				styles: [{
-						color: 'black',
-						opacity: 0,
-						weight: 9
-					},
-					{
-						color: 'white',
-						opacity: 0,
-						weight: 6
-					},
-					{
-						color: 'blue',
-						opacity: 1,
-						weight: 2
-					}
-				]
-			}
-		})).addTo(map);
-	
-		control.on('routesfound', function (e) {
-			var routes = e.routes;
-			var summary = routes[0].summary;
-			sumDistance = (summary.totalDistance / 1000.0).toString();
-			setProperties();
-			$(".card").show();
-		});
 	});
 	
+		map.on('click', function (e) {
+			numInRange = 0;
+			
+			if (start > 0) {
+				control.spliceWaypoints(0, 2);
+			}
+		
+			start++;
+			lengthMin = 100000;
+			x1 = e.latlng.lat;
+			y1 = e.latlng.lng;
+	
+			ShowQuantity(y1, x1);
+		
+			for (var i = 0; i < hsarray1.length; i += 2) {
+		
+				x2 = hsarray1[i + 1];
+				y2 = hsarray1[i];
+				length = Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
+				if (length < lengthMin) {
+					lengthMin = length;
+					xmin = x2;
+					ymin = y2;
+					nearest_i = i;
+				}
+				var distance = getDistance(x1, y1, x2, y2);
+				
+				if (distance <= RANGE) numInRange++;
+			
+			}
+			
+		
+			control = L.Routing.control(L.extend(window.lrmConfig, {
+				waypoints: [
+					L.latLng(x1, y1),
+					L.latLng(xmin, ymin)
+				],
+				geocoder: L.Control.Geocoder.nominatim(),
+				routeWhileDragging: true,
+				reverseWaypoints: true,
+				showAlternatives: true,
+				altLineOptions: {
+					styles: [{
+							color: 'black',
+							opacity: 0,
+							weight: 9
+						},
+						{
+							color: 'white',
+							opacity: 0,
+							weight: 6
+						},
+						{
+							color: 'blue',
+							opacity: 1,
+							weight: 2
+						}
+					]
+				}
+			})).addTo(map);
+		
+			control.on('routesfound', function (e) {
+				var routes = e.routes;
+				var summary = routes[0].summary;
+				sumDistance = (summary.totalDistance / 1000.0).toString();
+				setProperties();
+				$(".card").show();
+			});
 
-});
-
-
+		});
+		
+		renderSecondarySchoolStatistic(secondarySchool);
+	
+	});
+	
 function setProperties() {
 	var a = document.getElementById("InRange");
 	a.innerText = numInRange;
@@ -116,4 +129,26 @@ function getDistance(lat1, lon1, lat2, lon2) {
 
 function deg2rad(deg) {
 	return deg * (Math.PI / 180)
+}
+function renderSecondarySchoolStatistic(secondarySchool) {
+	const secondarySchool_by_district = secondarySchool.reduce((current, next) => (
+		current[next.district] 
+			? {...current, [next.district]: current[next.district] + 1}
+			: {...current, [next.district]: 1}
+	), {});
+	DISTRICTS.forEach((district, i) => {
+		$('.statistic-table-body').append(`
+			<tr>
+				<td>${i + 1}</td>
+				<td>${district}</td>
+				<td>${secondarySchool_by_district[district] || 0}</td>
+			</tr>
+		`)
+	});
+	$('.statistic-table-body').append(`
+		<tr>
+			<td colspan="2">Tổng cộng:</td>
+			<td>${secondarySchool.length}</td>
+		</tr>
+	`);
 }

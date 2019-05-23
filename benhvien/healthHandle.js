@@ -245,31 +245,37 @@ $(document).ready(function() {
             + '</tr>');
     }
 
-    var show = false;  
-    $(".hide-show").animate(
-        {width: "toggle"},300
-    );
-    show = true;
-    $("#left-hide").animate(
-        {"left": "+=25%"}, 300, function(){
-            $("#control-hide").animate(
-                { deg: -180 },
-                {duration: 400,
-                step: function(now) {
-                    $(this).css({ transform: 'rotate(' + now + 'deg)' });
-                }
-            });
-        }
-    )
-    $("#mapid").animate(
-        {width: "60%"},300
-    );
-    $("#left-hide").on('click',function(){
-        $(".hide-show").animate(
-            {width: "toggle"},300
-        );
+    var show = true;  
+    function toggle(){
+        $("body").toggleClass("hide");
+        setTimeout(function () { mymap.invalidateSize() }, 300);
         if(show){
             show = false;
+            $("#left-hide").animate(
+                {"left": "+=25%"}, 300, function(){
+                    $("#control-hide").animate(
+                        { deg: -180 },
+                        {duration: 400,
+                        step: function(now) {
+                            $(this).css({ transform: 'rotate(' + now + 'deg)' });
+                        }
+                    });                    
+                }
+            )
+            $(".icon-globle").animate(
+                {"right": "+=15%"}, 300, function(){
+                    $(".icon-globle").animate(
+                        { deg: -360 },
+                        {duration: 400,
+                        step: function(now) {
+                            $(this).css({ transform: 'rotate(' + now + 'deg)' });
+                        }
+                    });                    
+                }
+            )
+        }
+        else{
+            show = true;
             $("#left-hide").animate(
                 {"left": "-=25%"}, 300, function(){
                     $("#control-hide").animate(
@@ -281,27 +287,21 @@ $(document).ready(function() {
                     });
                 }
             )
-            $("#mapid").animate(
-                {width: "100%"},300
-            );
-            
-        }
-        else{
-            show = true;
-            $("#left-hide").animate(
-                {"left": "+=25%"}, 300, function(){
-                    $("#control-hide").animate(
-                        { deg: -180 },
+            $(".icon-globle").animate(
+                {"right": "-=15%"}, 300, function(){
+                    $(".icon-globle").animate(
+                        { deg: 0 },
                         {duration: 400,
                         step: function(now) {
                             $(this).css({ transform: 'rotate(' + now + 'deg)' });
                         }
-                    });
+                    });                    
                 }
             )
-            $("#mapid").animate(
-                {width: "60%"},300
-            );
         }
+    }
+    toggle();
+    $("#left-hide").click(function(){
+        toggle();
     });
 })
