@@ -1,4 +1,4 @@
-﻿var statistical = [
+var statistical = [
     {
         "STT": "1",
         "District": "Quận Ba Đình",
@@ -245,7 +245,7 @@ var hospitals = [
             "STT": "1",
             "Category": "1",
             "Name": "Bệnh viện quốc tế",
-            "Location": "42 Nghĩa Dũng, Phúc xá, Ba Đình, Hà Nội, Vietnam",
+            "Address": "42 Nghĩa Dũng, Phúc xá, Ba Đình, Hà Nội, Vietnam",
             "Lat": "21.0485622",
             "Lng": "105.8460335"
         },
@@ -253,7 +253,7 @@ var hospitals = [
             "STT": "2",
             "Category": "1",
             "Name": "Bệnh Viện Phổi Trung Ương",
-            "Location": "463 Hoàng Hoa Thám, Vĩnh Phú, Ba Đình, Hà Nội, Vietnam",
+            "Address": "463 Hoàng Hoa Thám, Vĩnh Phú, Ba Đình, Hà Nội, Vietnam",
             "Lat": "21.0426442",
             "Lng": "105.8135718"
         },
@@ -261,7 +261,7 @@ var hospitals = [
             "STT": "3",
             "Category": "1",
             "Name": "Bệnh viện Mắt Hitec",
-            "Location": "480 Thụy Khuê, Bưởi, Ba Đình, Hà Nội, Vietnam",
+            "Address": "480 Thụy Khuê, Bưởi, Ba Đình, Hà Nội, Vietnam",
             "Lat": "21.048146",
             "Lng": "105.809742"
         },
@@ -269,7 +269,7 @@ var hospitals = [
             "STT": "4",
             "Category": "1",
             "Name": "Cổng 2 bệnh viện lao phổi trung ương",
-            "Location": "số, 2 phố Đội Nhân, Vĩnh Phú, Ba Đình, Hà Nội, Vietnam",
+            "Address": "số, 2 phố Đội Nhân, Vĩnh Phú, Ba Đình, Hà Nội, Vietnam",
             "Lat": "21.0408411",
             "Lng": "105.8128774"
         },
@@ -277,7 +277,7 @@ var hospitals = [
             "STT": "5",
             "Category": "1",
             "Name": "Bệnh viện Quân đội 354",
-            "Location": "120 Đốc Ngữ, Vĩnh Phú, Ba Đình, Hà Nội, Vietnam",
+            "Address": "120 Đốc Ngữ, Vĩnh Phú, Ba Đình, Hà Nội, Vietnam",
             "Lat": "21.0401434",
             "Lng": "105.812249"
         },
@@ -285,7 +285,7 @@ var hospitals = [
             "STT": "6",
             "Category": "1",
             "Name": "Bệnh viện Đa khoa Xanh Pôn",
-            "Location": "12 Chu Văn An, Điện Bàn, Ba Đình, Hà Nội, Vietnam",
+            "Address": "12 Chu Văn An, Điện Bàn, Ba Đình, Hà Nội, Vietnam",
             "Lat": "21.0313723",
             "Lng": "105.8351703"
         },
@@ -293,7 +293,7 @@ var hospitals = [
             "STT": "7",
             "Category": "1",
             "Name": "Bệnh Viện Y Học Cổ Truyền Nam Á",
-            "Location": "42 Hòe Nhai, Nguyễn Trung Trực, Ba Đình, Hà Nội, Vietnam",
+            "Address": "42 Hòe Nhai, Nguyễn Trung Trực, Ba Đình, Hà Nội, Vietnam",
             "Lat": "21.0405981",
             "Lng": "105.8458292"
         },
@@ -301,7 +301,7 @@ var hospitals = [
             "STT": "8",
             "Category": "1",
             "Name": "Bệnh viện đa khoa Hồng Ngọc ",
-            "Location": "55 Phố Yên Ninh, Quán Thánh, Hà Nội, Quán Thánh Ba Đình Hà Nội, Vietnam",
+            "Address": "55 Phố Yên Ninh, Quán Thánh, Hà Nội, Quán Thánh Ba Đình Hà Nội, Vietnam",
             "Lat": "21.0424529",
             "Lng": "105.844135"
         },
@@ -309,7 +309,7 @@ var hospitals = [
             "STT": "9",
             "Category": "1",
             "Name": "Bệnh viện đa khoa Hòe Nhai",
-            "Location": "Số 17 & 34 phố, Hòe Nhai, Nguyễn Trung Trực, Ba Đình, Hà Nội, Vietnam",
+            "Address": "Số 17 & 34 phố, Hòe Nhai, Nguyễn Trung Trực, Ba Đình, Hà Nội, Vietnam",
             "Lat": "21.0410663",
             "Lng": "105.8459329"
         },
@@ -317,7 +317,7 @@ var hospitals = [
             "STT": "10",
             "Category": "1",
             "Name": "Bệnh Viện Đa Khoa Hòe Nhai 2",
-            "Location": "53 Tân Ấp, Phúc xá, Ba Đình, Hà Nội, Vietnam",
+            "Address": "53 Tân Ấp, Phúc xá, Ba Đình, Hà Nội, Vietnam",
             "Lat": "21.0471567",
             "Lng": "105.8459672"
         },
@@ -325,7 +325,7 @@ var hospitals = [
             "STT": "11",
             "Category": "1",
             "Name": "Bệnh viện Đa khoa MEDLATEC",
-            "Location": "42 Nghĩa Dũng, Phúc xá, Ba Đình, Hà Nội, Vietnam",
+            "Address": "42 Nghĩa Dũng, Phúc xá, Ba Đình, Hà Nội, Vietnam",
             "Lat": "21.048567",
             "Lng": "105.846088"
         },
@@ -333,7 +333,7 @@ var hospitals = [
             "STT": "12",
             "Category": "1",
             "Name": "Cơ xương khớp Bệnh viện Đa khoa An Việt",
-            "Location": "1E Trường Chinh, Hà Nội, 100000, Vietnam",
+            "Address": "1E Trường Chinh, Hà Nội, 100000, Vietnam",
             "Lat": "20.9972055",
             "Lng": "105.8425199"
         },
@@ -341,7 +341,7 @@ var hospitals = [
             "STT": "13",
             "Category": "1",
             "Name": "Viện Y học Phòng Không Không Quân",
-            "Location": "225 Trường Chinh, Khương Thượng, Hà Nội, Vietnam",
+            "Address": "225 Trường Chinh, Khương Thượng, Hà Nội, Vietnam",
             "Lat": "21.0009969",
             "Lng": "105.8261551"
         },
@@ -349,7 +349,7 @@ var hospitals = [
             "STT": "14",
             "Category": "1",
             "Name": "Central Acupuncture Hospital",
-            "Location": "49 Thái Thịnh, Thịnh Quang, Hà Nội, Vietnam",
+            "Address": "49 Thái Thịnh, Thịnh Quang, Hà Nội, Vietnam",
             "Lat": "21.0085942",
             "Lng": "105.8193761"
         },
@@ -357,7 +357,7 @@ var hospitals = [
             "STT": "15",
             "Category": "1",
             "Name": "Agriculture General Hospital 2",
-            "Location": "16/183 Phố Đặng Tiến Đông, Trung Liệt, Hà Nội, Vietnam",
+            "Address": "16/183 Phố Đặng Tiến Đông, Trung Liệt, Hà Nội, Vietnam",
             "Lat": "21.0143047",
             "Lng": "105.8216261"
         },
@@ -365,7 +365,7 @@ var hospitals = [
             "STT": "16",
             "Category": "1",
             "Name": "Bệnh viện Đa khoa Đống Đa",
-            "Location": "192 Ngõ 180 Nguyễn Lương Bẳng, Quang Trung, VN, Hà Nội, Vietnam",
+            "Address": "192 Ngõ 180 Nguyễn Lương Bẳng, Quang Trung, VN, Hà Nội, Vietnam",
             "Lat": "21.0155443",
             "Lng": "105.827184"
         },
@@ -373,7 +373,7 @@ var hospitals = [
             "STT": "17",
             "Category": "1",
             "Name": "Bệnh Viện Mắt Hà Nội",
-            "Location": "37 Hai Bà Trưng, Tràng Tiền, Hoàn Kiếm, Hà Nội 100000, Vietnam",
+            "Address": "37 Hai Bà Trưng, Tràng Tiền, Hoàn Kiếm, Hà Nội 100000, Vietnam",
             "Lat": "21.0242173",
             "Lng": "105.8500909"
         },
@@ -381,7 +381,7 @@ var hospitals = [
             "STT": "18",
             "Category": "1",
             "Name": "Bệnh viện Phụ Sản Trung ương - Khoa Khám bệnh theo Yêu cầu",
-            "Location": "56/ 6 Hai Bà Trưng, Hàng Bông, Hoàn Kiếm, Hà Nội, Vietnam",
+            "Address": "56/ 6 Hai Bà Trưng, Hàng Bông, Hoàn Kiếm, Hà Nội, Vietnam",
             "Lat": "21.0262084",
             "Lng": "105.8466264"
         },
@@ -389,7 +389,7 @@ var hospitals = [
             "STT": "19",
             "Category": "1",
             "Name": "Bệnh viện Ung Bướu Quảng Châu",
-            "Location": "Phòng 303, Tầng 3, tòa nhà HCO, 44B Lý Thường Kiệt, Quận Hoàn Kiếm, Hà Nội, sạn Melia), Trần Hưng Đạo, Hoàn Kiếm, Hà Nội 111000, Vietnam",
+            "Address": "Phòng 303, Tầng 3, tòa nhà HCO, 44B Lý Thường Kiệt, Quận Hoàn Kiếm, Hà Nội, sạn Melia), Trần Hưng Đạo, Hoàn Kiếm, Hà Nội 111000, Vietnam",
             "Lat": "21.024236",
             "Lng": "105.8485"
         },
@@ -397,7 +397,7 @@ var hospitals = [
             "STT": "20",
             "Category": "1",
             "Name": "Bệnh viện Nhi Việt Đức",
-            "Location": "Tầng 5, nhà D, Bệnh viện HN Việt Đức, 40 Tràng Thi, Hàng Bông, Hoàn Kiếm, Hà Nội 100000, Vietnam",
+            "Address": "Tầng 5, nhà D, Bệnh viện HN Việt Đức, 40 Tràng Thi, Hàng Bông, Hoàn Kiếm, Hà Nội 100000, Vietnam",
             "Lat": "21.0271403",
             "Lng": "105.8475712"
         },
@@ -405,7 +405,7 @@ var hospitals = [
             "STT": "21",
             "Category": "1",
             "Name": "Vietnam Cuba Hospital",
-            "Location": "37 Hai Bà Trưng, Tràng Tiền, Hoàn Kiếm, Hà Nội, Vietnam",
+            "Address": "37 Hai Bà Trưng, Tràng Tiền, Hoàn Kiếm, Hà Nội, Vietnam",
             "Lat": "21.0245272",
             "Lng": "105.8501118"
         },
@@ -413,7 +413,7 @@ var hospitals = [
             "STT": "22",
             "Category": "1",
             "Name": "Bệnh Viện Việt Đức",
-            "Location": "Q.Tp, 14 Phủ Doãn, Hàng Trống, Hoàn Kiếm, Hà Nội, Vietnam",
+            "Address": "Q.Tp, 14 Phủ Doãn, Hàng Trống, Hoàn Kiếm, Hà Nội, Vietnam",
             "Lat": "21.0296022",
             "Lng": "105.8479929"
         },
@@ -421,7 +421,7 @@ var hospitals = [
             "STT": "23",
             "Category": "1",
             "Name": "Vietnam Germany Hospital",
-            "Location": "40 Tràng Thi, Hàng Bông, Hoàn Kiếm, Hà Nội 100000, Vietnam",
+            "Address": "40 Tràng Thi, Hàng Bông, Hoàn Kiếm, Hà Nội 100000, Vietnam",
             "Lat": "21.0284678",
             "Lng": "105.847098"
         },
@@ -429,7 +429,7 @@ var hospitals = [
             "STT": "24",
             "Category": "1",
             "Name": "Bệnh viện công an TP Hà Nội",
-            "Location": "89 Lý Thường Kiệt, Cửa Nam, Hoàn Kiếm, Hà Nội, Vietnam",
+            "Address": "89 Lý Thường Kiệt, Cửa Nam, Hoàn Kiếm, Hà Nội, Vietnam",
             "Lat": "21.0256142",
             "Lng": "105.8422121"
         },
@@ -437,7 +437,7 @@ var hospitals = [
             "STT": "25",
             "Category": "1",
             "Name": "Trung tâm Nam Học - Bệnh viện HN Việt Đức",
-            "Location": "16 Phủ Doãn, Hàng Bông, Hoàn Kiếm, Hà Nội, Vietnam",
+            "Address": "16 Phủ Doãn, Hàng Bông, Hoàn Kiếm, Hà Nội, Vietnam",
             "Lat": "21.0286079",
             "Lng": "105.8468299"
         },
@@ -445,7 +445,7 @@ var hospitals = [
             "STT": "26",
             "Category": "1",
             "Name": "Bệnh viện K",
-            "Location": "43 Quán Sứ, Hàng Bông, Hoàn Kiếm, Hà Nội 110000, Vietnam",
+            "Address": "43 Quán Sứ, Hàng Bông, Hoàn Kiếm, Hà Nội 110000, Vietnam",
             "Lat": "21.0268875",
             "Lng": "105.8460836"
         },
@@ -453,7 +453,7 @@ var hospitals = [
             "STT": "27",
             "Category": "1",
             "Name": "Bệnh viện Tim Hà Nội",
-            "Location": "92 Trần Hưng Đạo, Cửa Nam, Hoàn Kiếm, Hà Nội, Vietnam",
+            "Address": "92 Trần Hưng Đạo, Cửa Nam, Hoàn Kiếm, Hà Nội, Vietnam",
             "Lat": "21.0236495",
             "Lng": "105.8438542"
         },
@@ -461,7 +461,7 @@ var hospitals = [
             "STT": "28",
             "Category": "1",
             "Name": "National Hospital of Odonto - Stomatology",
-            "Location": "40 Tràng Thi, Hàng Bông, Hoàn Kiếm, Hà Nội, Vietnam",
+            "Address": "40 Tràng Thi, Hàng Bông, Hoàn Kiếm, Hà Nội, Vietnam",
             "Lat": "21.027773",
             "Lng": "105.846391"
         },
@@ -469,7 +469,7 @@ var hospitals = [
             "STT": "29",
             "Category": "1",
             "Name": "Bệnh viện phụ sản Trung ương",
-            "Location": "43 Tràng Thi, Hàng Bông, Hoàn Kiếm, Hà Nội, Vietnam",
+            "Address": "43 Tràng Thi, Hàng Bông, Hoàn Kiếm, Hà Nội, Vietnam",
             "Lat": "21.0270979",
             "Lng": "105.8468212"
         },
@@ -477,7 +477,7 @@ var hospitals = [
             "STT": "30",
             "Category": "1",
             "Name": "Bệnh viện Tim Đông Đô",
-            "Location": "Số 9, Phan Chu Trinh, Hoàn Kiếm, Hà Nội, Vietnam",
+            "Address": "Số 9, Phan Chu Trinh, Hoàn Kiếm, Hà Nội, Vietnam",
             "Lat": "21.0223965",
             "Lng": "105.8564822"
         },
@@ -485,7 +485,7 @@ var hospitals = [
             "STT": "31",
             "Category": "1",
             "Name": "Bệnh viện phụ sản An Thịnh",
-            "Location": "496 Bạch Mai, Trương Định, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "496 Bạch Mai, Trương Định, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "20.9972011",
             "Lng": "105.8497594"
         },
@@ -493,7 +493,7 @@ var hospitals = [
             "STT": "32",
             "Category": "1",
             "Name": "Bệnh viện Tâm thần ban ngày Mai Hương",
-            "Location": "4 Hồng Mai, Bạch Mai, Hai Bà Trưng, Hà Nội 100000, Vietnam",
+            "Address": "4 Hồng Mai, Bạch Mai, Hai Bà Trưng, Hà Nội 100000, Vietnam",
             "Lat": "20.9987931",
             "Lng": "105.8512703"
         },
@@ -501,7 +501,7 @@ var hospitals = [
             "STT": "33",
             "Category": "1",
             "Name": "Bệnh Viện Ung Bướu Hưng Việt",
-            "Location": "34 Đại Cồ Việt, Lê Đại Hành, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "34 Đại Cồ Việt, Lê Đại Hành, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "21.0088681",
             "Lng": "105.8486805"
         },
@@ -509,7 +509,7 @@ var hospitals = [
             "STT": "34",
             "Category": "1",
             "Name": "Bệnh Viện Mắt Quốc Tế DND",
-            "Location": "128 Bùi Thị Xuân, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "128 Bùi Thị Xuân, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "21.0130181",
             "Lng": "105.8497145"
         },
@@ -517,7 +517,7 @@ var hospitals = [
             "STT": "35",
             "Category": "1",
             "Name": "Bệnh viện Mắt Việt Nhật",
-            "Location": "Bùi Thị Xuân, Hai Bà Trưng District, Hanoi, Vietnam",
+            "Address": "Bùi Thị Xuân, Hai Bà Trưng District, Hanoi, Vietnam",
             "Lat": "21.0147402",
             "Lng": "105.8506536"
         },
@@ -525,7 +525,7 @@ var hospitals = [
             "STT": "36",
             "Category": "1",
             "Name": "Benh Vien Rang Ham Mat Tư",
-            "Location": "13 Yên Bái, Phố Huế, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "13 Yên Bái, Phố Huế, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "21.012568",
             "Lng": "105.8523589"
         },
@@ -533,7 +533,7 @@ var hospitals = [
             "STT": "37",
             "Category": "1",
             "Name": "Bệnh viện Ung bướu Hà Nội",
-            "Location": "42A Thanh Nhàn, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "42A Thanh Nhàn, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "21.0046173",
             "Lng": "105.8591676"
         },
@@ -541,7 +541,7 @@ var hospitals = [
             "STT": "38",
             "Category": "1",
             "Name": "Bệnh viện Hữu nghị",
-            "Location": "1 Trần Khánh Dư, Bạch Đằng, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "1 Trần Khánh Dư, Bạch Đằng, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "21.0154614",
             "Lng": "105.8617914"
         },
@@ -549,7 +549,7 @@ var hospitals = [
             "STT": "39",
             "Category": "1",
             "Name": "Bệnh Viện Bán Công Chuyên Khoa Mắt Hà Nội",
-            "Location": "51-53, Phố Trần Nhân Tông, Phường Bùi Thị Xuân, Quận Hai Bà Trưng, Thành Phố Hà Nội, Bùi Thị Xuân, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "51-53, Phố Trần Nhân Tông, Phường Bùi Thị Xuân, Quận Hai Bà Trưng, Thành Phố Hà Nội, Bùi Thị Xuân, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "21.0166531",
             "Lng": "105.8495593"
         },
@@ -557,7 +557,7 @@ var hospitals = [
             "STT": "40",
             "Category": "1",
             "Name": "Trung Tâm Tế Bào Bệnh Viện Meyo Quảng Châu (GMCC)",
-            "Location": "Tầng 8, tòa báo Tiền Phong, 15 Hồ Xuân Hương, Q.Hai Bà Trưng, Nguyễn Du, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "Tầng 8, tòa báo Tiền Phong, 15 Hồ Xuân Hương, Q.Hai Bà Trưng, Nguyễn Du, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "21.018282",
             "Lng": "105.847622"
         },
@@ -565,7 +565,7 @@ var hospitals = [
             "STT": "41",
             "Category": "1",
             "Name": "Bệnh Viện Phụ Sản Hà Nội (Cơ Sở 2)",
-            "Location": "38 Cảm Hội, Đống Mác, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "38 Cảm Hội, Đống Mác, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "21.010884",
             "Lng": "105.860381"
         },
@@ -573,7 +573,7 @@ var hospitals = [
             "STT": "42",
             "Category": "1",
             "Name": "Bệnh viện Mắt Sài Gòn - Hà Nội",
-            "Location": "77 Nguyễn Du, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "77 Nguyễn Du, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "21.0202556",
             "Lng": "105.8421699"
         },
@@ -581,7 +581,7 @@ var hospitals = [
             "STT": "43",
             "Category": "1",
             "Name": "Khoa Khám Bệnh Viện Sức Khỏe Nghề Nghiệp & Môi Trường",
-            "Location": "2, Nguyễn Cao, Quận Hai Bà Trưng, Thành Phố Hà Nội, Phạm Đình Hổ, Hai Bà Trưng, Hà Nội 100000, Vietnam",
+            "Address": "2, Nguyễn Cao, Quận Hai Bà Trưng, Thành Phố Hà Nội, Phạm Đình Hổ, Hai Bà Trưng, Hà Nội 100000, Vietnam",
             "Lat": "21.0126139",
             "Lng": "105.8608389"
         },
@@ -589,7 +589,7 @@ var hospitals = [
             "STT": "44",
             "Category": "1",
             "Name": "Bệnh viện Mắt kỹ thuật cao Hà Nội",
-            "Location": "51-53-55 Trần Nhân Tông, Bùi Thị Xuân, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "51-53-55 Trần Nhân Tông, Bùi Thị Xuân, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "21.0168374",
             "Lng": "105.8494355"
         },
@@ -597,7 +597,7 @@ var hospitals = [
             "STT": "45",
             "Category": "1",
             "Name": "Bệnh viện Thanh Nhàn",
-            "Location": "42 Thanh Nhàn, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "42 Thanh Nhàn, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "21.0035559",
             "Lng": "105.859375"
         },
@@ -605,7 +605,7 @@ var hospitals = [
             "STT": "46",
             "Category": "1",
             "Name": "Bệnh Viện Bưu Điện",
-            "Location": "1 Yên Bái II, Phố Huế, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "1 Yên Bái II, Phố Huế, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "21.011204",
             "Lng": "105.8522666"
         },
@@ -613,7 +613,7 @@ var hospitals = [
             "STT": "47",
             "Category": "1",
             "Name": "Vinmec International Hospital",
-            "Location": "458 Phố Minh Khai, Vĩnh Tuy, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "458 Phố Minh Khai, Vĩnh Tuy, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "20.9963439",
             "Lng": "105.8669648"
         },
@@ -621,7 +621,7 @@ var hospitals = [
             "STT": "48",
             "Category": "1",
             "Name": "Bệnh viện Hà Nội",
-            "Location": "29 Hàn Thuyên, Phạm Đình Hổ, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "29 Hàn Thuyên, Phạm Đình Hổ, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "21.0182458",
             "Lng": "105.8556317"
         },
@@ -629,7 +629,7 @@ var hospitals = [
             "STT": "49",
             "Category": "1",
             "Name": "Bệnh viện Y học cổ truyền Trung ương",
-            "Location": "29 Nguyễn Bỉnh Khiêm, Nguyễn Du, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "29 Nguyễn Bỉnh Khiêm, Nguyễn Du, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "21.0160919",
             "Lng": "105.8486029"
         },
@@ -637,7 +637,7 @@ var hospitals = [
             "STT": "50",
             "Category": "1",
             "Name": "Bệnh viện Quân đội 108",
-            "Location": "Số 1 Trần Hưng Đạo, Bạch Đằng, Hai Bà Trưng, Hà Nội 113601, Vietnam",
+            "Address": "Số 1 Trần Hưng Đạo, Bạch Đằng, Hai Bà Trưng, Hà Nội 113601, Vietnam",
             "Lat": "21.0183344",
             "Lng": "105.8614591"
         },
@@ -645,7 +645,7 @@ var hospitals = [
             "STT": "51",
             "Category": "1",
             "Name": "Bênh viện Phổi Trung ương",
-            "Location": "44 Thanh Nhàn, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "44 Thanh Nhàn, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "21.0033411",
             "Lng": "105.8583403"
         },
@@ -653,7 +653,7 @@ var hospitals = [
             "STT": "52",
             "Category": "1",
             "Name": "TRÍ ĐỨC Hospital",
-            "Location": "219 Đường Lê Duẩn, Nguyễn Du, Hai Bà Trưng, Hà Nội, Vietnam",
+            "Address": "219 Đường Lê Duẩn, Nguyễn Du, Hai Bà Trưng, Hà Nội, Vietnam",
             "Lat": "21.0183642",
             "Lng": "105.8415976"
         },
@@ -661,7 +661,7 @@ var hospitals = [
             "STT": "53",
             "Category": "1",
             "Name": "Bệnh viện Tai Mũi Họng Trung ương",
-            "Location": "78 Giải Phóng, Phương Đình, Đống Đa, Hà Nội, Vietnam",
+            "Address": "78 Giải Phóng, Phương Đình, Đống Đa, Hà Nội, Vietnam",
             "Lat": "20.9996578",
             "Lng": "105.8406131"
         },
@@ -669,7 +669,7 @@ var hospitals = [
             "STT": "54",
             "Category": "1",
             "Name": "Khoa Răng Hàm Mặt Bệnh Viện Bạch Mai",
-            "Location": "219 Giải Phóng, Phương Đình, Đống Đa, Hà Nội, Vietnam",
+            "Address": "219 Giải Phóng, Phương Đình, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0008215",
             "Lng": "105.8409209"
         },
@@ -677,7 +677,7 @@ var hospitals = [
             "STT": "55",
             "Category": "1",
             "Name": "Bach Mai Hospital",
-            "Location": "78 Đường Giải Phóng, Phương Đình, Đống Đa, Hà Nội, Vietnam",
+            "Address": "78 Đường Giải Phóng, Phương Đình, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0009521",
             "Lng": "105.8406854"
         },
@@ -685,7 +685,7 @@ var hospitals = [
             "STT": "56",
             "Category": "1",
             "Name": "Hanoi Medical University Hospital",
-            "Location": "1 Tôn Thất Tùng, Kim Liên, Đống Đa, Hà Nội, Vietnam",
+            "Address": "1 Tôn Thất Tùng, Kim Liên, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0023202",
             "Lng": "105.8301934"
         },
@@ -693,7 +693,7 @@ var hospitals = [
             "STT": "57",
             "Category": "1",
             "Name": "Hanoi French Hospital",
-            "Location": "1 Phương Mai, Đống Đa, Hà Nội, Vietnam",
+            "Address": "1 Phương Mai, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0037599",
             "Lng": "105.8404276"
         },
@@ -701,7 +701,7 @@ var hospitals = [
             "STT": "58",
             "Category": "1",
             "Name": "National Geriatric Hospital",
-            "Location": "1A Phương Mai, Đống Đa, Hà Nội, Vietnam",
+            "Address": "1A Phương Mai, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0037616",
             "Lng": "105.8395506"
         },
@@ -709,7 +709,7 @@ var hospitals = [
             "STT": "59",
             "Category": "1",
             "Name": "National Hospital of Dermatology and Venereology",
-            "Location": "15A Phương Mai, Đống Đa, Hà Nội, Vietnam",
+            "Address": "15A Phương Mai, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0037997",
             "Lng": "105.8387336"
         },
@@ -717,7 +717,7 @@ var hospitals = [
             "STT": "60",
             "Category": "1",
             "Name": "Trung tâm điều trị và chăm sóc sức khỏe cộng đồng - Bệnh viện ĐH Y HN",
-            "Location": "Số 1 Tôn Thất Tùng, Đống Đa, Hà Nội, Vietnam",
+            "Address": "Số 1 Tôn Thất Tùng, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0039246",
             "Lng": "105.8306514"
         },
@@ -725,7 +725,7 @@ var hospitals = [
             "STT": "61",
             "Category": "1",
             "Name": "Dong Do Hospital",
-            "Location": "5 Xã Đàn, Phương Liên, Đống Đa, Hà Nội, Vietnam",
+            "Address": "5 Xã Đàn, Phương Liên, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0092864",
             "Lng": "105.8379853"
         },
@@ -733,7 +733,7 @@ var hospitals = [
             "STT": "62",
             "Category": "1",
             "Name": "Saigon Eye Hospital - Hanoi",
-            "Location": "532 Đường Láng, Láng Hạ, Đống Đa, Hà Nội, Vietnam",
+            "Address": "532 Đường Láng, Láng Hạ, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0116866",
             "Lng": "105.8104698"
         },
@@ -741,7 +741,7 @@ var hospitals = [
             "STT": "63",
             "Category": "1",
             "Name": "National Hospital of Endocrinology",
-            "Location": "80 Ngõ 82 Yên Lãng, Láng Hạ, Đống Đa, Hà Nội, Vietnam",
+            "Address": "80 Ngõ 82 Yên Lãng, Láng Hạ, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.012304",
             "Lng": "105.8150714"
         },
@@ -749,7 +749,7 @@ var hospitals = [
             "STT": "64",
             "Category": "1",
             "Name": "Bệnh Viện Nội Tiết Trung Ương Cơ Sở 1",
-            "Location": "Láng Hạ, Đống Đa, Hanoi, Vietnam",
+            "Address": "Láng Hạ, Đống Đa, Hanoi, Vietnam",
             "Lat": "21.0123328",
             "Lng": "105.8151201"
         },
@@ -757,7 +757,7 @@ var hospitals = [
             "STT": "65",
             "Category": "1",
             "Name": "Viện Y Học Dự Phòng Quân Đội",
-            "Location": "21 Trung Liệt, Đống Đa, Hà Nội, Vietnam",
+            "Address": "21 Trung Liệt, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0123816",
             "Lng": "105.8214873"
         },
@@ -765,7 +765,7 @@ var hospitals = [
             "STT": "66",
             "Category": "1",
             "Name": "Bệnh Viện Đa Khoa Nông Nghiệp Cơ Sở 2",
-            "Location": "16 Ngõ 183 Đặng Tiến Đông, Trung Liệt, Đống Đa, Hà Nội, Vietnam",
+            "Address": "16 Ngõ 183 Đặng Tiến Đông, Trung Liệt, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.013631",
             "Lng": "105.8205643"
         },
@@ -773,7 +773,7 @@ var hospitals = [
             "STT": "67",
             "Category": "1",
             "Name": "Bệnh Viện Mắt Hà Nội 2",
-            "Location": "72 Nguyễn Chí Thanh, Láng Thượng, Đống Đa, Hà Nội, Vietnam",
+            "Address": "72 Nguyễn Chí Thanh, Láng Thượng, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.018036",
             "Lng": "105.806787"
         },
@@ -781,7 +781,7 @@ var hospitals = [
             "STT": "68",
             "Category": "1",
             "Name": "Hanoi Kidney Hospital",
-            "Location": "70 Nguyễn Chí Thanh, Láng Thượng, Đống Đa, Hà Nội, Vietnam",
+            "Address": "70 Nguyễn Chí Thanh, Láng Thượng, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0187062",
             "Lng": "105.8064146"
         },
@@ -789,7 +789,7 @@ var hospitals = [
             "STT": "69",
             "Category": "1",
             "Name": "Bảo Sơn Hospital 2",
-            "Location": "52 Nguyễn Chí Thanh, Láng Thượng, Đống Đa, Hà Nội, Vietnam",
+            "Address": "52 Nguyễn Chí Thanh, Láng Thượng, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0244396",
             "Lng": "105.8101312"
         },
@@ -797,7 +797,7 @@ var hospitals = [
             "STT": "70",
             "Category": "1",
             "Name": "National Children's Hospital",
-            "Location": "18/879 Đường La Thành, Láng Thượng, Đống Đa, Hà Nội, Vietnam",
+            "Address": "18/879 Đường La Thành, Láng Thượng, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0248769",
             "Lng": "105.8074996"
         },
@@ -805,7 +805,7 @@ var hospitals = [
             "STT": "71",
             "Category": "1",
             "Name": "Bệnh Viện Tràng An",
-            "Location": "59 Ngõ Thông Phong, Quốc Tử Giám, Đống Đa, Hà Nội, Vietnam",
+            "Address": "59 Ngõ Thông Phong, Quốc Tử Giám, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0256744",
             "Lng": "105.8353845"
         },
@@ -813,7 +813,7 @@ var hospitals = [
             "STT": "72",
             "Category": "1",
             "Name": "Trang An General Hospital",
-            "Location": "59 Ngõ Thông Phong, Quốc Tử Giám, Đống Đa, Hà Nội, Vietnam",
+            "Address": "59 Ngõ Thông Phong, Quốc Tử Giám, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0256892",
             "Lng": "105.8353267"
         },
@@ -821,7 +821,7 @@ var hospitals = [
             "STT": "73",
             "Category": "1",
             "Name": "Giao Thông Hospital",
-            "Location": "Ngõ 84 Phố Chùa Láng, Láng Thượng, Đống Đa, Hà Nội, Vietnam",
+            "Address": "Ngõ 84 Phố Chùa Láng, Láng Thượng, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0259716",
             "Lng": "105.8031014"
         },
@@ -829,7 +829,7 @@ var hospitals = [
             "STT": "74",
             "Category": "1",
             "Name": "Bệnh viện đa khoa Hà Thành",
-            "Location": "57- 59- 61 Vũ Thạnh, Chợ Dừa, Đống Đa, Đống Đa Hà Nội, Vietnam",
+            "Address": "57- 59- 61 Vũ Thạnh, Chợ Dừa, Đống Đa, Đống Đa Hà Nội, Vietnam",
             "Lat": "21.0265294",
             "Lng": "105.8264833"
         },
@@ -837,7 +837,7 @@ var hospitals = [
             "STT": "75",
             "Category": "1",
             "Name": "Bệnh Viện Hà Thành - Khoa Răng Hàm Mặt",
-            "Location": "57 Vũ Thạnh, Chợ Dừa, Đống Đa, Hà Nội 100000, Vietnam",
+            "Address": "57 Vũ Thạnh, Chợ Dừa, Đống Đa, Hà Nội 100000, Vietnam",
             "Lat": "21.0267228",
             "Lng": "105.8266213"
         },
@@ -845,7 +845,7 @@ var hospitals = [
             "STT": "76",
             "Category": "1",
             "Name": "Ha Thanh Hospital",
-            "Location": "61 Vũ Thạnh, Chợ Dừa, Đống Đa, Hà Nội, Vietnam",
+            "Address": "61 Vũ Thạnh, Chợ Dừa, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0267238",
             "Lng": "105.8266209"
         },
@@ -853,7 +853,7 @@ var hospitals = [
             "STT": "77",
             "Category": "1",
             "Name": "Hanoi Obstetrics & Gynecology Hospital",
-            "Location": "929 Đê la Thành, Láng Thượng, Đống Đa, Hà Nội, Vietnam",
+            "Address": "929 Đê la Thành, Láng Thượng, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0267649",
             "Lng": "105.8073191"
         },
@@ -861,7 +861,7 @@ var hospitals = [
             "STT": "78",
             "Category": "1",
             "Name": "Transport Hospital / Bệnh viện Giao thông Vận tải Trung ương",
-            "Location": "1B1 Tập thể Bệnh viện giao thông vận tải, Láng Thượng, Đống Đa, Hà Nội, Vietnam",
+            "Address": "1B1 Tập thể Bệnh viện giao thông vận tải, Láng Thượng, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0267759",
             "Lng": "105.8017701"
         },
@@ -869,7 +869,7 @@ var hospitals = [
             "STT": "79",
             "Category": "1",
             "Name": "Hong Ha International General Hospital",
-            "Location": "16 Nguyễn Như Đổ, Văn Miếu, Đống Đa, Hà Nội, Vietnam",
+            "Address": "16 Nguyễn Như Đổ, Văn Miếu, Đống Đa, Hà Nội, Vietnam",
             "Lat": "21.0267911",
             "Lng": "105.8390834"
         },
@@ -877,7 +877,7 @@ var hospitals = [
             "STT": "80",
             "Category": "1",
             "Name": "Hanoi Dermatology Hospital",
-            "Location": "79B Phố Nguyễn Khuyến, Văn Miếu, Đống Đa, Hà Nội 115715, Vietnam",
+            "Address": "79B Phố Nguyễn Khuyến, Văn Miếu, Đống Đa, Hà Nội 115715, Vietnam",
             "Lat": "21.0281344",
             "Lng": "105.8385864"
         },
@@ -885,7 +885,7 @@ var hospitals = [
             "STT": "81",
             "Category": "1",
             "Name": "Veterinary Hospital PetHealth",
-            "Location": "240 Âu Cơ, Quảng An, Tây Hồ, Hà Nội, Vietnam",
+            "Address": "240 Âu Cơ, Quảng An, Tây Hồ, Hà Nội, Vietnam",
             "Lat": "21.0701816",
             "Lng": "105.8263426"
         },
@@ -893,7 +893,7 @@ var hospitals = [
             "STT": "82",
             "Category": "1",
             "Name": "Hanoi Heart Hospital2",
-            "Location": "Võ Chí Công, Xuân La, Tây Hồ, Hà Nội, Vietnam",
+            "Address": "Võ Chí Công, Xuân La, Tây Hồ, Hà Nội, Vietnam",
             "Lat": "21.0682159",
             "Lng": "105.8073599"
         },
@@ -901,7 +901,7 @@ var hospitals = [
             "STT": "83",
             "Category": "1",
             "Name": "Thu Cúc General Hospital",
-            "Location": "286 Thụy Khuê, Bưởi, Tây Hồ, Hà Nội, Vietnam",
+            "Address": "286 Thụy Khuê, Bưởi, Tây Hồ, Hà Nội, Vietnam",
             "Lat": "21.0451135",
             "Lng": "105.8144463"
         },
@@ -909,7 +909,7 @@ var hospitals = [
             "STT": "84",
             "Category": "1",
             "Name": "198 Police Hospital",
-            "Location": "9 Trần Bình, Mai Dịch, Cầu Giấy, Hà Nội, Vietnam",
+            "Address": "9 Trần Bình, Mai Dịch, Cầu Giấy, Hà Nội, Vietnam",
             "Lat": "21.0332928",
             "Lng": "105.7779325"
         },
@@ -917,7 +917,7 @@ var hospitals = [
             "STT": "85",
             "Category": "1",
             "Name": "Traditional Medicine Hospital",
-            "Location": "8 Phạm Hùng, Mai Dịch, Cầu Giấy, Hà Nội 100000, Vietnam",
+            "Address": "8 Phạm Hùng, Mai Dịch, Cầu Giấy, Hà Nội 100000, Vietnam",
             "Lat": "21.0342455",
             "Lng": "105.7794199"
         },
@@ -925,7 +925,7 @@ var hospitals = [
             "STT": "86",
             "Category": "1",
             "Name": "Bệnh Viện Thú Cảnh Hanvet",
-            "Location": "126, Nguyễn Đình Hoàn, Phường Nghĩa Đô, Quận Cầu Giấy, Thành Phố Hà Nội, Nghĩa Đô, Cầu Giấy, Hà Nội, Vietnam",
+            "Address": "126, Nguyễn Đình Hoàn, Phường Nghĩa Đô, Quận Cầu Giấy, Thành Phố Hà Nội, Nghĩa Đô, Cầu Giấy, Hà Nội, Vietnam",
             "Lat": "21.0444559",
             "Lng": "105.8052962"
         },
@@ -933,7 +933,7 @@ var hospitals = [
             "STT": "87",
             "Category": "1",
             "Name": "Công Ty TNHH Bệnh Viện Phòng Khám Đa Khoa Quốc Tế Việt Mỹ",
-            "Location": "61/17/57, Phùng Chí Kiên, Phường Nghĩa Đô, Quận Cầu Giấy, Thành Phố Hà Nội, Nghĩa Đô, Cầu Giấy, Hà Nội, Vietnam",
+            "Address": "61/17/57, Phùng Chí Kiên, Phường Nghĩa Đô, Quận Cầu Giấy, Thành Phố Hà Nội, Nghĩa Đô, Cầu Giấy, Hà Nội, Vietnam",
             "Lat": "21.0413033",
             "Lng": "105.8029881"
         },
@@ -941,7 +941,7 @@ var hospitals = [
             "STT": "88",
             "Category": "1",
             "Name": "Việt Nga Eye Hospital",
-            "Location": "Nhà C2,, Dịch Vọng, Phường Dịch Vọng, Hà Nội, Vietnam",
+            "Address": "Nhà C2,, Dịch Vọng, Phường Dịch Vọng, Hà Nội, Vietnam",
             "Lat": "21.038898",
             "Lng": "105.793585"
         },
@@ -949,7 +949,7 @@ var hospitals = [
             "STT": "89",
             "Category": "1",
             "Name": "Bệnh viện nam học Hà Nội",
-            "Location": "52 Nguyễn Trãi, Thượng Đình, Thanh Xuân, Hà Nội, Vietnam",
+            "Address": "52 Nguyễn Trãi, Thượng Đình, Thanh Xuân, Hà Nội, Vietnam",
             "Lat": "21.001579",
             "Lng": "105.8176153"
         },
@@ -957,7 +957,7 @@ var hospitals = [
             "STT": "90",
             "Category": "1",
             "Name": "Veterinary Hospital - National Institute of Veterinary Research",
-            "Location": "74 Trường Chinh, phường Phương Liệt, quận Thanh Xuân, Hà Nội, hà nội, Hà Nội 100000, Vietnam",
+            "Address": "74 Trường Chinh, phường Phương Liệt, quận Thanh Xuân, Hà Nội, hà nội, Hà Nội 100000, Vietnam",
             "Lat": "20.9985557",
             "Lng": "105.8390801"
         },
@@ -965,7 +965,7 @@ var hospitals = [
             "STT": "91",
             "Category": "1",
             "Name": "Bệnh viện chuyên khoa Nam học và Hiếm muộn Việt - Bỉ",
-            "Location": "23 Phố Nguyễn Văn Trỗi, Phương Liệt, Thanh Xuân, Hà Nội, Vietnam",
+            "Address": "23 Phố Nguyễn Văn Trỗi, Phương Liệt, Thanh Xuân, Hà Nội, Vietnam",
             "Lat": "20.9868394",
             "Lng": "105.8400232"
         },
@@ -973,7 +973,7 @@ var hospitals = [
             "STT": "92",
             "Category": "1",
             "Name": "Bệnh Viện Đại Học Quốc Gia Hà Nội",
-            "Location": "182 Lương Thế Vinh, Thanh Xuân Bắc, Thanh Xuân, Hà Nội, Vietnam",
+            "Address": "182 Lương Thế Vinh, Thanh Xuân Bắc, Thanh Xuân, Hà Nội, Vietnam",
             "Lat": "20.9911102",
             "Lng": "105.7961557"
         },
@@ -981,7 +981,7 @@ var hospitals = [
             "STT": "93",
             "Category": "1",
             "Name": "Vinmec Hospital",
-            "Location": "72A, R2B, Nguyễn Trãi, Khu đô thị Royal City, Thanh Xuân, Hà Nội, Vietnam",
+            "Address": "72A, R2B, Nguyễn Trãi, Khu đô thị Royal City, Thanh Xuân, Hà Nội, Vietnam",
             "Lat": "21.003957",
             "Lng": "105.8159821"
         },
@@ -989,7 +989,7 @@ var hospitals = [
             "STT": "94",
             "Category": "1",
             "Name": "VNU Hospital",
-            "Location": "182 Lương Thế Vinh, Thanh Xuân Bắc, Thanh Xuân, Hà Nội, Vietnam",
+            "Address": "182 Lương Thế Vinh, Thanh Xuân Bắc, Thanh Xuân, Hà Nội, Vietnam",
             "Lat": "20.9908855",
             "Lng": "105.7965146"
         },
@@ -997,7 +997,7 @@ var hospitals = [
             "STT": "95",
             "Category": "1",
             "Name": "Cửa Hàng Thiết Bị Y Tế Gia Đình Và Bệnh Viện Phương Hoa",
-            "Location": "109, Khuất Duy Tiến, Phường Thanh Xuân Trung, Quận Thanh Xuân, Thành Phố Hà Nội, Thanh Xuân Bắc, Thanh Xuân, Hà Nội, Vietnam",
+            "Address": "109, Khuất Duy Tiến, Phường Thanh Xuân Trung, Quận Thanh Xuân, Thành Phố Hà Nội, Thanh Xuân Bắc, Thanh Xuân, Hà Nội, Vietnam",
             "Lat": "20.9926199",
             "Lng": "105.801985"
         },
@@ -1005,7 +1005,7 @@ var hospitals = [
             "STT": "96",
             "Category": "1",
             "Name": "Bệnh Viện Phục Hồi Chức Năng Hà Hội",
-            "Location": "35 Lê Văn Thiêm, Thanh Xuân Trung, Thanh Xuân, Hà Nội, Vietnam",
+            "Address": "35 Lê Văn Thiêm, Thanh Xuân Trung, Thanh Xuân, Hà Nội, Vietnam",
             "Lat": "20.9994095",
             "Lng": "105.8046387"
         },
@@ -1013,7 +1013,7 @@ var hospitals = [
             "STT": "97",
             "Category": "1",
             "Name": "Construction Hospital",
-            "Location": "Nguyễn Quý Đức, Thanh Xuân Bắc, Hà Nội, Vietnam",
+            "Address": "Nguyễn Quý Đức, Thanh Xuân Bắc, Hà Nội, Vietnam",
             "Lat": "20.9934847",
             "Lng": "105.7972922"
         },
@@ -1021,7 +1021,7 @@ var hospitals = [
             "STT": "98",
             "Category": "1",
             "Name": "Bệnh viên đa khoa Thanh Xuân",
-            "Location": "Khương Đình, Thanh Xuân, Hanoi, Vietnam",
+            "Address": "Khương Đình, Thanh Xuân, Hanoi, Vietnam",
             "Lat": "20.9902131",
             "Lng": "105.8232472"
         },
@@ -1029,7 +1029,7 @@ var hospitals = [
             "STT": "99",
             "Category": "1",
             "Name": "Bệnh viện than - Khoáng sản",
-            "Location": "ngõ 1 Phan Đình Giót, Phương Liệt, Thanh Xuân, Hà Nội, Vietnam",
+            "Address": "ngõ 1 Phan Đình Giót, Phương Liệt, Thanh Xuân, Hà Nội, Vietnam",
             "Lat": "20.9886101",
             "Lng": "105.8395021"
         },
@@ -1037,7 +1037,7 @@ var hospitals = [
             "STT": "100",
             "Category": "1",
             "Name": "An Việt Hospital",
-            "Location": "Số 1E Trường Chinh, Phương Liệt, Thanh Xuân, Hà Nội, Vietnam",
+            "Address": "Số 1E Trường Chinh, Phương Liệt, Thanh Xuân, Hà Nội, Vietnam",
             "Lat": "20.99724",
             "Lng": "105.8422618"
         },
@@ -1045,7 +1045,7 @@ var hospitals = [
             "STT": "101",
             "Category": "1",
             "Name": "Bệnh viện thú cảnh dreampet",
-            "Location": "Số 44 lô B1, đừng nguyễn cảnh dị, khu đô thị đại kim, hoàng mai, Hà nội, Hà Nội 100000, Vietnam",
+            "Address": "Số 44 lô B1, đừng nguyễn cảnh dị, khu đô thị đại kim, hoàng mai, Hà nội, Hà Nội 100000, Vietnam",
             "Lat": "20.9735538",
             "Lng": "105.8367491"
         },
@@ -1053,7 +1053,7 @@ var hospitals = [
             "STT": "102",
             "Category": "1",
             "Name": "Bệnh Viện Trường Giang",
-            "Location": "15 Kim Giang, Đại Kim, Hoàng Mai, Hà Nội, Vietnam",
+            "Address": "15 Kim Giang, Đại Kim, Hoàng Mai, Hà Nội, Vietnam",
             "Lat": "20.9799532",
             "Lng": "105.8173835"
         },
@@ -1061,7 +1061,7 @@ var hospitals = [
             "STT": "103",
             "Category": "1",
             "Name": "Công Ty Cổ Phần Bệnh Viện Quốc Tế Y Học Cổ Truyền Việt - Mỹ",
-            "Location": "15, Ngõ 168, Kim Giang, Phường Đại Kim, Quận Hoàng Mai, Thành Phố Hà Nội, Đại Kim, Hoàng Mai, Hà Nội, Vietnam",
+            "Address": "15, Ngõ 168, Kim Giang, Phường Đại Kim, Quận Hoàng Mai, Thành Phố Hà Nội, Đại Kim, Hoàng Mai, Hà Nội, Vietnam",
             "Lat": "20.9790517",
             "Lng": "105.815345"
         },
@@ -1069,7 +1069,7 @@ var hospitals = [
             "STT": "104",
             "Category": "1",
             "Name": "Trung Tâm Hỗ Trợ Sinh Sản Bệnh viện Bưu Điện",
-            "Location": "Tầng 2, Tòa nhà Bệnh viện Bưu Điện, Số 49 Trần Điền Định Công, Hoàng Mai, Hà Nội, Vietnam",
+            "Address": "Tầng 2, Tòa nhà Bệnh viện Bưu Điện, Số 49 Trần Điền Định Công, Hoàng Mai, Hà Nội, Vietnam",
             "Lat": "20.990556",
             "Lng": "105.831309"
         },
@@ -1077,7 +1077,7 @@ var hospitals = [
             "STT": "105",
             "Category": "1",
             "Name": "Post Office Hospital",
-            "Location": "49 Trần Điền, Định Công, Hoàng Mai, Hà Nội, Vietnam",
+            "Address": "49 Trần Điền, Định Công, Hoàng Mai, Hà Nội, Vietnam",
             "Lat": "20.9904729",
             "Lng": "105.8313466"
         },
@@ -1085,7 +1085,7 @@ var hospitals = [
             "STT": "106",
             "Category": "1",
             "Name": "Andrology and Fertility Hospital of Hanoi",
-            "Location": "Lô 01 - 8A Cụm tiểu thủ Công nghiệp, Hai Bà Trưng, 431 Đường Tam Trinh, Hoàng Văn Thụ, Hoàng Mai, Hà Nội 100000, Vietnam",
+            "Address": "Lô 01 - 8A Cụm tiểu thủ Công nghiệp, Hai Bà Trưng, 431 Đường Tam Trinh, Hoàng Văn Thụ, Hoàng Mai, Hà Nội 100000, Vietnam",
             "Lat": "20.983073",
             "Lng": "105.8659756"
         },
@@ -1093,7 +1093,7 @@ var hospitals = [
             "STT": "107",
             "Category": "1",
             "Name": "Phòng Tiêm chủng Bệnh viện ĐHQGHN",
-            "Location": "02BT3X1 ngõ 77, Đặng Xuân Bảng, Đại Kim, Hoàng Mai, Hà Nội, Vietnam",
+            "Address": "02BT3X1 ngõ 77, Đặng Xuân Bảng, Đại Kim, Hoàng Mai, Hà Nội, Vietnam",
             "Lat": "20.972411",
             "Lng": "105.827819"
         },
@@ -1101,7 +1101,7 @@ var hospitals = [
             "STT": "108",
             "Category": "1",
             "Name": "Ophthalmology Duc Giang General Hospital",
-            "Location": "54 Trường Lâm, Đức Giang, Long Biên, Hà Nội, Vietnam",
+            "Address": "54 Trường Lâm, Đức Giang, Long Biên, Hà Nội, Vietnam",
             "Lat": "21.0621809",
             "Lng": "105.8965542"
         },
@@ -1109,7 +1109,7 @@ var hospitals = [
             "STT": "109",
             "Category": "1",
             "Name": "International Maternity Hospital Duc Giang",
-            "Location": "52 Trường Lâm, Đức Giang, Long Biên, Hà Nội, Vietnam",
+            "Address": "52 Trường Lâm, Đức Giang, Long Biên, Hà Nội, Vietnam",
             "Lat": "21.0614947",
             "Lng": "105.8973107"
         },
@@ -1117,7 +1117,7 @@ var hospitals = [
             "STT": "110",
             "Category": "1",
             "Name": "Bệnh viện chuyên khoa Nam Học",
-            "Location": "Hoàng Như Tiếp, Bồ Đề, Long Biên, Hà Nội, Vietnam",
+            "Address": "Hoàng Như Tiếp, Bồ Đề, Long Biên, Hà Nội, Vietnam",
             "Lat": "21.040878",
             "Lng": "105.8767673"
         },
@@ -1125,7 +1125,7 @@ var hospitals = [
             "STT": "111",
             "Category": "1",
             "Name": "Hanoi Psychiatric Hospital",
-            "Location": "Ngõ 467 Nguyễn Văn Linh, TT. Sài Đồng, Long Biên, Hà Nội, Vietnam",
+            "Address": "Ngõ 467 Nguyễn Văn Linh, TT. Sài Đồng, Long Biên, Hà Nội, Vietnam",
             "Lat": "21.0345628",
             "Lng": "105.9091064"
         },
@@ -1133,7 +1133,7 @@ var hospitals = [
             "STT": "112",
             "Category": "1",
             "Name": "Bệnh viện",
-            "Location": "Xã Kim Quan Huyện Thạch Thất, Đức Giang, Long Biên, Hà Nội, Vietnam",
+            "Address": "Xã Kim Quan Huyện Thạch Thất, Đức Giang, Long Biên, Hà Nội, Vietnam",
             "Lat": "21.0644227",
             "Lng": "105.8987614"
         },
@@ -1141,7 +1141,7 @@ var hospitals = [
             "STT": "113",
             "Category": "1",
             "Name": "Railway Hospital",
-            "Location": "Ngọc Lâm, Long Biên, Hà Nội, Vietnam",
+            "Address": "Ngọc Lâm, Long Biên, Hà Nội, Vietnam",
             "Lat": "21.0498595",
             "Lng": "105.8770654"
         },
@@ -1149,7 +1149,7 @@ var hospitals = [
             "STT": "114",
             "Category": "1",
             "Name": "Duc Giang General Hospital",
-            "Location": "52 Trường Lâm, Đức Giang, Long Biên, Hà Nội, Vietnam",
+            "Address": "52 Trường Lâm, Đức Giang, Long Biên, Hà Nội, Vietnam",
             "Lat": "21.0610516",
             "Lng": "105.8979977"
         },
@@ -1157,7 +1157,7 @@ var hospitals = [
             "STT": "115",
             "Category": "1",
             "Name": "Tam Anh Hospital",
-            "Location": "108 Hoàng Như Tiếp, Bồ Đề, Long Biên, Hà Nội, Vietnam",
+            "Address": "108 Hoàng Như Tiếp, Bồ Đề, Long Biên, Hà Nội, Vietnam",
             "Lat": "21.0407889",
             "Lng": "105.8766619"
         },
@@ -1165,7 +1165,7 @@ var hospitals = [
             "STT": "116",
             "Category": "1",
             "Name": "Bệnh Viện Mắt Ánh Sáng",
-            "Location": "2 Trần Cung, Cổ Nhuế, Từ Liêm, Hà Nội, Vietnam",
+            "Address": "2 Trần Cung, Cổ Nhuế, Từ Liêm, Hà Nội, Vietnam",
             "Lat": "21.0511158",
             "Lng": "105.7902302"
         },
@@ -1173,7 +1173,7 @@ var hospitals = [
             "STT": "117",
             "Category": "1",
             "Name": "Viện Dưỡng Lão Nhân Ái",
-            "Location": "Văn Tiến Dũng, Minh Khai, Từ Liêm, Hà Nội, Vietnam",
+            "Address": "Văn Tiến Dũng, Minh Khai, Từ Liêm, Hà Nội, Vietnam",
             "Lat": "21.0584403",
             "Lng": "105.7506502"
         },
@@ -1181,7 +1181,7 @@ var hospitals = [
             "STT": "118",
             "Category": "1",
             "Name": "Bệnh viện Quốc tế Dolife",
-            "Location": "108 Nguyễn Hoàng, Nam Từ Liêm, Hà Nội, Vietnam",
+            "Address": "108 Nguyễn Hoàng, Nam Từ Liêm, Hà Nội, Vietnam",
             "Lat": "21.033411",
             "Lng": "105.771422"
         },
@@ -1189,7 +1189,7 @@ var hospitals = [
             "STT": "119",
             "Category": "1",
             "Name": "Bệnh viện Đa khoa Chữ Thập Xanh",
-            "Location": "33 Nguyễn Hoàng, Mỹ Đình, Nam Từ Liêm, Hà Nội, Vietnam",
+            "Address": "33 Nguyễn Hoàng, Mỹ Đình, Nam Từ Liêm, Hà Nội, Vietnam",
             "Lat": "21.0314377",
             "Lng": "105.7741164"
         },
@@ -1197,7 +1197,7 @@ var hospitals = [
             "STT": "120",
             "Category": "1",
             "Name": "Dolife Hospital",
-            "Location": "108 Nguyễn Hoàng, Mỹ Đình, Nam Từ Liêm, Hà Nội, Vietnam",
+            "Address": "108 Nguyễn Hoàng, Mỹ Đình, Nam Từ Liêm, Hà Nội, Vietnam",
             "Lat": "21.0335122",
             "Lng": "105.771417"
         },
@@ -1205,7 +1205,7 @@ var hospitals = [
             "STT": "121",
             "Category": "1",
             "Name": "Phuong Dong General Hospital",
-            "Location": "Số 9 Phố Viên, Cổ Nhuế, Từ Liêm, Hà Nội, Vietnam",
+            "Address": "Số 9 Phố Viên, Cổ Nhuế, Từ Liêm, Hà Nội, Vietnam",
             "Lat": "21.0710941",
             "Lng": "105.7761892"
         },
@@ -1213,7 +1213,7 @@ var hospitals = [
             "STT": "122",
             "Category": "1",
             "Name": "Traditional Medicine Hospital",
-            "Location": "278 Lương Thế Vinh, Trung Văn, Từ Liêm, Hà Nội, Vietnam",
+            "Address": "278 Lương Thế Vinh, Trung Văn, Từ Liêm, Hà Nội, Vietnam",
             "Lat": "20.9960397",
             "Lng": "105.7894721"
         },
@@ -1221,7 +1221,7 @@ var hospitals = [
             "STT": "123",
             "Category": "1",
             "Name": "Bệnh Viện Thể Thao Việt Nam",
-            "Location": "Đỗ Xuân Hợp, Mỹ Đình, Nam Từ Liêm, Hà Nội, Vietnam",
+            "Address": "Đỗ Xuân Hợp, Mỹ Đình, Nam Từ Liêm, Hà Nội, Vietnam",
             "Lat": "21.023144",
             "Lng": "105.7615138"
         },
@@ -1229,7 +1229,7 @@ var hospitals = [
             "STT": "124",
             "Category": "1",
             "Name": "Nam Thang Long Hospital",
-            "Location": "38 Tân Xuân, Xuân Đỉnh, Bắc Từ Liêm, Hà Nội, Vietnam",
+            "Address": "38 Tân Xuân, Xuân Đỉnh, Bắc Từ Liêm, Hà Nội, Vietnam",
             "Lat": "21.0793234",
             "Lng": "105.7862458"
         },
@@ -1237,7 +1237,7 @@ var hospitals = [
             "STT": "125",
             "Category": "1",
             "Name": "E Hospital",
-            "Location": "89 Trần Cung, Nghĩa Tân, Từ Liêm, Nghĩa Tân Cầu Giấy Hà Nội, Vietnam",
+            "Address": "89 Trần Cung, Nghĩa Tân, Từ Liêm, Nghĩa Tân Cầu Giấy Hà Nội, Vietnam",
             "Lat": "21.0503014",
             "Lng": "105.7885777"
         },
@@ -1245,7 +1245,7 @@ var hospitals = [
             "STT": "126",
             "Category": "1",
             "Name": "TTTM Bệnh Viện E",
-            "Location": "89, Trần Cung, Cổ Nhuế, Hà Nội, Vietnam",
+            "Address": "89, Trần Cung, Cổ Nhuế, Hà Nội, Vietnam",
             "Lat": "21.0538822",
             "Lng": "105.7876244"
         },
@@ -1253,7 +1253,7 @@ var hospitals = [
             "STT": "127",
             "Category": "1",
             "Name": "Bệnh viện K cơ sở Tân Triều",
-            "Location": "30 đường Cầu Bươu, Tân Triều, Thanh Trì, Tân Triều Thanh Trì Hà Nội, Vietnam",
+            "Address": "30 đường Cầu Bươu, Tân Triều, Thanh Trì, Tân Triều Thanh Trì Hà Nội, Vietnam",
             "Lat": "20.9622712",
             "Lng": "105.7986399"
         },
@@ -1261,7 +1261,7 @@ var hospitals = [
             "STT": "128",
             "Category": "1",
             "Name": "Bệnh Viện Đa Khoa Thanh Trì - Sở Y Tế TPHN",
-            "Location": "Thị Trấn Văn Điển Thanh Trì, Văn Điển, Thanh Trì, Hà Nội, Vietnam",
+            "Address": "Thị Trấn Văn Điển Thanh Trì, Văn Điển, Thanh Trì, Hà Nội, Vietnam",
             "Lat": "20.9487305",
             "Lng": "105.8464838"
         },
@@ -1269,7 +1269,7 @@ var hospitals = [
             "STT": "129",
             "Category": "1",
             "Name": "Thang Long Hospital",
-            "Location": "127 Tựu Liệt, Thanh Trì, Hà Nội, Vietnam",
+            "Address": "127 Tựu Liệt, Thanh Trì, Hà Nội, Vietnam",
             "Lat": "20.9544881",
             "Lng": "105.8385551"
         },
@@ -1277,7 +1277,7 @@ var hospitals = [
             "STT": "130",
             "Category": "1",
             "Name": "Agriculture General Hospital",
-            "Location": "Km13+500, Quốc lộ 1A, Ngọc Hồi, Thanh Trì, Hà Nội, Vietnam",
+            "Address": "Km13+500, Quốc lộ 1A, Ngọc Hồi, Thanh Trì, Hà Nội, Vietnam",
             "Lat": "20.921112",
             "Lng": "105.8532018"
         },
@@ -1285,7 +1285,7 @@ var hospitals = [
             "STT": "131",
             "Category": "1",
             "Name": "Hanoi 09 Hospital",
-            "Location": "Đường tỉnh 70, Tân Triều, Thanh Trì, Hà Nội, Vietnam",
+            "Address": "Đường tỉnh 70, Tân Triều, Thanh Trì, Hà Nội, Vietnam",
             "Lat": "20.9605028",
             "Lng": "105.8016175"
         },
@@ -1293,7 +1293,7 @@ var hospitals = [
             "STT": "132",
             "Category": "1",
             "Name": "Thanh Tri District Hospital",
-            "Location": "1 Tứ Hiệp, Văn Điển, Thanh Trì, Hà Nội, Vietnam",
+            "Address": "1 Tứ Hiệp, Văn Điển, Thanh Trì, Hà Nội, Vietnam",
             "Lat": "20.9486239",
             "Lng": "105.8464602"
         },
@@ -1301,7 +1301,7 @@ var hospitals = [
             "STT": "133",
             "Category": "1",
             "Name": "National Hospital of Endocrinology",
-            "Location": "Ngõ 215 Đường Ngọc Hồi, Tứ Hiệp, Thanh Trì, Hà Nội 100000, Vietnam",
+            "Address": "Ngõ 215 Đường Ngọc Hồi, Tứ Hiệp, Thanh Trì, Hà Nội 100000, Vietnam",
             "Lat": "20.9525937",
             "Lng": "105.8508555"
         },
@@ -1309,7 +1309,7 @@ var hospitals = [
             "STT": "134",
             "Category": "1",
             "Name": "Bệnh Viện K - Cơ Sở Tam Hiệp",
-            "Location": "Xóm Chùa, Thôn, Thanh Trì, Hà Nội, Vietnam",
+            "Address": "Xóm Chùa, Thôn, Thanh Trì, Hà Nội, Vietnam",
             "Lat": "20.9541335",
             "Lng": "105.8325886"
         },
@@ -1317,7 +1317,7 @@ var hospitals = [
             "STT": "135",
             "Category": "1",
             "Name": "Hanoi National Cancer Hospital K3",
-            "Location": "Số 30 Cầu Bươu, Tân Triều, Thanh Trì, Hà Nội 134813, Vietnam",
+            "Address": "Số 30 Cầu Bươu, Tân Triều, Thanh Trì, Hà Nội 134813, Vietnam",
             "Lat": "20.9631039",
             "Lng": "105.7988141"
         },
@@ -1325,7 +1325,7 @@ var hospitals = [
             "STT": "136",
             "Category": "1",
             "Name": "Bệnh Viện Hy Vọng Mới",
-            "Location": "Km 10, Khu Công Nghiệp Phú Thị, Xã Phú Thị, Huyện Gia Lâm, Thành Phố Hà Nội, Phú Thị, Gia Lâm, Hà Nội, Vietnam",
+            "Address": "Km 10, Khu Công Nghiệp Phú Thị, Xã Phú Thị, Huyện Gia Lâm, Thành Phố Hà Nội, Phú Thị, Gia Lâm, Hà Nội, Vietnam",
             "Lat": "21.0276351",
             "Lng": "105.9729255"
         },
@@ -1333,7 +1333,7 @@ var hospitals = [
             "STT": "137",
             "Category": "1",
             "Name": "Gia Lam Hospital",
-            "Location": "Trâu Quỳ, Gia Lâm, Hanoi, Vietnam",
+            "Address": "Trâu Quỳ, Gia Lâm, Hanoi, Vietnam",
             "Lat": "21.0099466",
             "Lng": "105.9432505"
         },
@@ -1341,7 +1341,7 @@ var hospitals = [
             "STT": "138",
             "Category": "1",
             "Name": "Nam Thang Long Hospital - Unit 2",
-            "Location": "Đường Không Tên, Hải Bối, Đông Anh, Hà Nội, Vietnam",
+            "Address": "Đường Không Tên, Hải Bối, Đông Anh, Hà Nội, Vietnam",
             "Lat": "21.1132226",
             "Lng": "105.7881645"
         },
@@ -1349,7 +1349,7 @@ var hospitals = [
             "STT": "139",
             "Category": "1",
             "Name": "Viện dưỡng lão Tuyết Thái",
-            "Location": "Đại Đồng, Đông Anh, Hanoi, Vietnam",
+            "Address": "Đại Đồng, Đông Anh, Hanoi, Vietnam",
             "Lat": "21.1212497",
             "Lng": "105.7567161"
         },
@@ -1357,7 +1357,7 @@ var hospitals = [
             "STT": "140",
             "Category": "1",
             "Name": "Viện dưỡng lão Tuyết Thái",
-            "Location": "Đại Mạch, Đông Anh, Hanoi, Vietnam",
+            "Address": "Đại Mạch, Đông Anh, Hanoi, Vietnam",
             "Lat": "21.1189931",
             "Lng": "105.7611326"
         },
@@ -1365,7 +1365,7 @@ var hospitals = [
             "STT": "141",
             "Category": "1",
             "Name": "Bệnh viện Miền Đông",
-            "Location": "Liên Hà, Đông Anh, Hanoi, Vietnam",
+            "Address": "Liên Hà, Đông Anh, Hanoi, Vietnam",
             "Lat": "21.1523377",
             "Lng": "105.9019408"
         },
@@ -1373,7 +1373,7 @@ var hospitals = [
             "STT": "142",
             "Category": "1",
             "Name": "Bệnh Viện đa Khoa Đông Anh",
-            "Location": "Cao Lỗ, Uy Nỗ, Đông Anh, Hà Nội, Vietnam",
+            "Address": "Cao Lỗ, Uy Nỗ, Đông Anh, Hà Nội, Vietnam",
             "Lat": "21.1394053",
             "Lng": "105.8541647"
         },
@@ -1381,7 +1381,7 @@ var hospitals = [
             "STT": "143",
             "Category": "1",
             "Name": "Bệnh Viện Bệnh nhiệt đới Trung ương cơ sở Kim Chung",
-            "Location": "thôn Bầu, Đông Anh, Hanoi, Vietnam",
+            "Address": "thôn Bầu, Đông Anh, Hanoi, Vietnam",
             "Lat": "21.1314884",
             "Lng": "105.7743924"
         },
@@ -1389,7 +1389,7 @@ var hospitals = [
             "STT": "144",
             "Category": "1",
             "Name": "Dong Anh General Hospital",
-            "Location": "Đông Anh, Hanoi, Vietnam",
+            "Address": "Đông Anh, Hanoi, Vietnam",
             "Lat": "21.1393037",
             "Lng": "105.8534046"
         },
@@ -1397,7 +1397,7 @@ var hospitals = [
             "STT": "145",
             "Category": "1",
             "Name": "Bệnh viện Bắc Thăng Long",
-            "Location": "Tổ 18 - thị trấn Đông Anh, Đông Anh, Hà Nội, Vietnam",
+            "Address": "Tổ 18 - thị trấn Đông Anh, Đông Anh, Hà Nội, Vietnam",
             "Lat": "21.1635158",
             "Lng": "105.8585814"
         },
@@ -1405,7 +1405,7 @@ var hospitals = [
             "STT": "146",
             "Category": "1",
             "Name": "North Thang Long Hospital",
-            "Location": "Tổ 18 - thị trấn Đông Anh - Huyện Đông Anh - Hà Nội, Đông Anh, Hà Nội, Vietnam",
+            "Address": "Tổ 18 - thị trấn Đông Anh - Huyện Đông Anh - Hà Nội, Đông Anh, Hà Nội, Vietnam",
             "Lat": "21.1631021",
             "Lng": "105.8574883"
         },
@@ -1413,7 +1413,7 @@ var hospitals = [
             "STT": "147",
             "Category": "1",
             "Name": "Viện Dưỡng Lão Thiên Đức",
-            "Location": "Minh Phú, Sóc Sơn, Hanoi, Vietnam",
+            "Address": "Minh Phú, Sóc Sơn, Hanoi, Vietnam",
             "Lat": "21.2904535",
             "Lng": "105.7864055"
         },
@@ -1421,7 +1421,7 @@ var hospitals = [
             "STT": "148",
             "Category": "1",
             "Name": "Socson Hospitals",
-            "Location": "Số 18 Đường Bệnh Viện, Tiên Dược, Sóc Sơn, Hà Nội, Vietnam",
+            "Address": "Số 18 Đường Bệnh Viện, Tiên Dược, Sóc Sơn, Hà Nội, Vietnam",
             "Lat": "21.2499112",
             "Lng": "105.8474769"
         },
@@ -1429,7 +1429,7 @@ var hospitals = [
             "STT": "149",
             "Category": "1",
             "Name": "Bệnh viện Đa khoa Hà Đông",
-            "Location": "P. Quang Trung, Hà Đông, Hanoi, Vietnam",
+            "Address": "P. Quang Trung, Hà Đông, Hanoi, Vietnam",
             "Lat": "20.9714043",
             "Lng": "105.7745885"
         },
@@ -1437,7 +1437,7 @@ var hospitals = [
             "STT": "150",
             "Category": "1",
             "Name": "Bệnh Viện Thú Y",
-            "Location": "P. Mộ Lao, Hà Đông, Hanoi, Vietnam",
+            "Address": "P. Mộ Lao, Hà Đông, Hanoi, Vietnam",
             "Lat": "20.986184",
             "Lng": "105.7842214"
         },
@@ -1445,7 +1445,7 @@ var hospitals = [
             "STT": "151",
             "Category": "1",
             "Name": "Eye Hospital in Ha Dong",
-            "Location": "2D Nguyễn Viết Xuân, P. Quang Trung, Hà Đông, Hà Nội, Vietnam",
+            "Address": "2D Nguyễn Viết Xuân, P. Quang Trung, Hà Đông, Hà Nội, Vietnam",
             "Lat": "20.9715912",
             "Lng": "105.7729202"
         },
@@ -1453,7 +1453,7 @@ var hospitals = [
             "STT": "152",
             "Category": "1",
             "Name": "Điểm tiêm chủng bệnh viện đa khoa Hà Đông",
-            "Location": "2c Nguyễn Viết Xuân, P. Quang Trung, Hà Đông, Hà Nội, Vietnam",
+            "Address": "2c Nguyễn Viết Xuân, P. Quang Trung, Hà Đông, Hà Nội, Vietnam",
             "Lat": "20.970599",
             "Lng": "105.773492"
         },
@@ -1461,7 +1461,7 @@ var hospitals = [
             "STT": "153",
             "Category": "1",
             "Name": "Traditional Medicine Hospital in Ha Dong",
-            "Location": "99 Nguyễn Viết Xuân, P. Quang Trung, Hà Đông, Hà Nội, Vietnam",
+            "Address": "99 Nguyễn Viết Xuân, P. Quang Trung, Hà Đông, Hà Nội, Vietnam",
             "Lat": "20.9709544",
             "Lng": "105.7715025"
         },
@@ -1469,7 +1469,7 @@ var hospitals = [
             "STT": "154",
             "Category": "1",
             "Name": "Mắt Hà bệnh viện mắt Hà Tây",
-            "Location": "Nguyễn Viết Xuân, P. Quang Trung, Hà Đông, Hà Nội, Vietnam",
+            "Address": "Nguyễn Viết Xuân, P. Quang Trung, Hà Đông, Hà Nội, Vietnam",
             "Lat": "20.9714118",
             "Lng": "105.7730024"
         },
@@ -1477,7 +1477,7 @@ var hospitals = [
             "STT": "155",
             "Category": "1",
             "Name": "Thiên Đức Hospital",
-            "Location": "207 Lê Trọng Tấn, P. Phúc La, Hà Đông, Hà Nội, Vietnam",
+            "Address": "207 Lê Trọng Tấn, P. Phúc La, Hà Đông, Hà Nội, Vietnam",
             "Lat": "20.9685048",
             "Lng": "105.7867648"
         },
@@ -1485,7 +1485,7 @@ var hospitals = [
             "STT": "156",
             "Category": "1",
             "Name": "Bệnh Viện Tuệ Tĩnh",
-            "Location": "2, Trần Phú, Phường Văn Quán, Quận Hà Đông, Thành Phố Hà Nội, P. Văn Quán, Hà Đông, Hà Nội, Vietnam",
+            "Address": "2, Trần Phú, Phường Văn Quán, Quận Hà Đông, Thành Phố Hà Nội, P. Văn Quán, Hà Đông, Hà Nội, Vietnam",
             "Lat": "20.9760068",
             "Lng": "105.7846542"
         },
@@ -1493,7 +1493,7 @@ var hospitals = [
             "STT": "157",
             "Category": "1",
             "Name": "Thien Duc Hospital",
-            "Location": "207 Đường Phùng Hưng, P. Phúc La, Hà Đông, Hà Nội, Vietnam",
+            "Address": "207 Đường Phùng Hưng, P. Phúc La, Hà Đông, Hà Nội, Vietnam",
             "Lat": "20.9686517",
             "Lng": "105.7867785"
         },
@@ -1501,7 +1501,7 @@ var hospitals = [
             "STT": "158",
             "Category": "1",
             "Name": "Bệnh Viện Thú Cảnh Hanvet",
-            "Location": "A12TT18, Nguyễn Khuyến, P. Phúc La, Hà Đông, Hà Nội, Vietnam",
+            "Address": "A12TT18, Nguyễn Khuyến, P. Phúc La, Hà Đông, Hà Nội, Vietnam",
             "Lat": "20.9714229",
             "Lng": "105.7909171"
         },
@@ -1509,7 +1509,7 @@ var hospitals = [
             "STT": "159",
             "Category": "1",
             "Name": "103 Military Hospital",
-            "Location": "261 Phùng Hưng, P. Phúc La, Hà Đông, Hà Nội, Vietnam",
+            "Address": "261 Phùng Hưng, P. Phúc La, Hà Đông, Hà Nội, Vietnam",
             "Lat": "20.9675864",
             "Lng": "105.7890517"
         },
@@ -1517,7 +1517,7 @@ var hospitals = [
             "STT": "160",
             "Category": "1",
             "Name": "Ha Dong General Hospital",
-            "Location": "2 Bế Văn Đàn, P. Quang Trung, Hà Đông, P. Quang Trung Hà Đông Hà Nội, Vietnam",
+            "Address": "2 Bế Văn Đàn, P. Quang Trung, Hà Đông, P. Quang Trung Hà Đông Hà Nội, Vietnam",
             "Lat": "20.971434",
             "Lng": "105.7751833"
         },
@@ -1525,7 +1525,7 @@ var hospitals = [
             "STT": "161",
             "Category": "1",
             "Name": "Tue Tinh Hospital",
-            "Location": "2 Trần Phú, P. Mộ Lao, Hà Đông, P. Mộ Lao Hà Đông Hà Nội, Vietnam",
+            "Address": "2 Trần Phú, P. Mộ Lao, Hà Đông, P. Mộ Lao Hà Đông Hà Nội, Vietnam",
             "Lat": "20.9845234",
             "Lng": "105.7929416"
         },
@@ -1533,7 +1533,7 @@ var hospitals = [
             "STT": "162",
             "Category": "1",
             "Name": "105 Military Hospital",
-            "Location": "Chùa Thông, P. Sơn Lộc, Sơn Tây, Hà Nội, Vietnam",
+            "Address": "Chùa Thông, P. Sơn Lộc, Sơn Tây, Hà Nội, Vietnam",
             "Lat": "21.1161191",
             "Lng": "105.4963228"
         },
@@ -1541,7 +1541,7 @@ var hospitals = [
             "STT": "163",
             "Category": "1",
             "Name": "Sơn Tây General Hospital",
-            "Location": "304A, đường Lê Lợi, P. Lê Lợi, Sơn Tây, Hà Nội, Vietnam",
+            "Address": "304A, đường Lê Lợi, P. Lê Lợi, Sơn Tây, Hà Nội, Vietnam",
             "Lat": "21.1527429",
             "Lng": "105.5055714"
         },
@@ -1549,7 +1549,7 @@ var hospitals = [
             "STT": "164",
             "Category": "1",
             "Name": "Bệnh Viện Ba Vì",
-            "Location": "Khu Bệnh Viện Vật Lại Huyện Ba Vì, Đồng Thái, Ba Vì, Hà Nội, Vietnam",
+            "Address": "Khu Bệnh Viện Vật Lại Huyện Ba Vì, Đồng Thái, Ba Vì, Hà Nội, Vietnam",
             "Lat": "21.2171301",
             "Lng": "105.3936297"
         },
@@ -1557,7 +1557,7 @@ var hospitals = [
             "STT": "165",
             "Category": "1",
             "Name": "Ba Vì General Hospital",
-            "Location": "UBND xã Đồng Thái, Đồng Thái, Ba Vì, Hà Nội, Vietnam",
+            "Address": "UBND xã Đồng Thái, Đồng Thái, Ba Vì, Hà Nội, Vietnam",
             "Lat": "21.2153412",
             "Lng": "105.409559"
         },
@@ -1565,7 +1565,7 @@ var hospitals = [
             "STT": "166",
             "Category": "1",
             "Name": "Phúc Thọ General Hospital",
-            "Location": "Phúc Hoà, Phúc Thọ, Hanoi, Vietnam",
+            "Address": "Phúc Hoà, Phúc Thọ, Hanoi, Vietnam",
             "Lat": "21.1038604",
             "Lng": "105.5567724"
         },
@@ -1573,7 +1573,7 @@ var hospitals = [
             "STT": "167",
             "Category": "1",
             "Name": "Thạch Thất General Hospital",
-            "Location": "420 ĐT420, Kim Quan, Thạch Thất, Hà Nội, Vietnam",
+            "Address": "420 ĐT420, Kim Quan, Thạch Thất, Hà Nội, Vietnam",
             "Lat": "21.0507551",
             "Lng": "105.5700594"
         },
@@ -1581,7 +1581,7 @@ var hospitals = [
             "STT": "168",
             "Category": "1",
             "Name": "Quốc Oai Hospital",
-            "Location": "TT. Quốc Oai, Quốc Oai, Hanoi, Vietnam",
+            "Address": "TT. Quốc Oai, Quốc Oai, Hanoi, Vietnam",
             "Lat": "20.9908789",
             "Lng": "105.6437202"
         },
@@ -1589,7 +1589,7 @@ var hospitals = [
             "STT": "169",
             "Category": "1",
             "Name": "Bệnh Xá 24 Phòng Khám Bệnh Viện Quân Y",
-            "Location": "QL6, TT. Xuân Mai, Chương Mỹ, Hà Nội, Vietnam",
+            "Address": "QL6, TT. Xuân Mai, Chương Mỹ, Hà Nội, Vietnam",
             "Lat": "20.8985358",
             "Lng": "105.5764521"
         },
@@ -1597,7 +1597,7 @@ var hospitals = [
             "STT": "170",
             "Category": "1",
             "Name": "Chương Mỹ Hospital",
-            "Location": "120 ĐT419, Ngọc Hoà, Chương Mỹ, Hà Nội, Vietnam",
+            "Address": "120 ĐT419, Ngọc Hoà, Chương Mỹ, Hà Nội, Vietnam",
             "Lat": "20.9204609",
             "Lng": "105.698394"
         },
@@ -1605,7 +1605,7 @@ var hospitals = [
             "STT": "171",
             "Category": "1",
             "Name": "Bệnh Viện Thú Y Tập Thể",
-            "Location": "Thọ Xuân, Đan Phượng, Hanoi, Vietnam",
+            "Address": "Thọ Xuân, Đan Phượng, Hanoi, Vietnam",
             "Lat": "21.119161",
             "Lng": "105.6466958"
         },
@@ -1613,7 +1613,7 @@ var hospitals = [
             "STT": "172",
             "Category": "1",
             "Name": "Đan Phượng General Hospital",
-            "Location": "Đan Phượng, Hanoi, Vietnam",
+            "Address": "Đan Phượng, Hanoi, Vietnam",
             "Lat": "21.0872207",
             "Lng": "105.6711223"
         },
@@ -1621,7 +1621,7 @@ var hospitals = [
             "STT": "173",
             "Category": "1",
             "Name": "Hoài Đức General Hospital",
-            "Location": "Thôn Lũng Kênh, Đức Giang, Hoài Đức, Hà Nội, Vietnam",
+            "Address": "Thôn Lũng Kênh, Đức Giang, Hoài Đức, Hà Nội, Vietnam",
             "Lat": "21.0563846",
             "Lng": "105.7022445"
         },
@@ -1629,7 +1629,7 @@ var hospitals = [
             "STT": "174",
             "Category": "1",
             "Name": "Thanh Oai General Hospital",
-            "Location": "TT. Kim Bài, Thanh Oai, Hanoi, Vietnam",
+            "Address": "TT. Kim Bài, Thanh Oai, Hanoi, Vietnam",
             "Lat": "20.8621144",
             "Lng": "105.7573948"
         },
@@ -1637,7 +1637,7 @@ var hospitals = [
             "STT": "175",
             "Category": "1",
             "Name": "ĐD đường vào Bệnh viện Đa khoa huyện Mỹ Đức",
-            "Location": "Đại Hưng, Mỹ Đức, Hanoi, Vietnam",
+            "Address": "Đại Hưng, Mỹ Đức, Hanoi, Vietnam",
             "Lat": "20.67523",
             "Lng": "105.752684"
         },
@@ -1645,7 +1645,7 @@ var hospitals = [
             "STT": "176",
             "Category": "1",
             "Name": "Mỹ Đức Hospital",
-            "Location": "TT. Đại Nghĩa, Mỹ Đức, Hanoi, Vietnam",
+            "Address": "TT. Đại Nghĩa, Mỹ Đức, Hanoi, Vietnam",
             "Lat": "20.678369",
             "Lng": "105.754739"
         },
@@ -1653,7 +1653,7 @@ var hospitals = [
             "STT": "177",
             "Category": "1",
             "Name": "Mỹ Đức Psychiatric Hospital",
-            "Location": "TL80, Phúc Lâm, Mỹ Đức, Hà Nội, Vietnam",
+            "Address": "TL80, Phúc Lâm, Mỹ Đức, Hà Nội, Vietnam",
             "Lat": "20.8041466",
             "Lng": "105.7032609"
         },
@@ -1661,7 +1661,7 @@ var hospitals = [
             "STT": "178",
             "Category": "1",
             "Name": "Bệnh viện đa khoa khu vực Vân Đình",
-            "Location": "Thanh Âm Ttvđ Huyện Ứng Hoà, Tảo Dương Văn, Ứng Hòa, Hà Nội, Vietnam",
+            "Address": "Thanh Âm Ttvđ Huyện Ứng Hoà, Tảo Dương Văn, Ứng Hòa, Hà Nội, Vietnam",
             "Lat": "20.7103817",
             "Lng": "105.8055471"
         },
@@ -1669,7 +1669,7 @@ var hospitals = [
             "STT": "179",
             "Category": "1",
             "Name": "Văn phòng Bệnh viện Tâm thần Ba Thá",
-            "Location": "Ba Thá Viên An Huyện Ứng Hoà, Viên An, Ứng Hòa, Hà Nội, Vietnam",
+            "Address": "Ba Thá Viên An Huyện Ứng Hoà, Viên An, Ứng Hòa, Hà Nội, Vietnam",
             "Lat": "20.8018838",
             "Lng": "105.7101796"
         },
@@ -1677,7 +1677,7 @@ var hospitals = [
             "STT": "180",
             "Category": "1",
             "Name": "Van Dinh General Hospital",
-            "Location": "TT. Vân Đình, Ứng Hòa, Hanoi, Vietnam",
+            "Address": "TT. Vân Đình, Ứng Hòa, Hanoi, Vietnam",
             "Lat": "20.7254524",
             "Lng": "105.7736337"
         },
@@ -1685,7 +1685,7 @@ var hospitals = [
             "STT": "181",
             "Category": "1",
             "Name": "Thuong Tin Hospital",
-            "Location": "115 Trần Phú, TT. Thường Tín, Thường Tín, Hà Nội, Vietnam",
+            "Address": "115 Trần Phú, TT. Thường Tín, Thường Tín, Hà Nội, Vietnam",
             "Lat": "20.8676141",
             "Lng": "105.8591187"
         },
@@ -1693,7 +1693,7 @@ var hospitals = [
             "STT": "182",
             "Category": "1",
             "Name": "Bệnh Viện Tâm Thần Trung Ương 1",
-            "Location": "Xã Hòa Bình, Huyện Thường Tín, Hoà Binh, Thường Tín, Hà Nội, Vietnam",
+            "Address": "Xã Hòa Bình, Huyện Thường Tín, Hoà Binh, Thường Tín, Hà Nội, Vietnam",
             "Lat": "20.869719",
             "Lng": "105.8438506"
         },
@@ -1701,7 +1701,7 @@ var hospitals = [
             "STT": "183",
             "Category": "1",
             "Name": "Phu Xuyen Hospital",
-            "Location": "QL1A, TT. Phú Xuyên, Phú Xuyên, Hà Nội, Vietnam",
+            "Address": "QL1A, TT. Phú Xuyên, Phú Xuyên, Hà Nội, Vietnam",
             "Lat": "20.7304813",
             "Lng": "105.9145262"
         },
@@ -1709,7 +1709,7 @@ var hospitals = [
             "STT": "184",
             "Category": "1",
             "Name": "Bệnh Viện Đa Khoa Mê Linh",
-            "Location": "Tam Đồng, Mê Linh, Hanoi, Vietnam",
+            "Address": "Tam Đồng, Mê Linh, Hanoi, Vietnam",
             "Lat": "21.1805012",
             "Lng": "105.6816839"
         }
